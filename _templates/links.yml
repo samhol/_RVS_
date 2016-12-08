@@ -1,0 +1,33 @@
+---
+- Yleistä:
+  - 1:
+    page: yhteystiedot
+    text: Yhteystiedot
+  - 2:
+    page: jasenyys
+    text: Jäsenyys
+  - 3:
+    page: jasenrekisteriseloste
+    text: Jäsenrekisteriseloste
+  - 4:
+    page: jolla
+    text: Jolla lehdet
+- Kausi 2016:
+  - 1:
+    page: kausiohjelma
+    text: Kausiohjelma
+  - 2:
+    page: hallitus
+    text: Hallitus
+- Katsastustoiminta:
+  - 1:
+    page: katsastusinfo
+    text: Tietoa veneen katsastuksesta
+  - 2:
+    page: katsastajat
+    text: Katsastajien yhteystiedot
+- Eksymälaskenta:
+  url: pdf/eksymalaskenta.xls
+  text: Eksymälaskenta
+  target: _blank
+...

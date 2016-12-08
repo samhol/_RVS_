@@ -1,0 +1,12 @@
+
+{% if titleBarLinks|length > 0 %}
+  <ul class="dropdown menu" data-dropdown-menu>
+    {% for link in titleBarLinks %}
+      {% if link['menu-text'] %}
+        <li class="menu-text">{{ link['menu-text'] }}</li>
+      {% else %}
+        <li><a href="{{ link['link'] }}" target="{{ link['target'] }}">{{ link['text'] }}</a></li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+{% endif %}
