@@ -69,11 +69,11 @@ $titleBarLinks = linkParser($titleBarLinks);
 $head = $twig->loadTemplate('head.twig');
 echo $head->render(["page_title" => $pageName]);
 
-$topbar_offcanvas = $twig->loadTemplate('topbar_offcanvas.twig');
-echo $topbar_offcanvas->render(["links" => $lnk, "titleBarLinks" => $titleBarLinks]);
+//$topbar_offcanvas = $twig->loadTemplate('topbar_offcanvas.twig');
+//echo $topbar_offcanvas->render(["links" => $lnk, "titleBarLinks" => $titleBarLinks]);
 
 
-require_once("srcs/templates/offcanvas-content.php");
+//require_once("srcs/templates/offcanvas-content.php");
 
 //$footer = $twig->loadTemplate('footer.twig');
 
