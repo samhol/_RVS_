@@ -14,7 +14,7 @@ use Sphp\Core\Types\URL;
 use Sphp\Core\Util\FileUtils as FileUtils;
 
 /**
- * Class Models an HTML &lt;source&gt; tag
+ * Implements an HTML &lt;source&gt; tag
  *
  *  This component specifies media resources for {@link AbstractMediaTag} components.
  *
