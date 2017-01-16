@@ -7,18 +7,13 @@ date_default_timezone_set("Europe/Helsinki");
 mb_internal_encoding("UTF-8");
 
 include_once("sphp/settings.php");
-$loader = new Twig_Loader_Filesystem(["twigs"]);
-$twig = new Twig_Environment($loader, array(
-    'cache' => 'twig_compilation_cache', "auto_reload" => true,
-        ));
-//$template = $twig->loadTemplate('index.php');
-//echo $template->render();
-require_once 'vendor/autoload.php';
-require_once 'links.php';
+
+include_once("_templates/htmlHead.php");
+//require_once 'links.php';
 $parsedLinks = [];
 
 function linkParser(array $links) {
-    $lnk = [];
+  $lnk = [];
   foreach ($links as $id => $link) {
     if (array_key_exists("heading", $link)) {
       // unset($links[$id]);
@@ -26,8 +21,7 @@ function linkParser(array $links) {
     } else if (array_key_exists("link", $link) || array_key_exists("url", $link)) {
       if (array_key_exists("url", $link)) {
         $lnk[$id]["link"] = $link["url"];
-      }
-      else if ($link["link"] == "index" || $link["link"] == "") {
+      } else if ($link["link"] == "index" || $link["link"] == "") {
         $lnk[$id]["link"] = "?page=index";
       } else {
         $lnk[$id]["link"] = "?page=" . $link["link"];
@@ -35,7 +29,7 @@ function linkParser(array $links) {
       if (!array_key_exists("text", $link)) {
         $lnk[$id]["text"] = $link["link"];
       } else {
-        
+
         $lnk[$id]["text"] = $link["text"];
       }
       if (!array_key_exists("target", $link)) {
@@ -45,36 +39,107 @@ function linkParser(array $links) {
   }
   return $lnk;
 }
-echo "<pre>";
-$a = file_get_contents('_templates/links.yml');
-$parsed = \Symfony\Component\Yaml\Yaml::parse($a);
-print_r($parsed);
-$mdParser = new ParsedownExtra();
+?>
+<div class="off-canvas-wrapper">
+  <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
 
-function executeToString($path) {
-  try {
-    ob_start();
-    include($path);
-    $content = ob_get_contents();
-  } catch (\Exception $e) {
-    $content = $e;
-  }
-  ob_end_clean();
-  return $content;
-}
+    <!-- off-canvas title bar for 'small' screen -->
+    <div class="title-bar" data-responsive-toggle="widemenu" data-hide-for="medium">
+      <div class="title-bar-left">
+        <button class="menu-icon" type="button" data-open="offCanvasLeft"></button>
+        <span class="title-bar-title">Foundation</span>
+      </div>
+      <div class="title-bar-right">
+        <span class="title-bar-title">Login</span>
+        <button class="menu-icon" type="button" data-open="offCanvasRight"></button>
+      </div>
+    </div>
 
-$pageName = filter_input(\INPUT_GET, "page");
-$lnk = linkParser($links);
-$titleBarLinks = linkParser($titleBarLinks);
-$head = $twig->loadTemplate('head.twig');
-echo $head->render(["page_title" => $pageName]);
+    <!-- off-canvas left menu -->
+    <div class="off-canvas position-left" id="offCanvasLeft" data-off-canvas>
+      <ul class="vertical dropdown menu" data-dropdown-menu>
+        <li><a href="left_item_1">Left item 1</a></li>
+        <li><a href="left_item_2">Left item 2</a></li>
+        <li><a href="left_item_3">Left item 3</a></li>
+      </ul>
+    </div>
 
-//$topbar_offcanvas = $twig->loadTemplate('topbar_offcanvas.twig');
-//echo $topbar_offcanvas->render(["links" => $lnk, "titleBarLinks" => $titleBarLinks]);
+    <!-- off-canvas right menu -->
+    <div class="off-canvas position-right" id="offCanvasRight" data-off-canvas data-position="right">
+      <ul class="vertical dropdown menu" data-dropdown-menu>
+        <li><a href="right_item_1">Right item 1</a></li>
+        <li><a href="right_item_2">Right item 2</a></li>
+        <li><a href="right_item_3">Right item 3</a></li>
+      </ul>
+    </div>
 
+    <!-- "wider" top-bar menu for 'medium' and up -->
+    <div id="widemenu" class="top-bar">
+      <div class="top-bar-left">
+        <ul class="dropdown menu" data-dropdown-menu>
+          <li class="menu-text">Foundation</li>
+          <li class="has-submenu">
+            <a href="#">Item 1</a>
+            <ul class="menu submenu vertical" data-submenu>
+              <li><a href="left_wide_11">Left wide 1</a></li>
+              <li><a href="left_wide_12">Left wide 2</a></li>
+              <li><a href="left_wide_13">Left wide 3</a></li>
+            </ul>
+          </li>
+          <li class="has-submenu">
+            <a href="#">Item 2</a>
+            <ul class="menu submenu vertical" data-submenu>
+              <li><a href="left_wide_21">Left wide 1</a></li>
+              <li><a href="left_wide_22">Left wide 2</a></li>
+              <li><a href="left_wide_23">Left wide 3</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="top-bar-right">
+        <ul class="menu">
+          <li><input type="search" placeholder="Search"></li>
+          <li><button class="button">Search</button></li>
+        </ul>
+      </div>
+    </div>
 
-//require_once("srcs/templates/offcanvas-content.php");
+    <!-- original content goes in this container -->
+    <div class="off-canvas-content" data-off-canvas-content>
+      <div class="row column">
+        <pre>
+          <?php
+          use Sphp\Html\Foundation\Sites\Containers\ExceptionCallout;
+          use Sphp\Html\Container;
+          print_r($links);
+          $load = function($page) {
+            try {
+              ob_start();
+              $examplePath = "sivut/" . $page . ".php";
+              if (is_file($examplePath)) {
+                (new Container)->appendMdFile($examplePath)->printHtml();
+              } else {
+                throw new \InvalidArgumentException("the path $examplePath contains no executable PHP script");
+              }
+              $content = ob_get_contents();
+            } catch (\Exception $e) {
+              $content .= new ExceptionCallout($e);
+            }
+            ob_end_clean();
+            echo $content;
+          };
+          $load($page);
+          ?>
 
-//$footer = $twig->loadTemplate('footer.twig');
+        </pre>
+      </div>
+    </div>
 
+    <!-- close wrapper, no more content after this -->
+  </div>
+</div>
+
+<?php
+
+$html->documentClose();
 ?>

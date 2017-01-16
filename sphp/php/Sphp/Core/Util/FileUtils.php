@@ -20,7 +20,7 @@ use InvalidArgumentException;
 class FileUtils {
 
   /**
-   * Rturns the entire file as a string
+   * Returns the entire file as a string
    *
    * @param  string $path the path to the file
    * @return string the result of the script execution
@@ -91,6 +91,15 @@ class FileUtils {
     return $contents;
   }
 
+  /**
+   * Executes a PHP script and returns the result as a parsed Markdown string
+   *
+   * @param  string $md the path to the executable PHP script
+   * @return string the result of the script execution
+   */
+  public static function parseYaml($path) {
+    return Parser::parseYamlString(static::fileToString($path));
+  }
   /**
    * Checks whether the remote file exists or not
    *

@@ -10,11 +10,9 @@ namespace Sphp\Html\Foundation\Sites\Navigation;
 use Sphp\Html\AbstractComponent;
 use InvalidArgumentException;
 use Sphp\Html\Div;
-use Sphp\Html\Foundation\Sites\Navigation\MenuInterface as MenuInterface;
-use Sphp\Html\Foundation\Sites\Navigation\DropdownMenu as DropdownMenu;
 
 /**
- * Class implements a Foundation Top Bar navigation menu
+ * Implements a Foundation Top Bar navigation menu
  *
  * @author  Sami Holck <sami.holck@gmail.com>
  * @since   2016-11-21

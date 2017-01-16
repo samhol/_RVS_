@@ -8,10 +8,9 @@
 namespace Sphp\Html\Media\AV;
 
 use Sphp\Html\EmptyTag;
-use Sphp\Html\Media\LazyLoaderInterface as LazyLoaderInterface;
-use Sphp\Html\Media\LazyLoaderTrait as LazyLoaderTrait;
+use Sphp\Html\Media\LazyLoaderInterface;
+use Sphp\Html\Media\LazyLoaderTrait;
 use Sphp\Core\Types\URL;
-use Sphp\Core\Util\FileUtils as FileUtils;
 
 /**
  * Implements an HTML &lt;source&gt; tag
@@ -36,21 +35,21 @@ class Source extends EmptyTag implements MultimediaContentInterface, LazyLoaderI
   /**
    * Constructs a new instance
    *
-   * @param  string|URL $src the URL of the media file
-   * @param  string $type the media type of the media resource
-   * @param  boolean $lazy true for lazy loading and false otherwise (default is true)
+   * @param  string|URL|null $src the URL of the media file or null for none
+   * @param  string|null $type the media type of the media resource or null for none
+   * @param  boolean $lazy true for lazy loading and false otherwise
    * @link   http://www.w3schools.com/tags/att_source_src.asp src attribute
    * @link   http://www.w3schools.com/tags/att_source_type.asp type attribute
    */
-  public function __construct($src = false, $type = false, $lazy = false) {
+  public function __construct($src = null, $type = null, $lazy = false) {
     parent::__construct('source');
-    $this
-            ->setSrc($src)
-            ->setType($type)
-            ->setLazy($lazy);
-    if ($src && !$type) {
-      $this->setType(FileUtils::getMimeType($src));
+    if ($src !== null) {
+      $this->setSrc($src);
     }
+    if ($type !== null) {
+      $this->setType($type);
+    }
+    $this->setLazy($lazy);
   }
 
   /**
@@ -61,7 +60,8 @@ class Source extends EmptyTag implements MultimediaContentInterface, LazyLoaderI
    * @link   http://www.w3schools.com/tags/att_source_type.asp type attribute
    */
   public function setType($type) {
-    return $this->setAttr('type', $type);
+    $this->attrs()->set('type', $type);
+    return $this;
   }
 
   /**
@@ -71,7 +71,7 @@ class Source extends EmptyTag implements MultimediaContentInterface, LazyLoaderI
    * @link   http://www.w3schools.com/tags/att_source_type.asp type attribute
    */
   public function getType() {
-    return $this->getAttr('type');
+    return $this->attrs()->get('type');
   }
 
 }

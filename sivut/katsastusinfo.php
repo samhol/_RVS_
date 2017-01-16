@@ -3,7 +3,7 @@
 #KATSASTUSTOIMINTA
 ##Katsastajan infoa 
 
-<a href="http://www.kolumbus.fi/skaar/TURVALLISUUSASIAA.pdf">Lataa turvallisuustietoa tästä linkistä (PDF)</a>
+<a href="http://www.kolumbus.fi/skaar/TURVALLISUUSASIAA.pdf" target="_blank">Lataa turvallisuustietoa tästä linkistä (PDF)</a>
 
 ###Venekatsastus – miksi?
 

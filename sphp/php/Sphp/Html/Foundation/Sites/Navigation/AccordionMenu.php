@@ -8,7 +8,7 @@
 namespace Sphp\Html\Foundation\Sites\Navigation;
 
 /**
- * Class implements Foundation 6 Accordion Menu in PHP
+ * Implements Foundation 6 Accordion Menu in PHP
  *
  * @author  Sami Holck <sami.holck@gmail.com>
  * @since   2014-03-25
@@ -30,7 +30,7 @@ class AccordionMenu extends Menu {
     $this->attrs()->demand('data-accordion-menu');
   }
 
-  public function append($content) {
+  public function append(MenuItemInterface $content) {
     if ($content instanceof SubMenu) {
       $content->nested(true)->vertical(true);
     }

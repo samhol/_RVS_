@@ -13,7 +13,7 @@ use Sphp\Html\WrappingContainer;
 use Sphp\Html\NonVisualContentInterface;
 
 /**
- * Class implements a Foundation row
+ * Implements a Foundation row
  *
  * {@inheritdoc}
  *
@@ -110,6 +110,12 @@ abstract class AbstractRow extends AbstractContainerTag implements RowInterface 
 
   public function appendColumn($content, $s = 12, $m = false, $l = false, $xl = false, $xxl = false) {
     $this->append(new Column($content, $s, $m, $l, $xl, $xxl));
+    return $this;
+  }
+
+  public function appendMdColumn($content, $s = 12, $m = false, $l = false, $xl = false, $xxl = false) {
+    $p = new \ParsedownExtraPlugin();
+    $this->append(new Column($p->parse($content), $s, $m, $l, $xl, $xxl));
     return $this;
   }
 

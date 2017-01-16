@@ -1,0 +1,13 @@
+## YAML Menu Template.
+---
+menu: 
+ items:
+ - separator: Yleistä
+ - link: Etusivu
+   page: index
+ - link: yhteystiedot
+   page: Yhteystiedot
+ - link: Jäsenyys
+   page: jasenyys
+ - link: Kausiohjelma
+   page: kausiohjelma

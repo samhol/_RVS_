@@ -7,21 +7,23 @@
 
 namespace Sphp\Html\Foundation\Sites\Navigation;
 
-use Sphp\Html\Lists\HtmlList as HtmlList;
+use Sphp\Html\AbstractContainerComponent;
 use Sphp\Html\Lists\LiInterface;
 use Sphp\Html\Navigation\HyperlinkInterface;
 use Sphp\Html\ContainerInterface;
 use Sphp\Html\WrappingContainer;
 
 /**
- * Class implements a Foundation 6 menu
+ * Implements a Foundation 6 menu
  *
  * @author  Sami Holck <sami.holck@gmail.com>
  * @since   2016-03-11
  * @license http://www.gnu.org/licenses/gpl-3.0.html GPLv3
  * @filesource
  */
-abstract class AbstractMenu extends HtmlList implements MenuInterface, MenuItemInterface {
+abstract class AbstractMenu extends AbstractContainerComponent implements MenuInterface, MenuItemInterface {
+
+  private $defaultTarget = '_self';
 
   /**
    * Constructs a new instance
@@ -29,24 +31,34 @@ abstract class AbstractMenu extends HtmlList implements MenuInterface, MenuItemI
    * @param string $tagname
    * @param mixed $content
    */
-  public function __construct($tagName, AttributeManager $attrManager = null, ContainerInterface $contentContainer = null) {
-    if ($contentContainer === null) {
-      $wrapper = function($c) {
-        if (!($c instanceof LiInterface)) {
-          if (($c instanceof HyperlinkInterface)) {
-            $c = MenuLink::fromHyperlink($c);
-          } else if ($c instanceof \Sphp\Html\ComponentInterface) {
-            $c = new \Sphp\Html\Lists\Li($c);
-          } else {
-            $c = new MenuLabel($c);
-          }
-        }
-        return $c;
-      };
-      $contentContainer = new WrappingContainer($wrapper);
-    }
-    parent::__construct($tagName, $attrManager, $contentContainer);
+  public function __construct($tagname, AttributeManager $attrManager = null, ContainerInterface $contentContainer = null) {
+    parent::__construct($tagname, $attrManager, $contentContainer);
     $this->cssClasses()->lock('menu');
+  }
+
+  /**
+   * 
+   * @param  string $target
+   * @return self for PHP Method Chaining
+   */
+  public function setDefaultTarget($target) {
+    $this->defaultTarget = $target;
+    return $this;
+  }
+  
+  public function getDefaultTarget() {
+    return $this->defaultTarget;
+  }
+
+  /**
+   * Appends a menu item object to the menu
+   *
+   * @param  MenuItemInterface $item
+   * @return self for PHP Method Chaining
+   */
+  public function append(MenuItemInterface $item) {
+    $this->getInnerContainer()->append($item);
+    return $this;
   }
 
   /**
@@ -60,6 +72,9 @@ abstract class AbstractMenu extends HtmlList implements MenuInterface, MenuItemI
    * @link   http://www.w3schools.com/tags/att_a_target.asp target attribute
    */
   public function appendLink($href, $content = '', $target = '_self') {
+    if ($target === null) {
+      $target = $this->getDefaultTarget();
+    }
     return $this->append(new MenuLink($href, $content, $target));
   }
 

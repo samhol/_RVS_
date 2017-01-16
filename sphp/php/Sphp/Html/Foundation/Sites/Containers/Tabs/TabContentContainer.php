@@ -7,12 +7,13 @@
 
 namespace Sphp\Html\Foundation\Sites\Containers\Tabs;
 
+use IteratorAggregate;
 use Sphp\Html\AbstractContainerComponent;
 use Sphp\Html\TraversableInterface;
 use OutOfBoundsException;
 
 /**
- * Class implements a container for Foundation Tabs 
+ * Implements a container for Foundation Tabs 
  *
  * @author  Sami Holck <sami.holck@gmail.com>
  * @since   2016-01-01
@@ -21,7 +22,7 @@ use OutOfBoundsException;
  * @license http://www.gnu.org/licenses/gpl-3.0.html GPLv3
  * @filesource
  */
-class TabContentContainer extends AbstractContainerComponent implements TraversableInterface {
+class TabContentContainer extends AbstractContainerComponent implements IteratorAggregate, TraversableInterface {
 
   use \Sphp\Html\TraversableTrait;
 

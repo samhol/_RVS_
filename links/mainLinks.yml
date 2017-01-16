@@ -1,0 +1,26 @@
+## YAML Menu Template.
+---
+menu: 
+ items:
+  - separator: Yleistä 
+  - link: Yhteystiedot
+    page: yhteystiedot
+  - link: Jäsenyys
+    page: jasenyys
+  - link: Jäsenrekisteriseloste
+    page: jasenrekisteriseloste
+  - link: Jolla lehdet
+    page: jollalehdet
+  - separator: Yleistä
+  - link: Kausiohjelma
+    page: kausiohjelma
+  - link: Hallitus
+    page: hallitus
+  - separator: Katsastustoiminta
+  - link: Tietoa veneen katsastuksesta
+    page: katsastusinfo
+  - link: Katsastajien yhteystiedot
+    page: katsastajat
+  - link: Eksymälaskenta
+    href: pdf/eksymalaskenta.xls
+    target: _blank

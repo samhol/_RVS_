@@ -7,7 +7,7 @@
 
 namespace Sphp\Html\Programming;
 
-use Sphp\Core\Router;
+use Sphp\Core\Path;
 
 /**
  * Description of SphpScriptsLoader
@@ -35,7 +35,7 @@ class SphpScriptsLoader extends ScriptsContainer {
 
   public function __construct($scripts = null) {
     parent::__construct($scripts);
-    $router = Router::get();
+    $router = Path::get();
     $this->paths['vendor'] = $router->http('sphp/js/vendor/');
     $this->paths['app'] = $router->http('sphp/js/app/');
     $this->paths['js_root'] = $router->http('sphp/js/');
@@ -79,7 +79,7 @@ class SphpScriptsLoader extends ScriptsContainer {
    */
   public function appendFoundation() {
     return $this->appendJQuery()
-                    ->appendSrc('vendor/zurb/foundation/dist/foundation.min.js');
+                    ->appendSrc('vendor/zurb/foundation/dist/js/foundation.min.js');
   }
 
   /**
@@ -169,7 +169,7 @@ class SphpScriptsLoader extends ScriptsContainer {
             ->appendSrc($this->paths['app'] . 'sphp.SideNavs.js')
             ->appendSrc($this->paths['app'] . 'sphp.TechLinks.js')
             ->appendSrc($this->paths['js_root'] . "sphp.all.js")
-            ->appendCode('sphp.initialize("' . Router::get()->http() . '");')
+            ->appendCode('sphp.initialize("' . Path::get()->http() . '");')
             ->appendSrc($this->paths['app'] . 'sphp.ProgressBar.js');
     return $this;
   }
