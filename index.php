@@ -7,38 +7,8 @@ date_default_timezone_set("Europe/Helsinki");
 mb_internal_encoding("UTF-8");
 
 include_once("sphp/settings.php");
-
 include_once("_templates/htmlHead.php");
-//require_once 'links.php';
-$parsedLinks = [];
 
-function linkParser(array $links) {
-  $lnk = [];
-  foreach ($links as $id => $link) {
-    if (array_key_exists("heading", $link)) {
-      // unset($links[$id]);
-      $lnk[$id] = ["menu-text" => $link["heading"]];
-    } else if (array_key_exists("link", $link) || array_key_exists("url", $link)) {
-      if (array_key_exists("url", $link)) {
-        $lnk[$id]["link"] = $link["url"];
-      } else if ($link["link"] == "index" || $link["link"] == "") {
-        $lnk[$id]["link"] = "?page=index";
-      } else {
-        $lnk[$id]["link"] = "?page=" . $link["link"];
-      }
-      if (!array_key_exists("text", $link)) {
-        $lnk[$id]["text"] = $link["link"];
-      } else {
-
-        $lnk[$id]["text"] = $link["text"];
-      }
-      if (!array_key_exists("target", $link)) {
-        $lnk[$id]["target"] = "_self";
-      }
-    }
-  }
-  return $lnk;
-}
 ?>
 <div class="off-canvas-wrapper">
   <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
@@ -140,6 +110,5 @@ function linkParser(array $links) {
 </div>
 
 <?php
-
 $html->documentClose();
 ?>

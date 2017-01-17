@@ -5,7 +5,7 @@
 */
 @charset "UTF-8";
 
-@import
+@import 
 "vendors",
 "compass/css3",
 "vendor/foundation/functions",
@@ -13,10 +13,10 @@
 "vendor/foundation";
 @import "vendor/foundation/components/grid";
 
-.sph-row {
+.sph-row { 
   $row-width: rem-calc(1400);
   @include grid-row();
-  .sph-column {
+  .sph-column { 
     @include grid-column(12);
 
   }

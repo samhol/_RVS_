@@ -2,6 +2,8 @@
 ---
 menu: 
  items:
+  - link: Etusivu
+    page: index
   - separator: Yleistä 
   - link: Yhteystiedot
     page: yhteystiedot

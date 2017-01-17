@@ -1,16 +1,13 @@
 /**
  * sphp6.styles.all.scss (UTF-8)
  * Copyright (c) 2015 Sami Holck <sami.holck@gmail.com>
- */  
+ */ 
 @charset "UTF-8";
 
-@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,400italic,600italic,700italic%7cSource+Code+Pro:400,500,600,700%7cOpen+Sans:400italic,600italic,700italic,400,700,600);
-
-@import "../../vendor/zurb/foundation/scss/foundation";
-@import "base-settings";
 @import "compass/css3"; 
-
-@import "vendor/vendors"; 
+@import "base-settings";
+@import "../../vendor/zurb/foundation/scss/foundation";
+//@import "vendor/vendors"; 
 
 @include foundation-everything;
 
@@ -24,7 +21,6 @@ $sphp6-root-border-color: #4e4e4e;
 
 
 @import "app/apps";
-@import "manual/manual";
 
 .sphp-manual.top-bar {
   z-index: 100; 
@@ -83,7 +79,7 @@ $sphp6-root-border-color: #4e4e4e;
     //
     &:hover {
       background-color: #888;
-    @include background-image(linear-gradient(to right, #a35611, #444));
+      @include background-image(linear-gradient(to right, #a35611, #444));
     }
   }
   .menu {

@@ -42,7 +42,7 @@ if ($errorCode !== null) {
   //echo '</pre>';
 } else {
   foreach ($links['menu']['items'] as $linkArr) {
-    echo "../sivut/$page.php";
+    //echo "../sivut/$page.php";
     if (array_key_exists('page', $linkArr) && file_exists("../sivut/$page.php")) {
       $title .= ': ' . $linkArr['link'];
     }
