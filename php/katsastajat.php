@@ -2,9 +2,9 @@
 
 namespace Sphp\Html\Tables;
 
-use Sphp\Core\PathFinder as PathFinder;
+use Sphp\Core\Path;
 
-$db = new \SQLite3((new PathFinder)->local("srcs/db/contacts"));
+$db = new \SQLite3(Path::get()->local("srcs/db/contacts"));
 
 $stmt = $db->prepare('SELECT * from katsastajat');
 

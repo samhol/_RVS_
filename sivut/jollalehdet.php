@@ -1,10 +1,10 @@
 <?php
 
-use Sphp\Core\PathFinder as PathFinder;
-use Sphp\Util\FileUtils as FileUtils;
+use Sphp\Core\Path;
+use Sphp\Core\Util\FileUtils;
 
-$pathFinder = new PathFinder();
-$jolla = FileUtils:: dirToArray($pathFinder->local("pdf/jolla"));
+$pathFinder = Path::get();
+$jolla = FileUtils:: dirToArray($pathFinder->local('jolla'));
 $jolla = array_reverse($jolla);
 ?>
 <div>
@@ -19,7 +19,7 @@ $jolla = array_reverse($jolla);
         } else {
           echo '<li class="orbit-slide">';
         }
-        echo '<div class="flex-video"><iframe src = "/ViewerJS/#../pdf/jolla/' . $j . '" allowfullscreen webkitallowfullscreen height="100"></iframe></div></li>';
+        echo '<div class="flex-video"><iframe src = "sphp/viewerjs/#../../jolla/' . $j . '" allowfullscreen webkitallowfullscreen height="100"></iframe></div></li>';
       }
       ?>
       <!--<li class="is-active orbit-slide">

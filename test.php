@@ -7,6 +7,15 @@ date_default_timezone_set("Europe/Helsinki");
 mb_internal_encoding("UTF-8");
 
 include_once("sphp/settings.php");
+$links = \Symfony\Component\Yaml\Yaml::parse(file_get_contents('links/mainLinks.yml'));
+$top_bar_links = \Symfony\Component\Yaml\Yaml::parse(file_get_contents('links/top_bar_links.yml'));
+$page = filter_input(INPUT_GET, 'page', FILTER_SANITIZE_STRING);
+if ($page === null) {
+  $page = 'index';
+} else {
+
+  $page = str_replace(['.', '/'], '', $page);
+}
 ?>
 <!doctype html>
 <html class="no-js" lang="en">
@@ -15,7 +24,6 @@ include_once("sphp/settings.php");
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Foundation Starter Template</title>
-    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.0/css/foundation.min.css">-->
     <link rel="stylesheet" href="sphp/css/base.css">
   </head>
   <div class="off-canvas-wrapper">
@@ -24,48 +32,29 @@ include_once("sphp/settings.php");
       <button class="close-button" aria-label="Close menu" type="button" data-close>
         <span aria-hidden="true">&times;</span>
       </button>
-      <ul class="vertical menu">
-        <li><a href="left_item_1">Left item 1</a></li>
-        <li><a href="left_item_2">Left item 2</a></li>
-        <li><a href="left_item_3">Left item 3</a></li>
-      </ul>
+      <?php echo Sphp\Html\Foundation\Sites\Navigation\Factory::buildMenu($links['menu'])->addCssClass('vertical') ?>
     </div>
 
 
     <!-- "wider" top-bar menu for 'medium' and up -->
     <div id="widemenu" class="top-bar">
       <div class="top-bar-left">
-        <ul class="dropdown menu" data-dropdown-menu>
-          <li class="menu-text">Foundation</li>
-          <li class="has-submenu">
-            <a href="#">Item 1</a>
-            <ul class="menu submenu vertical" data-submenu>
-              <li><a href="left_wide_11">Left wide 1</a></li>
-              <li><a href="left_wide_12">Left wide 2</a></li>
-              <li><a href="left_wide_13">Left wide 3</a></li>
-            </ul>
-          </li>
-          <li class="has-submenu">
-            <a href="#">Item 2</a>
-            <ul class="menu submenu vertical" data-submenu>
-              <li><a href="left_wide_21">Left wide 1</a></li>
-              <li><a href="left_wide_22">Left wide 2</a></li>
-              <li><a href="left_wide_23">Left wide 3</a></li>
-            </ul>
-          </li>
-        </ul>
+        <?php echo Sphp\Html\Foundation\Sites\Navigation\Factory::buildMenu($top_bar_links['menu'])->addCssClass('') ?>
       </div>
       <div class="top-bar-right">
-        <ul class="menu">
-          <li><input type="search" placeholder="Search"></li>
-          <li><button class="button">Search</button></li>
-        </ul>
       </div>
     </div>
 
     <!-- original content goes in this container -->
     <div class="off-canvas-content" data-off-canvas-content>
       <!-- off-canvas title bar for 'small' screen -->
+      <div class="top-row">
+        <div class="row column">
+          <a href="http://veneseura.samiholck.com/" title="Etusivulle">
+            <img src="srcs/img/logo.png" alt="logo">
+            <span>Raision Veneseura ry</span></a>
+        </div>
+      </div>
       <div class="title-bar" data-responsive-toggle="widemenu" data-hide-for="medium">
         <div class="title-bar-left">
           <button class="menu-icon" type="button" data-open="offCanvasLeft"></button>
@@ -75,7 +64,30 @@ include_once("sphp/settings.php");
         </div>
       </div>
       <div class="row column">
-        <img src="http://placehold.it/2000x3000" alt="" />
+        <?php
+
+        use Sphp\Html\Foundation\Sites\Containers\ExceptionCallout;
+        use Sphp\Html\Container;
+
+//print_r($links);
+        $load = function($page) {
+          try {
+            ob_start();
+            $examplePath = "sivut/" . $page . ".php";
+            if (is_file($examplePath)) {
+              (new Container)->appendMdFile($examplePath)->printHtml();
+            } else {
+              throw new \InvalidArgumentException("the path $examplePath contains no executable PHP script");
+            }
+            $content = ob_get_contents();
+          } catch (\Exception $e) {
+            $content .= new ExceptionCallout($e);
+          }
+          ob_end_clean();
+          echo $content;
+        };
+        $load($page);
+        ?>
       </div>
     </div>
   </div>
