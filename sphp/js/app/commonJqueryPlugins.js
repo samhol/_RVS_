@@ -464,8 +464,9 @@
    * @returns  {jQuery.fn} object for method chaining
    */
   $.fn.backToTopBtn = function () {
+    var offset = 220, duration = 500;
     return this.each(function () {
-      var $this = $(this), offset = 220, duration = 500;
+      var $this = $(this);
       $(window).scroll(function () {
         if ($(this).scrollTop() > offset) {
           $this.fadeIn(duration);

@@ -3,18 +3,15 @@
 namespace Sphp\Html\Tables;
 
 use Sphp\Core\Path;
+use Sphp\Stdlib\CsvFile;
 
-$db = new \SQLite3(Path::get()->local("srcs/db/contacts"));
+$reader = new CsvFile(Path::get()->local('yhteystiedot/hallitus.csv'));
+$hallitus = $reader->toArray();
 
-$stmt = $db->prepare('SELECT nimi, puhelin, email from hlo Where hallituksessa = "true"');
-
-$result = $stmt->execute();
-$hallitus = [];
 $thallitus = new Table();
-$thallitus->thead()->append(["Nimi", "Puhelin", "Sähköposti"]);
-while ($arr = $result->fetchArray(SQLITE3_ASSOC)) {
-  $hallitus[] = $arr;
-  $thallitus->tbody()->append($arr);
+$thallitus->thead()->append(array_shift($hallitus));
+foreach ($hallitus as $member) {
+  $thallitus->tbody()->append($member);
 }
 
 $thallitus->printHtml();

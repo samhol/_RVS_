@@ -3,7 +3,6 @@
   "description": "Multipurpose PHP framework for web applications",
   "require": {
     "php" : "^5.5 || ^7.0",
-    "doctrine/orm": "*",
     "erusev/parsedown-extra": "^0.7.0",
     "zurb/foundation": ">=6.2",
     "symfony/yaml": ">=3"

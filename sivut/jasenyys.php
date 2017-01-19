@@ -15,11 +15,9 @@ Lähetä nimesi, osoitteesi ja puhelinnumerosi Mikko Kemppaiselle  mikko.k.kempp
 
   </div>
   <div class="column small-12 large-6">
-    <div class="flex-video">
-     <iframe src = "/ViewerJS/#../pdf/RVS-saannot.pdf" width='400' height='300' allowfullscreen webkitallowfullscreen></iframe>
+    <div class="responsive-embed default">
+     <iframe src = "sphp/viewerjs/#../../pdf/RVS-saannot.pdf" width='400' height='300' allowfullscreen webkitallowfullscreen></iframe>
     </div>
   </div>
 </div>
-<?php
-include "jasenrekisteriseloste.php";
-?>
+

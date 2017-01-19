@@ -19,7 +19,7 @@ $jolla = array_reverse($jolla);
         } else {
           echo '<li class="orbit-slide">';
         }
-        echo '<div class="flex-video"><iframe src = "sphp/viewerjs/#../../jolla/' . $j . '" allowfullscreen webkitallowfullscreen height="100"></iframe></div></li>';
+        echo '<div class="responsive-embed widescreen"><iframe src = "sphp/viewerjs/#../../jolla/' . $j . '" allowfullscreen webkitallowfullscreen width="1024" height="315"></iframe></div></li>';
       }
       ?>
       <!--<li class="is-active orbit-slide">

@@ -1,11 +1,9 @@
-
-
 #KATSASTUSTOIMINTA
-##Katsastajan infoa 
 
-<a href="http://www.kolumbus.fi/skaar/TURVALLISUUSASIAA.pdf" target="_blank">Lataa turvallisuustietoa tästä linkistä (PDF)</a>
-
-###Venekatsastus – miksi?
+<a href="http://www.kolumbus.fi/skaar/TURVALLISUUSASIAA.pdf" target="_blank" class="button-group">
+  <span class="button">Lataa turvallisuustietoa tästä linkistä</span>
+  <i class="button fa fa-file-pdf-o"></i>
+</a>
 
 Veneseurojen jäsenillä on mahdollisuus katsastuttaa veneensä vuosittain. Raision veneseuran
 piirissä venekatsastus on seuran veneille vapaaehtoinen, muitten veneseurojen

@@ -1,15 +1,15 @@
 <?php
-//require_once 'vendor/autoload.php';
-
 error_reporting(E_ALL);
-ini_set("display_errors", "1");
-date_default_timezone_set("Europe/Helsinki");
-mb_internal_encoding("UTF-8");
+ini_set('display_errors', 1);
+date_default_timezone_set('Europe/Helsinki');
+mb_internal_encoding('UTF-8');
 
-include_once("sphp/settings.php");
+include_once('sphp/settings.php');
 
-$links = \Symfony\Component\Yaml\Yaml::parse(file_get_contents('links/mainLinks.yml'));
-$top_bar_links = \Symfony\Component\Yaml\Yaml::parse(file_get_contents('links/top_bar_links.yml'));
+use Symfony\Component\Yaml\Yaml;
+
+$links = Yaml::parse(file_get_contents('links/mainLinks.yml'));
+$top_bar_links = Yaml::parse(file_get_contents('links/top_bar_links.yml'));
 $page = filter_input(INPUT_GET, 'page', FILTER_SANITIZE_STRING);
 if ($page === null) {
   $page = 'index';
@@ -24,7 +24,7 @@ if ($page === null) {
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Foundation Starter Template</title>
+    <title>Raision veneseura</title>
     <link rel="stylesheet" href="sphp/css/base.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -37,8 +37,7 @@ if ($page === null) {
         <button class="close-button" aria-label="Close menu" type="button" data-close>
           <span aria-hidden="true">&times;</span>
         </button>
-        <?php echo Sphp\Html\Foundation\Sites\Navigation\Factory::buildMenu($links['menu'], new \Sphp\Html\Foundation\Sites\Navigation\DrilldownMenu())->addCssClass('vertical')
-                ->setAttr('data-back', "<li class='js-drilldown-back'><a tabindex='0'>Takaisin</a></li>");?>
+        <?php echo Sphp\Html\Foundation\Sites\Navigation\Factory::buildMenu($links['menu'], new \Sphp\Html\Foundation\Sites\Navigation\DrilldownMenu())->addCssClass('vertical') ?>
       </div>
 
 
@@ -49,7 +48,7 @@ if ($page === null) {
             <div class="row column expanded">
 
               <a href="<?php echo Sphp\Core\Path::get()->http() ?>" title="Etusivulle">
-                <img src="srcs/img/logo.png" alt="logo">
+                <img src="_srcs/img/logo.png" alt="Raision veneseuran logo">
                 <span>Raision Veneseura ry</span></a>
 
             </div>
@@ -69,7 +68,7 @@ if ($page === null) {
         <div class="title-bar" data-responsive-toggle="widemenu" data-hide-for="medium">
           <div class="title-bar-left">
             <button class="menu-icon" type="button" data-open="offCanvasLeft"></button>
-            <span class="title-bar-title">Valikko</span>
+            <span class="title-bar-title">Menu</span>
           </div>
           <div class="title-bar-right">
           </div>
@@ -77,15 +76,16 @@ if ($page === null) {
         <div class="body">
           <div class="row expanded">
             <div class="column hide-for-small-only medium-3 xxlarge-3">
-              <?php include '_templates/sidenav.php'; ?>
+              <?php include '_srcs/templates/sidenav.php'; ?>
             </div>
             <div class="column small-12 medium-9 xlarge-8 end">
-              <?php include '_templates/main.php'; ?>
+              <div class="page">
+                <?php include '_srcs/templates/pageLoader.php'; ?>
+              </div>
             </div>
           </div>
         </div>
         <div class="push"></div>
-
       </div>
     </div>
     <footer class="footer">
