@@ -20,4 +20,3 @@ $load = function($page) {
   echo $content;
 };
 $load($page);
-?>

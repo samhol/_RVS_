@@ -1,6 +1,6 @@
 #Katsastajien yhteystiedot
 
-<?php include __DIR__ . "/../php/katsastajat.php"; ?>
+<?php include KATSASTAJAT; ?>
 
 Myös seuramme nykyisellä kommodorilla Esko Mickelssonilla
 on venekatsastajan pätevyys tallella, ja hän voi myös katsastaa veneitä. Katsastustehtävät

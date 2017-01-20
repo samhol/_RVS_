@@ -4,12 +4,13 @@ ini_set('display_errors', 1);
 date_default_timezone_set('Europe/Helsinki');
 mb_internal_encoding('UTF-8');
 
-include_once('sphp/settings.php');
+require_once('sphp/settings.php');
+require_once('_srcs/constants.php');
 
 use Symfony\Component\Yaml\Yaml;
 
-$links = Yaml::parse(file_get_contents('links/mainLinks.yml'));
-$top_bar_links = Yaml::parse(file_get_contents('links/top_bar_links.yml'));
+$links = Yaml::parse(file_get_contents('linkit/mainLinks.yml'));
+$top_bar_links = Yaml::parse(file_get_contents('linkit/top_bar_links.yml'));
 $page = filter_input(INPUT_GET, 'page', FILTER_SANITIZE_STRING);
 if ($page === null) {
   $page = 'index';
@@ -114,4 +115,3 @@ if ($page === null) {
 </html>
 <?php
 //$html->documentClose();
-?>

@@ -1,6 +1,6 @@
 #KATSASTUSTOIMINTA
 
-<a href="http://www.kolumbus.fi/skaar/TURVALLISUUSASIAA.pdf" target="_blank" class="button-group">
+<a href="http://www.raisionveneseura.fi/dokumentit/turvallisuusasiaa.pdf" target="_blank" class="button-group">
   <span class="button">Lataa turvallisuustietoa tästä linkistä</span>
   <i class="button fa fa-file-pdf-o"></i>
 </a>

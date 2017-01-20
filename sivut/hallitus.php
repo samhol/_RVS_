@@ -11,7 +11,7 @@ Esko Mickelsson
 
 Yhteystiedot:
 : 040 583 5537
-: Esko.mickelsson@gmail.com
+: esko.mickelsson@gmail.com
 
 </div>
 </div>
@@ -48,11 +48,11 @@ Yhteystiedot:
   <img src="kuvat/Markku_Pyy.png" alt="Markku Pyy">
 
 Markku Pyy
-: Hirsiluoto
+:
 
 Yhteystiedot:
 : 0400 528 693
-: markku.pyy@luukku.com
+: markku.o.pyy@gmail.com
 
 </div>
 </div>
@@ -65,7 +65,7 @@ Viljo Kaapro
 
 Yhteystiedot:
 : 0400 127 050
-: viljo.kaapro@gemail.com
+: viljo.kaapro@gmail.com
 
 </div>
 </div>
@@ -76,6 +76,9 @@ Yhteystiedot:
 Stefan Kaapro
 : 
 
+Yhteystiedot
+: 040 553 5115
+: stefan.kaapro@vv-auto.fi
 </div>
 </div>
 <div class="column">
@@ -83,7 +86,7 @@ Stefan Kaapro
   <img src="kuvat/Kari_Sorjasaari.png" alt="Kari Sorjasaari">
 
 Kari Sorjasaari
-: Virutholm
+:
 
 Yhteystiedot:
 : 040 510 4513
@@ -106,14 +109,14 @@ Yhteystiedot:
 </div>
 <div class="column">
 <div class="callout" markdown="1" data-equalizer-watch="board">
-  <img src="kuvat/Ari_Ikonen.png" alt="Ari Ikonen">
+  
 
-Ari Ikonen
+Matti Nyfors
 : Jolla-lehti
 
 Yhteystiedot:
-: 040 501 1685
-: ari.m.ikonen@dnainternet.net
+: 050 3837843
+: matti.nyfors@gmail.com
 
 </div>
 </div>
@@ -125,6 +128,7 @@ Jouko Jyrkkiö
 : 
 
 Yhteystiedot:
+: 0400 701858
 : jouko.jyrkkio@gmail.com
 
 </div>

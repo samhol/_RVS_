@@ -1,7 +1,7 @@
 #Yhteystiedot
-Satama: <button type="button" data-toggle="club-maplink">
-Hahdenniementie
-21120 Raisio</button>
+
+<button type="button" data-toggle="club-maplink">
+</button>
 <div class="dropdown-pane large" id="club-maplink" data-dropdown data-close-on-click="true">
   <h3>Karttalinkki</h3>
   <div class="responsive-embed">
@@ -10,8 +10,8 @@ Hahdenniementie
 </div>
 
 ##Hallitus
-<?php include __DIR__ . "/../php/hallitus.php" ?>
+<?php include HALLITUS ?>
 
 
 ##Katsastajat
-<?php include __DIR__ . "/../php/katsastajat.php" ?>
+<?php include KATSASTAJAT ?>

@@ -24,10 +24,10 @@ menu:
       page: katsastusinfo
     - link: Katsastajien yhteystiedot
       page: katsastajat   
-  - link: Jolla lehdet
+  - link: Jolla lehti (Huom! latautuu hitaasti)
     page: jollalehdet
   - link: <span>Eksymälaskenta</span><i class="float-right fa fa-file-excel-o"></i>
-    href: pdf/eksymalaskenta.xls
+    href: dokumentit/eksymalaskenta.xls
     target: _blank
-    datatype: xls
+    datatype: excel
     download:

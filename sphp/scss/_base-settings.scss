@@ -121,10 +121,10 @@ $header-styles: (
     'h6': ('font-size': 16),
   ),
   medium: (
-    'h1': ('font-size': 48),
-    'h2': ('font-size': 40),
-    'h3': ('font-size': 31),
-    'h4': ('font-size': 25),
+    'h1': ('font-size': 30),
+    'h2': ('font-size': 26),
+    'h3': ('font-size': 24),
+    'h4': ('font-size': 22),
     'h5': ('font-size': 20),
     'h6': ('font-size': 16),
   ),
@@ -493,6 +493,8 @@ $responsive-embed-margin-bottom: rem-calc(16);
 $responsive-embed-ratios: (
   default: 4 by 3,
   widescreen: 16 by 9,
+  panorama: 256 by 81,
+  square: 1 by 1,
 );
 
 // 29. Reveal
