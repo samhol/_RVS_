@@ -109,7 +109,7 @@ Yhteystiedot:
 </div>
 <div class="column">
 <div class="callout" markdown="1" data-equalizer-watch="board">
-  
+  <img src="kuvat/Matti_Nyfors.png" alt="Matti Nyfors">
 
 Matti Nyfors
 : Jolla-lehti

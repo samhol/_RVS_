@@ -92,13 +92,10 @@ if ($page === null) {
     <footer class="footer">
       <div class="row expanded">
         <div class="column small-12 large-6">
-          &copy; Raision Veneseura r.y. 2016
+          &copy; Raision Veneseura r.y. 
         </div>
         <div class="column small-12 large-6">
-          <span class="float-right">
-            <b>Kotisatama:</b>
-            Hahdenniementie
-            21120, Raisio</span>
+          
 
         </div>
       </div>

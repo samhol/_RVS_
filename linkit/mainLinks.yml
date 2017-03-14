@@ -24,7 +24,7 @@ menu:
       page: katsastusinfo
     - link: Katsastajien yhteystiedot
       page: katsastajat   
-  - link: Jolla lehti (Huom! latautuu hitaasti)
+  - link: Jolla-lehti (Huom! latautuu hitaasti)
     page: jollalehdet
   - link: <span>Eksymälaskenta</span><i class="float-right fa fa-file-excel-o"></i>
     href: dokumentit/eksymalaskenta.xls
