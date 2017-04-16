@@ -7,10 +7,10 @@
 
 namespace Sphp\Core\Security;
 
-use Sphp\Core\Types\BitMask;
+use Sphp\Stdlib\BitMask;
 
 /**
- * Class Models user's rights
+ * Implements user's rights
  *
  * @author  Sami Holck <sami.holck@gmail.com>
  * @since   2014-09-15

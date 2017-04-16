@@ -464,9 +464,8 @@
    * @returns  {jQuery.fn} object for method chaining
    */
   $.fn.backToTopBtn = function () {
-    var offset = 220, duration = 500;
     return this.each(function () {
-      var $this = $(this);
+      var $this = $(this), offset = 220, duration = 500;
       $(window).scroll(function () {
         if ($(this).scrollTop() > offset) {
           $this.fadeIn(duration);
@@ -704,7 +703,7 @@
    * @method   sphMouseCoordinatesViewer
    * @returns  {jQuery.fn} object for method chaining
    */
-  $.fn.qtips = function () {
+  $.fn.qtips1 = function () {
     return this.each(function () {
       var $this = $(this), $classes;
       $classes = $this.attr('data-sphp-qtip-classes');

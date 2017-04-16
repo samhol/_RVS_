@@ -1,10 +1,5 @@
 #KATSASTUSTOIMINTA
 
-<a href="http://www.raisionveneseura.fi/dokumentit/turvallisuusasiaa.pdf" target="_blank" class="button-group">
-  <span class="button">Lataa turvallisuustietoa tästä linkistä</span>
-  <i class="button fa fa-file-pdf-o"></i>
-</a>
-
 Veneseurojen jäsenillä on mahdollisuus katsastuttaa veneensä vuosittain. Raision veneseuran
 piirissä venekatsastus on seuran veneille vapaaehtoinen, muitten veneseurojen
 käytännöt vaihtelevat. Säännöllinen venekatsastus varmistaa osaltaan sen, että

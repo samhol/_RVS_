@@ -1,33 +1,29 @@
 ## YAML Menu Template.
 ---
-menu: 
- items:
+items:
   - link: Etusivu
-    page: index
-  - menu: Yleistä 
+    href: etusivu
+  - link: Tiedotteet
+    href: tiedotteet
+  - link: Yhteystiedot
+    href: yhteystiedot
+  - menu: Jäsenyys 
     items: 
-    - link: Yhteystiedot
-      page: yhteystiedot
-    - link: Jäsenyys
-      page: jasenyys
+    - link: Yleistä
+      href: jasenyys
+    - link: Jäsenhakemus
+      href: jasenlomake
     - link: Jäsenrekisteriseloste
-      page: jasenrekisteriseloste
+      href: jasenrekisteriseloste
   - menu: Kausi 2017
     items:
     - link: Kausiohjelma
-      page: kausiohjelma
+      href: kausiohjelma
     - link: Hallitus
-      page: hallitus
-  - menu: Katsastustoiminta
-    items:
-    - link: Tietoa katsastuksesta
-      page: katsastusinfo
-    - link: Katsastajien yhteystiedot
-      page: katsastajat   
-  - link: Jolla-lehti (Huom! latautuu hitaasti)
-    page: jollalehdet
-  - link: <span>Eksymälaskenta</span><i class="float-right fa fa-file-excel-o"></i>
-    href: dokumentit/eksymalaskenta.xls
-    target: _blank
-    datatype: excel
-    download:
+      href: hallitus
+  - link: Katsastustoiminta
+    href: katsastustoiminta
+  - link: Ladattavat dokumentit
+    href: dokumentit
+  - link: Kilpailut
+    href: kilpailut
