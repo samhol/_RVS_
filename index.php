@@ -49,7 +49,7 @@ if ($page === null) {
             <div class="row column expanded">
 
               <a href="<?php echo Sphp\Core\Path::get()->http() ?>" title="Etusivulle">
-                <img src="_srcs/img/logo.png" alt="Raision veneseuran logo">
+                <img src="kuvat/logo.png" alt="Raision veneseuran logo">
                 <span>Raision Veneseura ry</span></a>
 
             </div>

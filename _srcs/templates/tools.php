@@ -22,7 +22,7 @@ $kalastusKilpailut = function() {
   }
   $paginator = new FilePaginator();
   $paginator->setPageParser(function(\SplFileInfo $file, $index) {
-    $path = "kilpailut/kalastus/$index";
+    $path = "kilpailut/kalastus/$index.php";
     return new Page($path, $file->getBasename('.' . $file->getExtension()));
   });
   $paginator->loadFiles('sivut/kilpailut/kalastus');
@@ -32,8 +32,6 @@ $kalastusKilpailut = function() {
   } catch (\Exception $ex) {
     echo $ex;
   }
-  $pagination->visibleBeforeCurrent(3);
-  $pagination->visibleAfterCurrent(3);
   $pagination->getPreviousPageButton()->setContent('Edellinen');
   $pagination->getNextPageButton()->setContent('Seuraava');
   echo "<hr>\n";
