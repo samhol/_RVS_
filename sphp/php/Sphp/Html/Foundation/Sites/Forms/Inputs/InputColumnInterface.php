@@ -12,7 +12,7 @@ use Sphp\Html\Forms\Inputs\InputInterface;
 use Sphp\Html\Forms\Label;
 
 /**
- * Defines a Foundation based input column for a Grid system
+ * Defines a input column for a Grid system
  *
  * @author  Sami Holck <sami.holck@gmail.com>
  * @since   2014-03-02
@@ -34,7 +34,7 @@ interface InputColumnInterface extends ColumnInterface, InputInterface {
    * Sets the visible contents of the input label
    * 
    * @param  mixed $label the contents of the label 
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function setLabel($label);
 }

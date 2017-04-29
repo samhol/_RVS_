@@ -32,8 +32,8 @@ class Rectangle extends EmptyTag implements AreaInterface {
    * @param string $alt
    */
   public function __construct($x1, $y1, $x2, $y2, $href = null, $alt = null) {
-    parent::__construct("area");
-    $this->attrs()->lock("shape", "rect");
+    parent::__construct('area');
+    $this->attrs()->lock('shape', 'rect');
     $this->setCoordinates($x1, $y1, $x2, $y2);
     if ($href !== null) {
       $this->setHref($href);
@@ -48,14 +48,14 @@ class Rectangle extends EmptyTag implements AreaInterface {
    * 
    * @param  int $x the top left x-coordinate
    * @param  int $y the top left y-coordinate
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function setTopLeft($x, $y) {
-    $coords = split(",", $this->getCoordinates());
+    $coords = split(',', $this->getCoordinates());
     $coords[0] = $x;
     $coords[1] = $y;
-    $coordsString = implode(",", $coords);
-    $this->attrs()->set("coords", $coordsString);
+    $coordsString = implode(',', $coords);
+    $this->attrs()->set('coords', $coordsString);
     return $this;
   }
 
@@ -64,14 +64,14 @@ class Rectangle extends EmptyTag implements AreaInterface {
    * 
    * @param  int $x the bottom right x-coordinate
    * @param  int $y the bottom right y-coordinate
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function setBottomRight($x, $y) {
-    $coords = split(",", $this->getCoordinates());
+    $coords = split(',', $this->getCoordinates());
     $coords[2] = $x;
     $coords[3] = $y;
-    $coordsString = implode(",", $coords);
-    $this->attrs()->set("coords", $coordsString);
+    $coordsString = implode(',', $coords);
+    $this->attrs()->set('coords', $coordsString);
     return $this;
   }
 
@@ -82,12 +82,12 @@ class Rectangle extends EmptyTag implements AreaInterface {
    * @param  int $y1 the top left y-coordinate
    * @param  int $x2 the bottom right x-coordinate
    * @param  int $y2 the bottom right y-coordinate
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function setCoordinates($x1, $y1, $x2, $y2) {
     $coords = [$x1, $y1, $x2, $y2];
-    $coordsString = implode(",", $coords);
-    $this->attrs()->set("coords", $coordsString);
+    $coordsString = implode(',', $coords);
+    $this->attrs()->set('coords', $coordsString);
     return $this;
   }
 

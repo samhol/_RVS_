@@ -63,6 +63,17 @@ class Html extends AbstractComponent implements IteratorAggregate, TraversableIn
     }
   }
 
+  public function __destruct() {
+    unset($this->head, $this->body);
+    parent::__destruct();
+  }
+
+  public function __clone() {
+    $this->head = clone $this->head;
+    $this->body = clone $this->body;
+    parent::__clone();
+  }
+
   /**
    * Returns the &lt;head&gt;  component 
    *
@@ -89,18 +100,19 @@ class Html extends AbstractComponent implements IteratorAggregate, TraversableIn
    * Specifies the MIME type of the script
    *
    * @param  string $language the language of the document 
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    * @link   http://www.w3schools.com/tags/att_lang.asp lang attribute
    */
   public function setLanguage($language) {
-    return $this->attrs()->set('lang', $language);
+    $this->attrs()->set('lang', $language);
+    return $this;
   }
 
   /**
    * Sets the title of the html page
    *
    * @param  string|Title $title the title of the html page
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function setDocumentTitle($title) {
     $this->head->setDocumentTitle($title);
@@ -108,9 +120,9 @@ class Html extends AbstractComponent implements IteratorAggregate, TraversableIn
   }
 
   /**
-   * Sets up the SPHP framework related Javascript and CSS files
+   * Sets up the SPHP framework related JavaScript and CSS files
    *
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function enableSPHP() {
     $this->head->enableSPHP();
@@ -128,6 +140,10 @@ class Html extends AbstractComponent implements IteratorAggregate, TraversableIn
     return $this->body->scripts($c);
   }
 
+  /**
+   * 
+   * @return string
+   */
   public function getOpeningTag() {
     return '<!DOCTYPE html>' . parent::getOpeningTag();
   }
@@ -136,6 +152,26 @@ class Html extends AbstractComponent implements IteratorAggregate, TraversableIn
    * 
    * @return string
    */
+  public function getBodyStart() {
+    $output = $this->getOpeningTag();
+    $output .= $this->head->getHtml();
+    $output .= $this->body->getOpeningTag();
+    return $output;
+  }
+
+  /**
+   * 
+   * @return self for a fluent interface
+   */
+  public function startBody() {
+    echo $this->getBodyStart();
+    return $this;
+  }
+
+  /**
+   * 
+   * @return string 
+   */
   public function getDocumentClose() {
     return $this->body()->close() . $this->getClosingTag();
   }
@@ -143,7 +179,7 @@ class Html extends AbstractComponent implements IteratorAggregate, TraversableIn
   /**
    * 
    * 
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function documentClose() {
     echo $this->getDocumentClose();

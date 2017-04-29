@@ -1,5 +1,5 @@
 #Tiedotteet
 
-##Sivut Päivitetty 13.4.2017
+##Sivut Päivitetty 10. huhtikuuta
 
 Jäsenhakemuslomake on myös toiminnassa.

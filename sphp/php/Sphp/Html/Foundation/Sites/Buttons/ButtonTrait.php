@@ -8,7 +8,7 @@
 namespace Sphp\Html\Foundation\Sites\Buttons;
 
 use Sphp\Html\Foundation\Sites\Core\ColourableTrait;
-use Sphp\Html\Attributes\MultiValueAttribute as MultiValueAttribute;
+use Sphp\Html\Attributes\MultiValueAttribute;
 
 /**
  * Trait implements {@link ButtonInterface} functionality
@@ -53,7 +53,7 @@ trait ButtonTrait {
    * 
    * @param  string $size optional CSS class name defining button size. 
    *         `medium` value corresponds to no explicit size definition.
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    * @link   http://foundation.zurb.com/docs/components/buttons.html#button-sizing Button Sizing
    */
   public function setSize($size = null) {
@@ -72,7 +72,7 @@ trait ButtonTrait {
    * 
    *  Removes all specified size related CSS classes
    * 
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    * @link   http://foundation.zurb.com/docs/components/buttons.html#button-sizing Button Sizing
    */
   public function setDefaultSize() {

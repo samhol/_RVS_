@@ -1,0 +1,339 @@
+/**
+ * _base.scss (UTF-8)
+ * Copyright (c) 2016 Sami Holck <sami.holck@gmail.com>
+ */ 
+@charset "UTF-8";
+
+$menu-bg: #4d5158;
+$menu-area-bg: #4d5158;
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Roboto+Mono:400,700');
+@import "compass/css3"; 
+@import "base-settings";
+@import "../../vendor/zurb/foundation/scss/foundation";
+
+@include foundation-everything;
+
+@import "../../sphp/scss/app/sphp-back-to-top-button";
+@import "../../sphp/scss/app/fa-social-media-buttons";
+
+
+@import "../../sphp/scss/vendor/jquery.qtip";
+
+.body {
+  margin-top: rem-calc(10);
+  .callout, form {
+    margin: rem-calc(3 5 3 5);
+  }
+}
+.top-row {
+  @include opacity(0.75);
+  color: #1044ba;
+  background-color: #fff;
+  font-size: rem-calc(20);
+  img {
+    margin: rem-calc(2);
+  }
+  span {
+    margin-left: rem-calc(20);
+  }
+}
+.top-bar {
+  @include box-shadow(rgba(blue, 0.2) 0px 5px 6px 2px);
+  border-top: 2px solid #0099ff;
+  border-bottom: 2px solid #0099ff;
+  //border-left: 1px solid #252525;
+  &:last-child {
+    //border-right: 1px solid #6666ff;
+  }
+  &:hover {
+    @include box-shadow(rgba(blue, 0.3) 0px 6px 6px 0px);
+    //background: #666;
+  }
+}
+
+html, body {
+  height: 100%;
+}
+body {
+  background-color: #fefefe;
+  background-image: url('http://raisionveneseura.fi/kuvat/tausta/background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+footer {
+  color: #fff;
+  border: solid 1px #666;
+  @include border-radius(4px);
+  background: $menu-area-bg;
+  padding: rem-calc(5);
+  margin-top: rem-calc(20);
+  margin-bottom: rem-calc(20);
+  .social-icons {
+    display: inline-block;
+    &.techs {
+      margin-left: rem-calc(40);
+    }
+    .fa-facebook, .fa-html5, .fa-css3 {
+      border: solid 1px #fff;
+    }
+  }
+  .copyright {
+    background: scale-color($menu-area-bg, $lightness:-30%);
+    padding: rem-calc(5 15);
+    margin: rem-calc(0 5 5 5);
+    border-width: 1px;
+    border-style: solid;
+    border-color: #aaa #bbb #999 #777;
+    @include border-radius(4px);
+  }
+}
+
+$menu-item-hover: #35383d;
+$menu-separator: #41444a;
+div.sidenav {
+  padding: rem-calc(4 3 5 3);
+  background: $menu-area-bg;
+  @include border-radius(4px);
+  border: solid 1px #999;
+  @include box-shadow(rgba(blue, 0.4) 0 0 25px, rgba(green, 0.2) 0 0 3px 1px inset);
+}
+.menu {
+  li:not(.active) > a {
+    background: $menu-bg;
+    color: #fff;
+    &:hover {
+      background: scale-color($menu-bg, $lightness:-30%);
+    }
+  }
+
+
+  li:not(.menu-text) > a {
+    padding: rem-calc(15 15 15 15);
+  }
+  & ul { 
+    li:not(.menu-text) > a {
+      padding: rem-calc(15 15 15 25);
+    }
+    li:not(.active) > a {
+      background: scale-color($menu-bg, $lightness:-10%);
+      &:hover {
+        background: scale-color($menu-bg, $lightness:-30%);
+      }
+    }
+  }
+  background: $menu-bg;
+}
+.off-canvas.position-left {
+  ul[data-accordion-menu] {
+    margin-top: rem-calc(40);
+    margin-bottom: rem-calc(40);
+  }
+}
+
+.page {
+  min-height: rem-calc(400);
+  border: solid 1px #666;
+  @include border-radius(4px);
+  background-color: #fefefe;
+  padding: rem-calc(0 0 50 0);
+  margin-bottom: rem-calc(20);
+  &.show-logo, &.katsastustoiminta, &.fishing, &.kausiohjelma, &.jasenyys {
+    background-image: url('http://raisionveneseura.fi/kuvat/tausta/logo.png');
+    background-repeat: no-repeat;
+    background-size:auto;
+    background-attachment:scroll;
+    background-position: right 30px bottom 30px;
+  }
+
+  &.competitions {
+    ol, dl, ul:not(.pagination) {
+      margin-left: rem-calc(60);
+    }
+    ol {
+      li:first-child {
+        font-weight: bold;
+        text-decoration: underline;
+        margin-left: rem-calc(-10);
+        padding-bottom: rem-calc(10);
+      }
+    }
+    ul.pagination {
+      margin-left:rem-calc(30);
+      li {
+        margin-right: rem-calc(2);
+        line-height: 1.6;
+        border: solid 1px #ddd;
+        padding: 0;
+        &:hover {
+          border-color: #ccc;
+        }
+        &.current {
+          a {
+            color: #eaeaea;
+            &:hover {
+              background: $primary-color;
+              color: #fff;
+            }
+          }
+        }
+        &.pdf {
+          border-color: #fa3344;
+          &:hover {
+            border-color: #ff3040;
+          }
+          a {
+            color: #300;
+            &:hover {
+              background: #ffdddd;
+
+              color: #400;
+            }
+          }
+        }
+        a, span {
+          @include border-radius(3px);
+          padding: rem-calc(5 7);
+          margin: 0;
+        }
+      }
+      li.disabled {
+        padding: rem-calc(5 7);
+
+      }
+    }
+  }
+  h1, h2, h3, h4, h5, h6 {
+    color: #333;
+  }
+  h1 {
+    padding: rem-calc(10 10 10 10);
+    text-transform: uppercase;
+  }
+
+  h2, h3, h4, h5, h6 {
+    color: #666;
+    padding: rem-calc(4 10 5 10);
+  }
+
+  >h1:first-child, >h2:first-child, >h3:first-child, >h4:first-child, >h5:first-child, >h6:first-child {
+    @include border-top-radius(5px);
+    border-top: solid 1px #efefef;
+    border-bottom: solid 1px #999;
+    background-color: #efefef;
+    @include background-image(linear-gradient(to right, #eaeaea, #fafafa));
+  }
+  .flex-video {
+    margin: rem-calc(10 30);
+  }
+  p {
+    text-align: justify;
+    margin: rem-calc(10 40 20 30);
+  }
+  dl, ul:not([class]), ol {
+    margin-left: rem-calc(30);
+  }
+
+  &.contests, &.docs {
+    ul {
+      list-style: none;
+      li {
+        padding: rem-calc(6 10 6 30);
+      }
+    }
+  }
+  dl{
+    dd {
+      margin-left: rem-calc(10);
+    }
+  }
+  &.board {
+    .callout {
+      @include border-radius(5px);
+      .thumbnail {
+        @include border-radius(2px);
+        img {
+          @include opacity(0.9);
+        }
+      }
+      &:hover {
+        img {
+          @include opacity(1);
+        }
+      }
+    }
+
+  }
+  table {
+    border-collapse: collapse;
+    border-color: #ccc;
+    font-size: rem-calc(14);
+    thead, tfoot {
+      th {
+        background-color: #1779ba;
+        color: #fefefe;
+      }
+    }
+    td, th {
+      //word-break: break-all;
+      text-align: left;
+      //border-bottom: solid 1px #ccc;
+    }
+    tbody {
+      tr {
+        border-bottom: solid 1px #aaa;
+      }
+    }
+  }
+
+  &.bulletingboard {
+    .callout {
+      &>h2 {
+        border-bottom: solid 1px #666; 
+      }
+      .date {
+        font-size: rem-calc(12);
+        background-color: #eee;
+        padding:  rem-calc(12);
+      }
+    }
+  }
+
+  div.orbit-wrapper {
+    margin-left: rem-calc(2);
+    margin-right: rem-calc(2);
+    border: solid 1px #666;
+    margin-bottom: rem-calc(30);
+  }
+  &.kausiohjelma {
+    h2{
+      color: #333;
+      padding: rem-calc(2 10 5 15);
+      margin: 0;
+    }
+    dl {
+      margin: rem-calc(5 20 5 20);
+      padding: 0;
+      //font-family: georgia, times, serif;
+      dt {
+        font-family: $font-family-monospace;
+        float: left;
+        clear: left;
+        width: rem-calc(50);
+        font-weight: bold;
+        text-align: right;
+      }
+      dd {
+        margin: rem-calc(0 0 0 50);
+        padding: 0 0 0.5em 0;
+        &:before {
+          content: "- ";
+          padding-left:10px;
+          padding-right:5px;
+        }
+      }
+    }
+  }
+}

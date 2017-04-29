@@ -1,4 +1,4 @@
-#KALASTUSKILPAILU 3.9.2016
+#KALASTUSKILPAILU <small>3.9.2016</small>
 
 ##"Matosarja"
  
@@ -23,3 +23,7 @@ Kiertopalkinnon voittaja: **Kari Sorjasaari**
 Koko kilpailun yhteenlaskettu saalismäärä oli 2 kg 640 g 
 
 Suurin kala **Kari Sorjasaari** 1400 g
+
+
+<?php $kalastusKilpailut(); ?>
+

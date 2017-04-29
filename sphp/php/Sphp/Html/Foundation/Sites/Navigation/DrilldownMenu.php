@@ -8,7 +8,7 @@
 namespace Sphp\Html\Foundation\Sites\Navigation;
 
 /**
- * Implements a Foundation 6 Drilldown menu 
+ * Implements a Drilldown menu 
  *
  * @author  Sami Holck <sami.holck@gmail.com>
  * @since   2016-03-11
@@ -27,6 +27,17 @@ class DrilldownMenu extends Menu {
     parent::__construct($content);
     $this->vertical(true);
     $this->attrs()->demand('data-drilldown');
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function append(MenuItemInterface $content) {
+    if ($content instanceof SubMenu) {
+      $content->vertical(true);
+    }
+    parent::append($content);
+    return $this;
   }
 
 }

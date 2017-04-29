@@ -7,13 +7,13 @@
 
 namespace Sphp\Html;
 
-use Sphp\Data\Arrayable;
+use Sphp\Stdlib\Datastructures\Arrayable;
 use ArrayAccess;
 
 /**
  * Defines the properties required from a traversable HTML component container with
  *
- * An object of {@link self} type supports forexample these properties:
+ * An object of {@link self} type supports for example these properties:
  *
  * 1. Any extending class act as a container for other components like
  *    {@link ContentInterface}, other objects, text, ...etc.
@@ -35,7 +35,7 @@ interface ContainerInterface extends TraversableInterface, Arrayable, ArrayAcces
    * Appends a new value as the last element
    *
    * @param  mixed $value element
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function append($value);
 
@@ -46,14 +46,25 @@ interface ContainerInterface extends TraversableInterface, Arrayable, ArrayAcces
    *   and the index of the prepended value is 'int(0)'
    *
    * @param  mixed $value the value being prepended
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function prepend($value);
 
+  
+  /**
+   * Sets the content of the component
+   *
+   * * The numeric keys of the content will be renumbered starting from zero
+   *   and the index of the prepended value is 'int(0)'
+   *
+   * @param  mixed $content the new content
+   * @return self for a fluent interface
+   */
+  public function setContent($content) ;
   /**
    * Clears the contents
    *
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function clear();
 

@@ -7,7 +7,10 @@
 
 namespace Sphp\Html\Tables;
 
-use Sphp\Html\ContainerTag;
+use Sphp\Html\AbstractContainerComponent;
+use IteratorAggregate;
+use ArrayAccess;
+use Sphp\Html\TraversableInterface;
 
 /**
  * Implements an HTML table row collection namely (&lt;thead&gt;, &lt;tbody&gt; or &lt;tfoot&gt;)
@@ -19,142 +22,183 @@ use Sphp\Html\ContainerTag;
  * @license http://www.gnu.org/licenses/gpl-3.0.html GPLv3
  * @filesource
  */
-abstract class TableRowContainer extends ContainerTag implements TableContentInterface {
+abstract class TableRowContainer extends AbstractContainerComponent implements IteratorAggregate, ArrayAccess, TraversableInterface, TableContentInterface {
 
-	/**
-	 * Counts the {@link RowInterface} components in the table
-	 */
-	const COUNT_NORMAL = 1;
+  use \Sphp\Html\TraversableTrait;
 
-	/**
-	 * Counts the {@link CellInterface} components in the table
-	 */
-	const COUNT_CELLS = 2;
-	
-	/**
-	 * the default type of the table cells (`td`|`th`)
-	 *
-	 * @var string 
-	 */
-	private $cellType = 'td';
-	
-	/**
-	 * Sets the default type of the table cells
-	 * 
-	 * `$defaultCell` parameter defines the type of the wrapper for`$cells` not instanceof  {@link CellInterface}
-	 *  
-	 *  * `td` => all `$cells` not extending {@link CellInterface} are wrapped within a {@link Td} component
-	 *  * `th` => all `$cells` not extending {@link CellInterface} are wrapped within a {@link Th} component
-	 * 
-	 * @param  string $defaultCell
-	 * @return self for PHP Method Chaining
-	 */
-	public function setDefaultTableCellType($defaultCell) {
-		$this->cellType = $defaultCell;
-		return $this;
-	}
+  /**
+   * Counts the {@link RowInterface} components in the table
+   */
+  const COUNT_NORMAL = 1;
 
-	/**
-	 * Sets the default type of the table cells
-	 * 
-	 * @return string the default type of the cell
-	 *         (`td`|`th`)
-	 */
-	public function getDefaultCellType() {
-		return $this->cellType;
-	}
+  /**
+   * Counts the {@link CellInterface} components in the table
+   */
+  const COUNT_CELLS = 2;
 
+  /**
+   * Constructs a new instance
+   * 
+   * **Notes:**
+   * 
+   *  * A mixed `$row` can be of any type that converts to a PHP string
+   *  * Any `$row` not implementing {@link RowInterface} is wrapped within a {@link Tr} component
+   *
+   * @param string $tagname
+   * @param AttributeManager $m
+   * @param null|mixed|mixed[] $rows the row being appended
+   */
+  public function __construct($tagname, \Sphp\Html\Attributes\AttributeManager $m = null, array $rows = null) {
+    parent::__construct($tagname, $m);
+    if ($rows !== null) {
+      $this->fromArray($rows);
+    }
+  }
 
-	/**
-	 * Wraps any non {@link RowInterface} input within a {@link Tr} object
-	 *
-	 * **Notes:**
-	 * 
-	 *  * A mixed `$row` can be of any type that converts to a PHP string
-	 *  * Any `$row` not implementing {@link RowInterface} is wrapped within a {@link Tr} component
-	 *
-	 * @param  mixed|mixed[] $row the row being appended
-	 * @return RowInterface wrapped input
-	 */
-	private function trWrapper($row) {
-		if (!($row instanceof RowInterface)) {
-			return new Tr($row, $this->getDefaultCellType());
-		} else {
-			return $row;
-		}
-	}
+  /**
+   * 
+   * @param  array $arr the row being appended
+   * @return self for a fluent interface
+   */
+  abstract public function fromArray(array $arr);
 
-	/**
-	 * Appends a {@link RowInterface} object to the container object
-	 *
-	 * **Notes:**
-	 * 
-	 *  * A mixed `$row` can be of any type that converts to a PHP string
-	 *  * Any `$row` not implementing {@link RowInterface} is wrapped within a {@link Tr} component
-	 *
-	 * @param  mixed|mixed[] $row the row being appended
-	 * @return self for PHP Method Chaining
-	 */
-	public function append($row) {
-		parent::append($this->trWrapper($row));
-		return $this;
-	}
+  /**
+   * Appends a {@link RowInterface} object to the container object
+   *
+   * **Notes:**
+   * 
+   *  * A mixed `$row` can be of any type that converts to a PHP string
+   *  * Any `$row` not implementing {@link RowInterface} is wrapped within a {@link Tr} component
+   *
+   * @param  RowInterface $row the row being appended
+   * @return self for a fluent interface
+   */
+  public function append(RowInterface $row) {
+    $this->getInnerContainer()->append($row);
+    return $this;
+  }
 
-	/**
-	 * Prepends a {@link RowInterface} to the object
-	 *
-	 * **Notes:**
-	 * 
-	 *  * A mixed `$row` can be of any type that converts to a PHP string
-	 *  * Any `$row` not implementing {@link RowInterface} is wrapped within a {@link Tr} component
-	 *  * The numeric keys of the container will be renumbered starting from zero
-	 *
-	 * @param  mixed|mixed[] $row the row(s) being appended
-	 * @return self for PHP Method Chaining
-	 */
-	public function prepend($row) {
-		parent::prepend($this->trWrapper($row));
-		return $this;
-	}
+  /**
+   * Appends a {@link RowInterface} object to the container object
+   *
+   * **Notes:**
+   * 
+   *  * A mixed `$row` can be of any type that converts to a PHP string
+   *  * Any `$row` not implementing {@link RowInterface} is wrapped within a {@link Tr} component
+   *
+   * @param  mixed|mixed[] $cells the row being appended
+   * @return self for a fluent interface
+   */
+  public function appendHeaderRow($cells) {
+    $this->append(Tr::fromThs($cells));
+    return $this;
+  }
 
-	/**
-	 * Assigns a table row {@link RowInterface} to the specified offset
-	 *
-	 * **Notes:**
-	 *
-	 *  * A mixed `$row` can be of any type that converts to a PHP string
-	 *  * Any `$row` not implementing {@link RowInterface} is wrapped within a {@link Tr} component
-	 *
-	 * @param mixed $offset the offset to assign the value to
-	 * @param mixed|mixed[]|RowInterface $row the value to set
-	 * @link  http://php.net/manual/en/arrayaccess.offsetset.php ArrayAccess::offsetGet
-	 */
-	public function offsetSet($offset, $row) {
-		parent::offsetSet($offset, $this->trWrapper($row));
-	}
+  /**
+   * Appends a {@link RowInterface} object to the container object
+   *
+   * **Notes:**
+   * 
+   *  * A mixed `$row` can be of any type that converts to a PHP string
+   *  * Any `$row` not implementing {@link RowInterface} is wrapped within a {@link Tr} component
+   *
+   * @param  mixed|mixed[] $cells the row being appended
+   * @return self for a fluent interface
+   */
+  public function appendBodyRow($cells) {
+    $this->append(Tr::fromTds($cells));
+    return $this;
+  }
 
-	/**
-	 * Count the number of inserted components in the table
-	 *
-	 * **`$mode` parameter values:**
-	 * 
-	 * * {@link self::COUNT_NORMAL} counts the {@link RowInterface} components in the table
-	 * * {@link self::COUNT_CELLS} counts the {@link CellInterface} components in the table
-	 *
-	 * @param  int $mode defines the type of the objects to count
-	 * @return int number of the components in the html table
-	 * @link   http://php.net/manual/en/class.countable.php Countable
-	 */
-	public function count($mode = self::COUNT_NORMAL) {
-		if ($mode == self::COUNT_CELLS) {
-			$count = 0;
-			foreach ($this as $row) {
-				$count += $row->count();
-			}
-			return $count;
-		} else {
-			return parent::count();
-		}
-	}
+  /**
+   * Prepends a {@link RowInterface} to the object
+   *
+   * **Notes:**
+   * 
+   *  * A mixed `$row` can be of any type that converts to a PHP string
+   *  * Any `$row` not implementing {@link RowInterface} is wrapped within a {@link Tr} component
+   *  * The numeric keys of the container will be renumbered starting from zero
+   *
+   * @param  mixed|mixed[] $row the row(s) being appended
+   * @return self for a fluent interface
+   */
+  public function prepend(RowInterface $row) {
+    $this->getInnerContainer()->prepend($row);
+    return $this;
+  }
+
+  /**
+   * Prepends a {@link RowInterface} to the object
+   *
+   * **Notes:**
+   * 
+   *  * A mixed `$row` can be of any type that converts to a PHP string
+   *  * Any `$row` not implementing {@link RowInterface} is wrapped within a {@link Tr} component
+   *  * The numeric keys of the container will be renumbered starting from zero
+   *
+   * @param  mixed|mixed[] $row the row(s) being appended
+   * @return self for a fluent interface
+   */
+  public function prependTr($row) {
+    $this->prepend(new Tr($row));
+    return $this;
+  }
+
+  /**
+   * Count the number of inserted components in the table
+   *
+   * **`$mode` parameter values:**
+   * 
+   * * {@link self::COUNT_NORMAL} counts the {@link RowInterface} components in the table
+   * * {@link self::COUNT_CELLS} counts the {@link CellInterface} components in the table
+   *
+   * @param  int $mode defines the type of the objects to count
+   * @return int number of the components in the html table
+   * @link   http://php.net/manual/en/class.countable.php Countable
+   */
+
+  /**
+   * Count the number of inserted elements in the table
+   *
+   * **`$mode` parameter values:**
+   * 
+   * * {@link self::COUNT_ROWS} counts the {@link RowInterface} components in the table
+   * * {@link self::COUNT_CELLS} counts the {@link CellInterface} components in the table
+   *
+   * @param  int $mode defines the type of the objects to count
+   * @return string number of elements in the html table
+   * @link   http://php.net/manual/en/class.countable.php Countable
+   */
+  public function count($mode = 'tr') {
+    $num = 0;
+    if ($mode === 'tr') {
+      $num += $this->getInnerContainer()->count();
+    } else if ($mode === 'td') {
+      foreach ($this as $row) {
+        $num += $row->count();
+      }
+    }
+    return $num;
+  }
+
+  public function getIterator() {
+    return $this->getInnerContainer();
+  }
+
+  public function offsetExists($offset) {
+    return $this->getInnerContainer()->offsetExists($offset);
+  }
+
+  public function offsetGet($offset) {
+    return $this->getInnerContainer()->offsetGet($offset);
+  }
+
+  public function offsetSet($offset, $value) {
+    return $this->getInnerContainer()->offsetSet($offset, $value);
+  }
+
+  public function offsetUnset($offset) {
+    
+  }
 
 }

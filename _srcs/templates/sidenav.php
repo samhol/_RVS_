@@ -1,7 +1,9 @@
+<div class="sidenav">
 <?php
 
-namespace Sphp\Html\Foundation\Sites\Navigation;
+use Sphp\MVC\SideNavViewer;
+use Sphp\MVC\Router;
 
-$nav = new AccordionMenu();
-$nav->addCssClass('sidenav');
-echo Factory::buildMenu($links['menu'], $nav);
+$sidenav = (new SideNavViewer($mainLinks, Router::getCleanUrl()))->printHtml();
+?>
+</div>

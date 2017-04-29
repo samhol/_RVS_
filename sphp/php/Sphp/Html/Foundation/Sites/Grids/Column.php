@@ -10,14 +10,14 @@ namespace Sphp\Html\Foundation\Sites\Grids;
 use Sphp\Html\Div;
 
 /**
- * Implements Foundation framework based component to create  multi-device layouts
+ * Implements framework based component to create  multi-device layouts
  *
  * The sum of the column widths in a row should never exeed 12.
  *
  * @author  Sami Holck <sami.holck@gmail.com>
  * @since   2016-03-02
- * @link    http://foundation.zurb.com/ Foundation 6
- * @link    http://foundation.zurb.com/sites/docs/grid.html Foundation 6 grid
+ * @link    http://foundation.zurb.com/ Foundation
+ * @link    http://foundation.zurb.com/sites/docs/grid.html Foundation grid
  * @license http://www.gnu.org/licenses/gpl-3.0.html GPLv3
  * @filesource
  */

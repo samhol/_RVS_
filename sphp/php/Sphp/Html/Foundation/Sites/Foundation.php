@@ -8,7 +8,7 @@
 namespace Sphp\Html\Foundation\Sites;
 
 use Sphp\Html\ContentInterface;
-use Sphp\Core\Types\Strings;
+use Sphp\Stdlib\Strings;
 use Sphp\Html\Document;
 use UnexpectedValueException;
 
@@ -23,6 +23,7 @@ use UnexpectedValueException;
  * @filesource
  */
 class Foundation {
+  
 
   /**
    * 
@@ -49,7 +50,7 @@ class Foundation {
   public static function icon($name, $tagName = 'i') {
     if (!Strings::startsWith($name, 'fi-')) {
       $name = 'fi-' . $name;
-    } 
+    }
     $obj = Document::get($tagName);
     $obj->addCssClass($name);
     return $obj;

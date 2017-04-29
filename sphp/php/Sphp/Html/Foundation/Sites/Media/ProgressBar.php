@@ -14,7 +14,7 @@ use Sphp\Html\Span;
 use Sphp\Html\Sections\Paragraph;
 
 /**
- * Class models a Foundation 6 Progress Bar
+ * Implements a Progress Bar
  *
  * @author  Sami Holck <sami.holck@gmail.com>
  * @since   2016-06-01
@@ -62,7 +62,7 @@ class ProgressBar extends AbstractComponent implements ColourableInterface {
    * Sets the visibility of the progress bar text
    * 
    * @param  boolean $show true for visible progress text and false otherwise
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function showProgressText($show = true) {
     if ($show) {
@@ -77,7 +77,7 @@ class ProgressBar extends AbstractComponent implements ColourableInterface {
    * Sets the progress bar name
    * 
    * @param  string $name the optional bar name for build-in javascript library use
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function setBarName($name) {
     $this->attrs()->set('data-sphp-progressbar-name', $name);
@@ -89,7 +89,7 @@ class ProgressBar extends AbstractComponent implements ColourableInterface {
    * 
    * @param  int $progress (0-100) the current progress
    * @param  string $progressText the optional screenreader text describing the current progress
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function setProgress($progress, $progressText = null) {
     if ($progressText === null) {
@@ -98,7 +98,7 @@ class ProgressBar extends AbstractComponent implements ColourableInterface {
     $this->attrs()
             ->set('aria-valuenow', $progress)
             ->set('aria-valuetext', $progressText);
-    $this->setTitle($progressText);
+    $this->attrs()->set('title', $progressText);
     $this->progressMeter->inlineStyles()->setProperty('width', "$progress%");
     $this->progressMeter['progress-meter-text']->replaceContent("$progress%");
     return $this;

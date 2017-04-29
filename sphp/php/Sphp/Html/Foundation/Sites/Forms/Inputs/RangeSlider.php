@@ -10,6 +10,7 @@ namespace Sphp\Html\Foundation\Sites\Forms\Inputs;
 use Sphp\Html\Forms\Inputs\HiddenInput;
 use Sphp\Html\Forms\Label;
 use Sphp\Html\Span;
+use Sphp\Html\Adapters\VisibilityAdapter;
 
 /**
  * Slider allows to drag a handle to select a specific value from a range
@@ -86,7 +87,6 @@ class RangeSlider extends AbstractSlider {
    * @return Label the label describing the slider
    */
   private function getInnerLabel() {
-    //return $this->content()["label"];
   }
 
   /**
@@ -111,14 +111,11 @@ class RangeSlider extends AbstractSlider {
    * Sets the visibility of the current slider value
    * 
    * @param  boolean $valueVisible true for visible and false for hidden
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function showValue($valueVisible = true) {
-    if ($valueVisible) {
-      $this->getInnerLabel()->unhide();
-    } else {
-      $this->getInnerLabel()->hide();
-    }
+    $vis = new VisibilityAdapter($this->getInnerLabel());
+    $vis->setHidden(!$valueVisible);
     return $this;
   }
 
@@ -126,7 +123,7 @@ class RangeSlider extends AbstractSlider {
    * Sets the description text of the slider
    * 
    * @param  string $description the description text of the slider
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function setDescription($description) {
     $this->getInnerLabel()["description"] = "$description ";
@@ -137,7 +134,7 @@ class RangeSlider extends AbstractSlider {
    * Sets the unit of the slider value
    * 
    * @param  string $unit the unit of the value
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function setValueUnit($unit = "") {
     $this->getInnerLabel()["unit"] = " $unit";

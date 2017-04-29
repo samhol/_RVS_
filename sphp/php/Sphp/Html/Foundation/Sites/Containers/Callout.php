@@ -12,7 +12,7 @@ use Sphp\Html\Foundation\Sites\Buttons\CloseButton;
 use Sphp\Html\Foundation\Sites\Core\ColourableTrait;
 
 /**
- * Implements a Foundation callout component
+ * Implements a callout component
  *
  * @author  Sami Holck <sami.holck@gmail.com>
  * @since   2016-03-02
@@ -53,7 +53,7 @@ class Callout extends Div implements CalloutInterface {
    * * `'large'` for large padding
    * 
    * @param  string|null $padding optional CSS class name defining the amount of the content padding
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    * @link   http://foundation.zurb.com/sites/docs/callout.html#sizing Callout Sizing
    */
   public function setPadding($padding = 'default') {

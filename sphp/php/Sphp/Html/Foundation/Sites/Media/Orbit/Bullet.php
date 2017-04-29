@@ -11,7 +11,7 @@ use Sphp\Html\AbstractComponent;
 use Sphp\Html\Span;
 
 /**
- * Class models a bullet for Foundation orbit
+ * Implements a bullet for Orbit
  *
  * @author  Sami Holck <sami.holck@gmail.com>
  * @since   2016-06-01
@@ -52,18 +52,15 @@ class Bullet extends AbstractComponent {
   public function __construct($slideNo, $slideText = null, $currentSlideText = 'Current Slide') {
     $this->number = $slideNo;
     parent::__construct('button');
-    //$this->content()->set("slide-text", "");
-    //$this->content()->set("is_current", "");
     $this->attrs()->lock('data-slide', $slideNo);
     $this->createSpans($slideText, $currentSlideText);
-    //$this->createScreenReaderComponents($slideNo);
   }
 
   /**
    * 
    * @param string $slideText
    * @param type $currentSlideText
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   private function createSpans($slideText, $currentSlideText) {
     if ($slideText === null) {
@@ -71,17 +68,15 @@ class Bullet extends AbstractComponent {
     }
     $this->srDescriptor = new Span($slideText);
     $this->srDescriptor->cssClasses()->lock('show-for-sr');
-    //$this->content()->set("slide-text", $this->srDescriptor);
     $this->currentDescriptor = new Span($currentSlideText);
     $this->currentDescriptor->cssClasses()->lock('show-for-sr');
-    //$this->content()->set("is_current", "");
     return $this;
   }
 
   /**
    * 
    * @param  string $description
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function setSlideDescription($description) {
     $this->srDescriptor->replaceContent($description);
@@ -91,7 +86,7 @@ class Bullet extends AbstractComponent {
   /**
    * 
    * @param  string $description
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function setCurrentSlideDescription($description) {
     $this->currentDescriptor->replaceContent($description);

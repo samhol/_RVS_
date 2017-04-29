@@ -30,8 +30,8 @@ class Circle extends EmptyTag implements AreaInterface {
    * @param string|null $alt
    */
   public function __construct($x, $y, $radius, $href = null, $alt = null) {
-    parent::__construct("area");
-    $this->attrs()->lock("shape", "circle");
+    parent::__construct('area');
+    $this->attrs()->lock('shape', 'circle');
     $this->setCoordinates($x, $y, $radius);
     if ($href !== null) {
       $this->setHref($href);
@@ -45,13 +45,13 @@ class Circle extends EmptyTag implements AreaInterface {
    * Sets the radius of the circle region
    * 
    * @param  int $radius the radius of the circle
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function setRadius($radius) {
-    $coords = split(",", $this->getCoordinates());
+    $coords = split(',', $this->getCoordinates());
     $coords[2] = $radius;
-    $coordsString = implode(",", $coords);
-    $this->attrs()->set("coords", $coordsString);
+    $coordsString = implode(',', $coords);
+    $this->attrs()->set('coords', $coordsString);
     return $this;
   }
 
@@ -59,13 +59,13 @@ class Circle extends EmptyTag implements AreaInterface {
    * Sets the x-coodinate of the center of the circle region
    * 
    * @param  int $x the x-coodinate of the circle center
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function setX($x) {
-    $coords = split(",", $this->getCoordinates());
+    $coords = split(',', $this->getCoordinates());
     $coords[0] = $x;
-    $coordsString = implode(",", $coords);
-    $this->attrs()->set("coords", $coordsString);
+    $coordsString = implode(',', $coords);
+    $this->attrs()->set('coords', $coordsString);
     return $this;
   }
 
@@ -73,13 +73,13 @@ class Circle extends EmptyTag implements AreaInterface {
    * Sets the y-coodinate of the center of the circle region
    * 
    * @param  int $y the y-coodinate of the circle center
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function setY($y) {
-    $coords = split(",", $this->getCoordinates());
+    $coords = split(',', $this->getCoordinates());
     $coords[1] = $y;
-    $coordsString = implode(",", $coords);
-    $this->attrs()->set("coords", $coordsString);
+    $coordsString = implode(',', $coords);
+    $this->attrs()->set('coords', $coordsString);
     return $this;
   }
 
@@ -89,12 +89,12 @@ class Circle extends EmptyTag implements AreaInterface {
    * @param  int $x the x-coodinate of the circle center
    * @param  int $y the y-coodinate of the circle center
    * @param  int $radius the radius of the circle
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function setCoordinates($x, $y, $radius) {
     $coords = [$x, $y, $radius];
-    $coordsString = implode(",", $coords);
-    $this->attrs()->set("coords", $coordsString);
+    $coordsString = implode(',', $coords);
+    $this->attrs()->set('coords', $coordsString);
     return $this;
   }
 

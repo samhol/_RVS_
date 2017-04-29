@@ -10,8 +10,8 @@ namespace Sphp\Html\Media;
 use Sphp\Html\ContentInterface;
 
 /**
- * Interface models sizing of various HTML media components
-
+ * Defines sizing of various HTML media components
+ *
  * @author  Sami Holck <sami.holck@gmail.com>
  * @since   2015-06-15
  * @license http://www.gnu.org/licenses/gpl-3.0.html GPLv3
@@ -23,7 +23,7 @@ interface SizeableInterface extends ContentInterface {
    * Sets the dimensions of the component (in pixels)
    * 
    * @param  Size $size object containing the dimension settings
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function setSize(Size $size);
 
@@ -45,7 +45,7 @@ interface SizeableInterface extends ContentInterface {
    * Sets the width of the component (in pixels)
    * 
    * @param  int $width the width of the component (in pixels)
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function setWidth($width);
 
@@ -60,7 +60,7 @@ interface SizeableInterface extends ContentInterface {
    * Sets the height of the component (in pixels)
    * 
    * @param  int $height the height of the component (in pixels)
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function setHeight($height);
 }

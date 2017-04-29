@@ -9,12 +9,12 @@ namespace Sphp\Html\Head;
 
 use Sphp\Html\NonVisualContentInterface;
 use Sphp\Html\AbstractComponent;
-use Sphp\Core\Path;
+use Sphp\Stdlib\Path;
 use Sphp\Html\Container;
-use Sphp\Core\Types\Strings;
+use Sphp\Stdlib\Strings;
 use Sphp\Html\Programming\ScriptsContainer;
 use Sphp\Html\Programming\ScriptInterface;
-use Sphp\Core\Types\URL;
+use Sphp\Stdlib\URL;
 
 /**
  * Implements an HTML &lt;head&gt; tag
@@ -75,14 +75,14 @@ class Head extends AbstractComponent implements NonVisualContentInterface {
    *
    * @param  string $title the title of the HTML document
    * @param  string $charset the character set of the HTML document
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   private function setup($title, $charset) {
     $this->setDocumentTitle($title);
     $this->meta = new MetaContainer();
     $this->scripts = new ScriptsContainer();
     $this->links = new Container();
-    $this->metaTags()->setCharset($charset);
+    $this->addMeta(Meta::charset($charset));
     return $this;
   }
 
@@ -103,7 +103,7 @@ class Head extends AbstractComponent implements NonVisualContentInterface {
    * Sets the title of the html page
    *
    * @param  string|Title $title the title of the html page
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function setDocumentTitle($title) {
     if (!($title instanceof Title)) {
@@ -118,7 +118,7 @@ class Head extends AbstractComponent implements NonVisualContentInterface {
    *
    * @param  string|URL $baseAddr the base URL for all relative URLs in the page
    * @param  string $target the default target for all hyperlinks and forms in the page
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    * @link   http://www.w3schools.com/tags/tag_base.asp  w3schools HTML API link
    */
   public function setBaseAddr($baseAddr, $target = '_self') {
@@ -133,7 +133,7 @@ class Head extends AbstractComponent implements NonVisualContentInterface {
   /**
    * unsets the default URL and a default target for all links on a page
    *
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    * @link   http://www.w3schools.com/tags/tag_base.asp  w3schools HTML API link
    */
   public function unsetBaseAddress() {
@@ -144,17 +144,17 @@ class Head extends AbstractComponent implements NonVisualContentInterface {
   /**
    * Sets up the Font Awesome icons
    *
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    * @link   http://fontawesome.io/icons/?utm_source=www.qipaotu.com Font Awesome icons
    */
   public function useFontAwesome() {
-    return $this->addCssSrc('https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css');
+    return $this->addCssSrc('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
   }
 
   /**
    * Sets up the Foundation icons
    *
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    * @link   http://zurb.com/playground/foundation-icon-fonts-3 Foundation icons
    */
   public function useFoundationIcons() {
@@ -165,12 +165,12 @@ class Head extends AbstractComponent implements NonVisualContentInterface {
   /**
    * Sets up the Foundation framework related CSS files and meta data
    *
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function enableSPHP() {
-    $this->metaTags()->setViewport('width=device-width, initial-scale=1.0');
-    $this->metaTags()->setCharset('UTF-8');
-    $this->addCssSrc(Path::get()->http() . 'sphp/css/sphp6.styles.all.css')
+    $this->addMeta(Meta::viewport('width=device-width, initial-scale=1.0'))
+            ->addMeta(Meta::charset('UTF-8'));
+    $this->addCssSrc(Path::get()->http() . 'sphp/css/sphp.all.css')
             ->addCssSrc('https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.1.1/motion-ui.min.css')
             ->useVideoJS();
     return $this;
@@ -179,12 +179,12 @@ class Head extends AbstractComponent implements NonVisualContentInterface {
   /**
    * Appends JavaScript files for Video.js
    *
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    * @link   http://www.videojs.com/ Video.js
    */
   public function useVideoJS() {
-    $this->addCssSrc('//vjs.zencdn.net/5.8/video-js.min.css')
-            ->appendScriptSrc('//vjs.zencdn.net/ie8/1.1.1/videojs-ie8.min.js');
+    $this->addCssSrc('http://vjs.zencdn.net/5.18.4/video-js.css')
+            ->appendScriptSrc('http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js');
     return $this;
   }
 
@@ -193,7 +193,7 @@ class Head extends AbstractComponent implements NonVisualContentInterface {
    *
    * @param  string $src the file path of the script file
    * @param  boolean $async true for asynchronous execution, false otherwise
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    * @link   http://www.w3schools.com/tags/att_script_src.asp src attribute
    * @link   http://www.w3schools.com/tags/att_script_async.asp async attribute
    */
@@ -208,7 +208,7 @@ class Head extends AbstractComponent implements NonVisualContentInterface {
    * @param  string $href an absolute URL that acts as the base URL
    * @param  string $media the relationship between the current document and the linked one
    * @param  string $media what media/device the target resource is optimized for
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    * @link   http://www.w3schools.com/tags/att_link_href.asp href attribute
    * @link   http://www.w3schools.com/tags/att_link_media.asp media attribute
    */
@@ -222,15 +222,13 @@ class Head extends AbstractComponent implements NonVisualContentInterface {
    *
    * @param  string $href an absolute URL that acts as the base URL
    * @param  string $type the MIME type of the linked document
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    * @link   http://www.w3schools.com/tags/att_link_href.asp href attribute
    * @link   http://www.w3schools.com/tags/att_link_type.asp type attribute
    * @link   http://www.iana.org/assignments/media-types complete list of standard MIME types
    */
-  public function addShortcutIcon($href, $type = 'image/ico') {
-    $link = new Link($href, 'shortcut icon');
-    $link->setType($type);
-    $this->addContent($link);
+  public function addShortcutIcon($href, $type = 'image/x-icon') {
+    $this->addContent(Link::shortcutIcon($href, $type));
     return $this;
   }
 
@@ -238,7 +236,7 @@ class Head extends AbstractComponent implements NonVisualContentInterface {
    * Adds content component to the object
    *
    * @param  HeadComponentInterface $component content the component to add
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function addContent(HeadComponentInterface $component) {
     if ($component instanceof Title) {
@@ -248,7 +246,7 @@ class Head extends AbstractComponent implements NonVisualContentInterface {
     } else if ($component instanceof Link) {
       $this->links->append($component);
     } else if ($component instanceof Meta) {
-      $this->metaTags()->addMeta($component);
+      $this->addMeta($component);
     } else if ($component instanceof ScriptInterface) {
       $this->scripts()->append($component);
     } else {
@@ -264,6 +262,17 @@ class Head extends AbstractComponent implements NonVisualContentInterface {
    */
   public function metaTags() {
     return $this->meta;
+  }
+
+  /**
+   * Adds meta data object
+   *
+   * @param  MetaInterface $meta
+   * @return self for a fluent interface
+   */
+  public function addMeta(MetaInterface $meta) {
+    $this->meta->addMeta($meta);
+    return $this;
   }
 
   public function contentToString() {

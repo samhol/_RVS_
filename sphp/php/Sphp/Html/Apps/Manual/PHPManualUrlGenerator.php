@@ -61,7 +61,7 @@ class PHPManualUrlGenerator extends UrlGenerator implements ApiUrlGeneratorInter
   public function getFunctionUrl($function) {
     return $this->create("function." . $this->phpPathFixer($function));
   }
-  
+
   public function getConstantUrl($constant) {
     return $this->create('reserved.constants.php#constant.' . $this->phpPathFixer($constant));
   }
@@ -70,7 +70,7 @@ class PHPManualUrlGenerator extends UrlGenerator implements ApiUrlGeneratorInter
    * Sets the language of the PHP documentation
    * 
    * @param  string $lang two letter language code 
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function setLanguage($lang) {
     $url = preg_replace('~[a-z]{2}\/$~', "$lang/", $this->getRoot());

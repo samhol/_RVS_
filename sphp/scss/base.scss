@@ -81,9 +81,6 @@ html, body {
     }
   }
 
-
-
-
   &[data-accordion-menu] {
     a {
       color: #fff;
@@ -160,7 +157,7 @@ body {
   }
   table {
     font-size: rem-calc(14);
-    table-layout : fixed;
+    //table-layout : fixed;
     th, td {
     }
   }

@@ -11,7 +11,7 @@ use Sphp\Html\ContentInterface;
 use Sphp\Html\ComponentInterface;
 
 /**
- * Class models an action controller that copies content from the target component to the user's clipboard
+ * Implements an action controller that copies content from the target component to the user's clipboard
  *
  * Component uses The ZeroClipboard library as its backbone.
  *
@@ -65,7 +65,7 @@ class ContentCopyController implements ContentInterface {
   /**
    * 
    * @param  ComponentInterface $target
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function setCopyTarget($target) {
     if ($target !== $this->target) {
@@ -75,7 +75,8 @@ class ContentCopyController implements ContentInterface {
         $id = $target;
       }
       $this->target = $target;
-      $this->button->setAttr('data-clipboard-target', $id);
+      $this->button->setAttr('data-clipboard-target', "#$id");
+      $this->button->setAttr('data-clipboard-action', 'copy');
     }
     return $this;
   }

@@ -7,13 +7,10 @@
 
 namespace Sphp\Html\Tables;
 
-use Sphp\Html\ContainerTag;
-use Sphp\Html\Document;
-
 /**
  * Implements an HTML &lt;tr&gt; tag
  *
- *  The {@link self} component represents a row of {@link CellInterface}
+ *  This component represents a row of {@link CellInterface}
  *  components in a {@link Table}.
  *
  * {@inheritdoc}
@@ -26,14 +23,7 @@ use Sphp\Html\Document;
  * @license http://www.gnu.org/licenses/gpl-3.0.html GPLv3
  * @filesource
  */
-class Tr extends ContainerTag implements RowInterface {
-
-  /**
-   * the default type of the table cells (`td`|`th`)
-   *
-   * @var string 
-   */
-  private $cellType = "td";
+class Tr extends AbstractRow {
 
   /**
    * Constructs a new instance
@@ -52,127 +42,29 @@ class Tr extends ContainerTag implements RowInterface {
    * @param  string $cellType the default type of the cell 
    *         (`td`|`th`)
    */
-  public function __construct($cells = null, $cellType = 'td') {
-    parent::__construct('tr');
-    $this->setDefaultCellType($cellType);
+  public function __construct($cells = null) {
+    parent::__construct();
     if (isset($cells)) {
-      $this->append($cells, $cellType);
+      $this->appendTds($cells);
     }
   }
 
   /**
-   * Sets the default type of the table cells
    * 
-   * @param  string $defaultCell the default type of the cell
-   *         (`td`|`th`)
-   * @return self for PHP Method Chaining
+   * @param  mixed $tds
+   * @return self
    */
-  public function setDefaultCellType($defaultCell) {
-    $this->cellType = $defaultCell;
-    return $this;
+  public static function fromTds($tds) {
+    return (new static())->appendTds($tds);
   }
 
   /**
-   * Sets the default type of the table cells
    * 
-   * @return string the default type of the cell `td|th`
+   * @param  mixed $ths
+   * @return self
    */
-  public function getDefaultCellType() {
-    return $this->cellType;
-  }
-
-  /**
-   * Appends {@link CellInterface} components to the table row component
-   *
-   * **Notes:**
-   *
-   *  mixed <var>$cells</var> can be of any type that converts to a string or
-   *  to a string[].
-   *
-   * <var>$cellType</var> attribute can have two case insensitive values:
-   * 
-   * * 'td' => all mixed <var>$cells</var> are wrapped with {@link Td}
-   * * 'th' => all mixed <var>$cells</var> are wrapped with {@link Th}
-   * 
-   *
-   * @param  mixed|Cell|Cell[] $cells cells of the table row
-   * @param  string $cellType the default type of the cell `td|th`
-   * @return self for PHP Method Chaining
-   */
-  public function append($cells, $cellType = 'td') {
-    parent::append($this->parseNewCells($cells, $cellType));
-    return $this;
-  }
-
-  /**
-   * Prepends {@link Cell} components to the table row component
-   *
-   * **Notes:**
-   *
-   *  **Important!** The keys of the object will be renumbered starting from
-   *  zero.
-   *
-   *  mixed <var>$cells</var> can be of any type that converts to a string or
-   *  to a string[].
-   *
-   * <var>$cellType</var> attribute can have two case insensitive values:
-   * 
-   * * 'td' => all mixed <var>$cells</var> are of type {@link Td}
-   * * 'th' => all mixed <var>$cells</var> are of type {@link Th}
-   * 
-   *
-   * @param  mixed|Cell|Cell[] $cells cells of the table row
-   * @param  string $cellType the default type of the cell `td|th`
-   * @return self for PHP Method Chaining
-   */
-  public function prepend($cells, $cellType = 'td') {
-    parent::prepend($this->parseNewCells($cells, $cellType));
-    return $this;
-  }
-
-  /**
-   * Returns the input as an array of components extending {@link TableCell}
-   *
-   *  mixed <var>$rawData</var> can be of any type that converts to a string or
-   *  to a string[].
-   *
-   * <var>$rawData</var> attribute can have two case insensitive values:
-   * 
-   * * 'td' => all mixed <var>$rawData</var> are of type {@link Td}
-   * * 'th' => all mixed <var>$rawData</var> are of type {@link Th}
-   * 
-   * @param  mixed|Cell|Cell[] $rawData cells of the table row
-   * @param  string $cellType the default type of the cell `td|th`
-   * @return Cell[] table cells
-   */
-  protected function parseNewCells($rawData, $cellType = 'td') {
-    foreach (is_array($rawData) ? $rawData : [$rawData] as $cell) {
-      if ($cell instanceof Cell) {
-        $arr[] = $cell;
-      } else {
-        $arr[] = Document::get($cellType)->append($cell);
-      }
-    }
-    return $arr;
-  }
-
-  /**
-   * Assigns a single {@link TableCell} component to the specified offset
-   *
-   * **Notes:**
-   *
-   *  mixed <var>$value</var> can be of any type that converts to a string or
-   *  to a string[].
-   *
-   *  a non {@link Cell} <var>$value</var> is wrapped to a {@link Td} object
-   *
-   * @param mixed $offset the offset to assign the value to
-   * @param mixed|Cell $value the value to set
-   * @link  http://php.net/manual/en/arrayaccess.offsetset.php ArrayAccess::offsetGet
-   */
-  public function offsetSet($offset, $value) {
-    $cell = ($value instanceof Cell) ? $value : Document::get($this->getDefaultCellType())->append($value);
-    parent::offsetSet($offset, $cell);
+  public static function fromThs($ths) {
+    return (new static())->appendThs($ths);
   }
 
 }

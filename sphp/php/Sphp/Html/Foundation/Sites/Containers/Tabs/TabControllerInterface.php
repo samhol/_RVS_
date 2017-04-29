@@ -10,7 +10,7 @@ namespace Sphp\Html\Foundation\Sites\Containers\Tabs;
 use Sphp\Html\Lists\LiInterface;
 
 /**
- * Defines a Foundation Tab controller for Tabs
+ * Defines a Tab controller for Tabs
  *
  * @author  Sami Holck <sami.holck@gmail.com>
  * @since   2016-01-01
@@ -25,7 +25,7 @@ interface TabControllerInterface extends LiInterface {
    * Sets the Tab controller active/inactive
    * 
    * @param  boolean $active true for active and false for inactive
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function setActive($active = true);
 }

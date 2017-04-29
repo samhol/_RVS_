@@ -7,15 +7,10 @@
 
 namespace Sphp\Html\Programming;
 
-use Sphp\Core\Path;
+use Sphp\Stdlib\Path;
 
 /**
- * Description of SphpScriptsLoader
- *
- * 
- * **IMPORTANT:** 
- * 
- * The {@link self} component points to an external script file through the src attribute.
+ * Implements a SPHP JavaScript component container
  *
  * @author  Sami Holck <sami.holck@gmail.com>
  * @since   2011-10-17
@@ -27,7 +22,7 @@ use Sphp\Core\Path;
 class SphpScriptsLoader extends ScriptsContainer {
 
   /**
-   * Folderpaths to script resources
+   * Folder paths to script resources
    *
    * @var string[]
    */
@@ -44,7 +39,7 @@ class SphpScriptsLoader extends ScriptsContainer {
   /**
    * Appends Modernizr
    *
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    * @link   http://modernizr.com/ Modernizr
    */
   public function appendModernizr() {
@@ -54,7 +49,7 @@ class SphpScriptsLoader extends ScriptsContainer {
   /**
    * Appends FastClick
    *
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    * @link   https://github.com/ftlabs/fastclick FastClick
    */
   public function appendFastclick() {
@@ -64,7 +59,7 @@ class SphpScriptsLoader extends ScriptsContainer {
   /**
    * Appends the jQuery JavaScript file
    *
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    * @link   http://jquery.com/ jQuery
    */
   public function appendJQuery() {
@@ -74,7 +69,7 @@ class SphpScriptsLoader extends ScriptsContainer {
   /**
    * Appends JavaScript files for Foundation 6
    *
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    * @link   http://foundation.zurb.com/ Foundation
    */
   public function appendFoundation() {
@@ -85,88 +80,88 @@ class SphpScriptsLoader extends ScriptsContainer {
   /**
    * Appends JavaScript files for Any+Time AJAX Calendar Widget
    *
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    * @link   http://www.ama3.com/anytime/ Any+Time
    */
   public function appendAnyTime() {
-    return $this
-                    ->appendJQuery()
-                    ->appendSrc($this->paths['vendor'] . 'anytime.c.js');
+    $this->appendJQuery()
+            ->appendSrc($this->paths['vendor'] . 'anytime.c.js');
+    return $this;
   }
 
   /**
    * Appends JavaScript files for Video.js
    *
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    * @link   http://www.videojs.com/ Video.js
    */
   public function appendVideojs() {
-    return $this->appendSrc('http://vjs.zencdn.net/5.11.6/video.js');
-  }
-
-  /**
-   * Appends JavaScript files for ZeroClipboard
-   *
-   * @return self for PHP Method Chaining
-   * @link   http://zeroclipboard.org/ ZeroClipboard
-   */
-  public function appendZeroClipboard() {
-    return $this
-                    ->appendJQuery()
-                    ->appendSrc($this->paths['vendor'] . 'ZeroClipboard.min.js');
+    $this->appendSrc('http://vjs.zencdn.net/5.18.4/video.js');
+    return $this;
   }
 
   /**
    * Appends JavaScript files for Lazy Load XT
    *
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    * @link   http://www.videojs.com/ Video.js
    */
   public function appendLazyload() {
-    return $this
-                    ->appendJQuery()
-                    ->appendSrc($this->paths['vendor'] . 'jquery.lazyloadxt.extra.min.js');
+    $this->appendJQuery()
+            ->appendSrc($this->paths['vendor'] . 'jquery.lazyloadxt.extra.min.js');
+    return $this;
   }
 
   /**
    * Appends JavaScript files for build-in Photoalbum
    *
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    * @link   http://www.videojs.com/ Video.js
    */
   public function appendPhotoAlbum() {
-    return $this->appendSrc($this->paths['app'] . 'PhotoAlbum.js');
+    $this->appendSrc($this->paths['app'] . 'PhotoAlbum.js');
+    return $this;
   }
 
   /**
-   * Appends JavaScript files for build-in Photoalbum
+   * Appends JavaScript files for ION range slider
    *
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    * @link   http://www.videojs.com/ Video.js
    */
   public function appendIonRangeSlider() {
-    return $this->appendJQuery()
-                    ->appendSrc($this->paths['vendor'] . 'ion.rangeSlider.min.js')
-                    ->appendSrc($this->paths['app'] . 'init.ion.rangeSliders.js');
+    $this->appendJQuery()
+            ->appendSrc($this->paths['vendor'] . 'ion.rangeSlider.min.js')
+            ->appendSrc($this->paths['app'] . 'init.ion.rangeSliders.js');
+    return $this;
+  }
+
+  /**
+   * Appends JavaScript files for `clipboard.js` to copy text to clipboard
+   *
+   * @return self for a fluent interface
+   * @link   https://clipboardjs.com/ clipboard.js
+   */
+  public function appendClipboard() {
+    $this->appendSrc($this->paths['vendor'] . 'clipboard.js');
+    return $this;
   }
 
   /**
    * Appends JavaScript files for the entire SPHP framework
    *
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function appendSPHP() {
     $this->appendFoundation()
             ->appendLazyload()
-            ->appendZeroClipboard()
+            ->appendClipboard()
             ->appendAnyTime()
             ->appendVideojs()
-            // ->appendPhotoAlbum()
             ->appendIonRangeSlider()
             ->appendSrc($this->paths['vendor'] . 'jquery.qtip.min.js')
             ->appendSrc($this->paths['app'] . 'commonJqueryPlugins.js')
-            ->appendSrc($this->paths['app'] . 'sphp.form.validation.js')
-            ->appendSrc($this->paths['app'] . 'sphp.SideNavs.js')
+            ->appendSrc($this->paths['app'] . 'QtipAdapter.js')
             ->appendSrc($this->paths['app'] . 'sphp.TechLinks.js')
             ->appendSrc($this->paths['js_root'] . "sphp.all.js")
             ->appendCode('sphp.initialize("' . Path::get()->http() . '");')

@@ -8,7 +8,7 @@
 namespace Sphp\Html\Foundation\Sites\Core;
 
 /**
- * Class defines Foudation Screen Sizes and types and implements static screen size parsing functions
+ * Defines Screen Sizes and types and implements static screen size parsing functions
  *
  * @author  Sami Holck <sami.holck@gmail.com>
  * @since   2015-01-29
@@ -33,17 +33,18 @@ class Screen {
   private static $otherTypes = ['portrait', 'landscape', 'sr'];
 
   /**
+   * Returns all supported screen type names
    * 
-   * @return string[]
+   * @return string[] all supported screen type names
    */
   public static function allTypes() {
     return array_merge(static::$sizes, static::$otherTypes);
   }
 
   /**
-   * Checks whether the given screen size exists
+   * Checks whether the given screen type exists
    * 
-   * @param  string $size screen size name
+   * @param  string $size screen type name
    * @return boolean true if the given size exists
    */
   public static function typeExists($size) {

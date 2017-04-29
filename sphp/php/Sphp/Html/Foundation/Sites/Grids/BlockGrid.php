@@ -17,7 +17,7 @@ use Sphp\Html\ContentParserInterface;
 use Sphp\Html\ContentParsingTrait as ContentParsingTrait;
 
 /**
- * Class makes it possible to evenly split contents of a list within the grid.
+ * Implements a Block Grid component
  *
  * @author  Sami Holck <sami.holck@gmail.com>
  * @since   2016-02-13
@@ -56,14 +56,13 @@ class BlockGrid extends AbstractContainerComponent implements IteratorAggregate,
    * If you use both of those classes combined, you can control the
    * configuration and layout separately for each breakpoint.
    *
-   * @param  mixed|mixed[] $items list elements
    * @param  int $s column width for small screens (0-8)
    * @param  int|boolean $m column width for medium screens (0-8) or false for inheritance
    * @param  int|boolean $l column width for large screens (0-8) or false for inheritance
    * @param  int|boolean $xl column width for x-large screens (0-8) or false for inheritance
    * @param  int|boolean $xxl column width for xx-large screen)s (0-8) or false for inheritance
    */
-  public function __construct($items = null, $s = 3, $m = false, $l = false, $xl = false, $xxl = false) {
+  public function __construct($s = 3, $m = false, $l = false, $xl = false, $xxl = false) {
     $wrapper = function($c) {
       if (!($c instanceof BlockGridColumnInterface)) {
         $c = new BlockGridColumn($c);
@@ -76,17 +75,12 @@ class BlockGrid extends AbstractContainerComponent implements IteratorAggregate,
         $this->cssClasses()->add("$sreenSize-up-$width");
       }
     };
-    $widthSetter($s, "small");
-    $widthSetter($m, "medium");
-    $widthSetter($l, "large");
-    $widthSetter($xl, "xlarge");
-    $widthSetter($xxl, "xxlarge");
-    if ($items !== null) {
-      foreach (is_array($items) ? $items : [$items] as $item) {
-        $this->append($item);
-      }
-    }
-    $this->cssClasses()->lock("row");
+    $widthSetter($s, 'small');
+    $widthSetter($m, 'medium');
+    $widthSetter($l, 'large');
+    $widthSetter($xl, 'xlarge');
+    $widthSetter($xxl, 'xxlarge');
+    $this->cssClasses()->lock('row');
   }
 
   /**
@@ -105,13 +99,12 @@ class BlockGrid extends AbstractContainerComponent implements IteratorAggregate,
    * Appends a new Column to the container
    * 
    * @param  mixed $column column or column content
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function append($column) {
     $this->getInnerContainer()->append($column);
     return $this;
   }
-  
 
   /**
    * Appends a new Column to the container
@@ -131,7 +124,7 @@ class BlockGrid extends AbstractContainerComponent implements IteratorAggregate,
    * @param  int|boolean $l number of columns in a row on large screens (1-8) or false for inheritance
    * @param  int|boolean $xl number of columns in a row on x-large screens (1-8) or false for inheritance
    * @param  int|boolean $xxl number of columns in a row on xx-large screen)s (1-8) or false for inheritance
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function setBlockGrids($s, $m = false, $l = false, $xl = false, $xxl = false) {
     $this->setBlockGrid($s, "small")
@@ -155,7 +148,7 @@ class BlockGrid extends AbstractContainerComponent implements IteratorAggregate,
    * @precondition `$screenSize` == `small|medium|large|xlarge|xxlarge`
    * @param  int|boolean $num number of columns in a row (1-8) or false for inheritance
    * @param  string $screenSize the target screen size
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function setBlockGrid($num, $screenSize) {
     if ($num > self::MAX_GRID) {
@@ -202,7 +195,7 @@ class BlockGrid extends AbstractContainerComponent implements IteratorAggregate,
    *
    * @precondition `$screenSize` == `medium|large|xlarge|xxlarge`
    * @param  string $screenSize the target screen size
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   protected function unsetBlockGrid($screenSize) {
     $this->cssClasses()->remove(static::createClasses($screenSize));

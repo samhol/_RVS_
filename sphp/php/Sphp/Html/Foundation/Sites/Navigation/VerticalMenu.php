@@ -8,10 +8,11 @@
 namespace Sphp\Html\Foundation\Sites\Navigation;
 
 /**
- * Implements a Dropown menu for Foundation Top Bar navigation menu
+ * Implements a vertical navigation menu
  *
  * @author  Sami Holck <sami.holck@gmail.com>
  * @since   2016-03-11
+ * @link    http://foundation.zurb.com/ Foundation
  * @license http://www.gnu.org/licenses/gpl-3.0.html GPLv3
  * @filesource
  */
@@ -22,7 +23,7 @@ class VerticalMenu extends Menu {
    *
    * @param mixed $content
    */
-  public function __construct($content = NULL) {
+  public function __construct($content = null) {
     parent::__construct($content);
     $this->cssClasses()->lock('vertical');
   }

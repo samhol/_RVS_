@@ -15,8 +15,10 @@ use Gajus\Dindent\Indenter;
 use Sphp\Html\Forms\Buttons\ButtonTag as Button;
 use Sphp\Html\Apps\ContentCopyController as CopyToClipboardButton;
 use Sphp\Html\Div;
-use InvalidArgumentException;
-use Sphp\Core\Util\FileUtils;
+use Sphp\Exceptions\InvalidArgumentException;
+use Sphp\Stdlib\Filesystem;
+use Sphp\Html\Adapters\VisibilityAdapter;
+use Sphp\Stdlib\Strings;
 
 /**
  * Class wraps the GeSHi (a Generic Syntax Highlighter)
@@ -99,14 +101,14 @@ class SyntaxHighlighter extends AbstractComponent implements SyntaxHighlighterIn
 
   /**
    * 
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   private function initGeshi() {
     $this->geshi = new GeSHi();
     $this->geshi->enable_classes();
     $this->geshi->set_overall_class("syntax");
     $this->geshi->set_header_type(GESHI_HEADER_DIV);
-    //$this->geshi->set_overall_id(\Sphp\Core\Types\Strings::random());
+    //$this->geshi->set_overall_id(\Sphp\Stdlib\Strings::random());
     return $this;
   }
 
@@ -128,10 +130,10 @@ class SyntaxHighlighter extends AbstractComponent implements SyntaxHighlighterIn
   /**
    * 
    * @param  string $seed
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function setSyntaxBlockId($seed = "geshi_") {
-    $this->geshiId = $seed . \Sphp\Core\Types\Strings::random();
+    $this->geshiId = $seed . Strings::random();
     $this->geshi->set_overall_id($this->geshiId);
     return $this;
   }
@@ -140,7 +142,7 @@ class SyntaxHighlighter extends AbstractComponent implements SyntaxHighlighterIn
    * S
    * 
    * @param  int $number
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function startLineNumbersAt($number) {
     $this->geshi->start_line_numbers_at($number);
@@ -150,7 +152,7 @@ class SyntaxHighlighter extends AbstractComponent implements SyntaxHighlighterIn
   /**
    * 
    * @param  boolean $show
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function showLineNumbers($show = TRUE) {
     if ($show) {
@@ -165,14 +167,11 @@ class SyntaxHighlighter extends AbstractComponent implements SyntaxHighlighterIn
    * Sets whether the footer is visible or not
    *
    * @param  boolean $use true the footer is visible, false otherwise
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function useFooter($use = true) {
-    if ($use) {
-      $this->footer->unhide();
-    } else {
-      $this->footer->hide();
-    }
+    $vis = new VisibilityAdapter($this->footer);
+    $vis->setHidden(!$use);
     return $this;
   }
 
@@ -194,14 +193,11 @@ class SyntaxHighlighter extends AbstractComponent implements SyntaxHighlighterIn
    * Sets whether the copy button is in use or not
    *
    * @param  boolean $use true if the button is in use, false otherwise
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function useDefaultContentCopyController($use = true) {
-    if ($use) {
-      $this->copyBtn->getController()->unhide();
-    } else {
-      $this->copyBtn->getController()->hide();
-    }
+    $vis = new VisibilityAdapter($this->copyBtn->getController());
+    $vis->setHidden(!$use);
     return $this;
   }
 
@@ -209,7 +205,7 @@ class SyntaxHighlighter extends AbstractComponent implements SyntaxHighlighterIn
    * Sets the copier button
    *
    * @param  mixed $button the copier button
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function setDefaultContentCopyController($button = "copy") {
     if (!($button instanceof ComponentInterface)) {
@@ -232,25 +228,30 @@ class SyntaxHighlighter extends AbstractComponent implements SyntaxHighlighterIn
   }
 
   public function loadFromFile($filename) {
-    if (!file_exists($filename)) {
+    try {
+      $path = Filesystem::getFullPath($filename);
+      $this->geshi->load_from_file($path);
+      return $this;
+    } catch (\Exception $ex) {
       throw new InvalidArgumentException("The file '$filename' does not exist!");
     }
-    $this->geshi->load_from_file($filename);
-    return $this;
+    if (!Filesystem::isFile($filename)) {
+      
+    }
   }
 
   /**
    * 
    * @param  string $path
    * @param  string $lang
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    * @throws InvalidArgumentException
    */
   public function executeFromFile($path, $lang = "text") {
     if (!file_exists($path)) {
       throw new InvalidArgumentException("The file in the '$path' does not exist!");
     }
-    $source = FileUtils::executePhpToString($path);
+    $source = Filesystem::executePhpToString($path);
     if ($lang == "html5") {
       $source = (new Indenter())->indent($source);
     } else if ($lang == "sql") {

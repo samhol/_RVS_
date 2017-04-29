@@ -8,7 +8,7 @@
 namespace Sphp\Html\Apps;
 
 use Sphp\Html\AbstractContainerComponent;
-use Sphp\Core\Types\URL;
+use Sphp\Stdlib\URL;
 use Sphp\Html\Navigation\ImageLink as ImageLink;
 
 /**
@@ -26,14 +26,14 @@ class TechLinkList extends AbstractContainerComponent {
    */
   public function __construct() {
     parent::__construct('div');
-    $this->cssClasses()->lock("sphp-tech-list");
+    $this->cssClasses()->lock('sphp-tech-list');
     $this->createContent();
   }
 
   /**
    * Creates the content of the component
    *
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   private function createContent() {
     $currentUrl = URL::getCurrent()->getHtml();

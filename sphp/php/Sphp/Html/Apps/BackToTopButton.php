@@ -19,11 +19,13 @@ use Sphp\Html\Document;
  * @filesource
  */
 class BackToTopButton extends AbstractComponent {
+
   /**
    *
    * @var string 
    */
-private $iconClasses;
+  private $iconClasses;
+
   /**
    * Constructs a new instance
    *
@@ -39,6 +41,18 @@ private $iconClasses;
 
   public function contentToString() {
     return Document::icon($this->iconClasses)->getHtml();
+  }
+
+  /**
+   * Sets the value of the title attribute
+   *
+   * @param  string|null $title the value of the title attribute
+   * @return self for a fluent interface
+   * @link   http://www.w3schools.com/tags/att_global_title.asp title attribute
+   */
+  public function setTitle($title) {
+    $this->setAttr('title', $title);
+    return $this;
   }
 
 }

@@ -8,7 +8,7 @@
 namespace Sphp\Html\Foundation\Sites\Core;
 
 /**
- * Implements Foundation 6 Screen reader label for Foundation
+ * Implements Screen reader label for Foundation
  * 
  * As default all of the content of this component is only visible for screen readers
  *
@@ -25,7 +25,7 @@ interface ScreenReaderLabelable {
    * Sets the inner label for screen reader text
    * 
    * @param  ScreenReaderLabel|string $label the screen reader label or its textual content
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function setScreenReaderLabel($label);
 

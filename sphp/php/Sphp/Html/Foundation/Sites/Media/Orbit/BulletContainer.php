@@ -10,7 +10,7 @@ namespace Sphp\Html\Foundation\Sites\Media\Orbit;
 use Sphp\Html\AbstractContainerComponent;
 
 /**
- * Implements a bullet container for Foundation Orbit
+ * Implements a bullet container for Orbit
  *
  * @author  Sami Holck <sami.holck@gmail.com>
  * @since   2016-06-01
@@ -39,14 +39,14 @@ class BulletContainer extends AbstractContainerComponent {
    * Sets a bullet pointing to a Orbit component
    *
    * @param  int|Bullet $bullet
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function set($bullet) {
     if (!($bullet instanceof Bullet)) {
       $slideNo = $bullet;
       $bullet = new Bullet($slideNo);
     } else {
-      $slideNo = $bullet->getSlideNo(); 
+      $slideNo = $bullet->getSlideNo();
     }
     $this->getInnerContainer()->set($slideNo, $bullet);
     return $this;
@@ -67,7 +67,7 @@ class BulletContainer extends AbstractContainerComponent {
    * Sets the bullet of given index active
    *
    * @param  int $bulletNo
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function setActive($bulletNo) {
     foreach ($this->getInnerContainer() as $no => $bullet) {

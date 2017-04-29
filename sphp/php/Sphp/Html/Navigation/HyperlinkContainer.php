@@ -10,7 +10,6 @@ namespace Sphp\Html\Navigation;
 use Sphp\Html\AbstractContainerTag;
 use Sphp\Html\Navigation\Hyperlink;
 use Sphp\Html\Navigation\HyperlinkInterface;
-use Sphp\Core\Types\URL;
 
 /**
  * Implements a hyperlink container
@@ -49,30 +48,46 @@ class HyperlinkContainer extends AbstractContainerTag implements HyperlinkInterf
     return $this->getInnerContainer();
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function getHref() {
     return $this->getHyperlink()->getHref();
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function setHref($href, $encode = true) {
     $this->getHyperlink()->setHref($href, $encode);
     return $this;
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function setTarget($target) {
     $this->getHyperlink()->setTarget($target);
     return $this;
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function getTarget() {
     return $this->getHyperlink()->getTarget();
   }
 
-  public function urlEquals($currentUrl = null) {
-    return $this->getHyperlink()->urlEquals($currentUrl);
-  }
-
-  public function isCurrentUrl() {
-    return $this->getHyperlink()->isCurrentUrl();
+  /**
+   * Sets the value of the title attribute
+   *
+   * @param  string|null $title the value of the title attribute
+   * @return self for a fluent interface
+   * @link   http://www.w3schools.com/tags/att_global_title.asp title attribute
+   */
+  public function setTitle($title) {
+    $this->getHyperlink()->setAttr("title", $title);
+    return $this;
   }
 
 }

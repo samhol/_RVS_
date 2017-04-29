@@ -1,5 +1,7 @@
 #KATSASTUSTOIMINTA
 
+Rasion venseuran katsastajien [yhteystiedot](http://www.raisionveneseura.fi/yhteystiedot#katsastajat)
+
 Veneseurojen jäsenillä on mahdollisuus katsastuttaa veneensä vuosittain. Raision veneseuran
 piirissä venekatsastus on seuran veneille vapaaehtoinen, muitten veneseurojen
 käytännöt vaihtelevat. Säännöllinen venekatsastus varmistaa osaltaan sen, että

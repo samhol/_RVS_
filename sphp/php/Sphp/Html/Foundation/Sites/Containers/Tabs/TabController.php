@@ -11,7 +11,7 @@ use Sphp\Html\AbstractContainerTag;
 use Sphp\Html\ContainerTag;
 
 /**
- * Implements a Foundation Tab controller for Tabs
+ * Implements a Tab controller for Tabs
  *
  * @author  Sami Holck <sami.holck@gmail.com>
  * @since   2016-01-01
@@ -37,8 +37,10 @@ class TabController extends AbstractContainerTag implements TabControllerInterfa
 
   public function setActive($active = true) {
     if ($active) {
+      $this->attrs()->setAria('aria-selected', 'true');
       $this->addCssClass('is-active');
     } else {
+      $this->attrs()->remove('aria-selected');
       $this->removeCssClass('is-active');
     }
     return $this;

@@ -7,7 +7,7 @@
 
 namespace Sphp\Images;
 
-use Sphp\Core\Types\URL;
+use Sphp\Stdlib\URL;
 use Sphp\Html\Media\Size;
 use Imagine\Gd\Imagine;
 use Imagine\Image\Box;
@@ -23,7 +23,7 @@ use Imagine\Image\Box;
 class ImageScaler {
 
   /**
-   * the cache foldername of the manipulated image
+   * the cache folder name of the manipulated image
    *
    * @var string
    */
@@ -66,7 +66,7 @@ class ImageScaler {
   public function __construct($src) {
     try {
       $this->src = "$src";
-      $this->cacheFolderName = md5("$this->src") . "/";
+      $this->cacheFolderName = md5($this->src) . "/";
       $imagine = new Imagine();
       $this->image = $imagine->open($src);
       $this->originalBox = $this->image->getSize();
@@ -90,7 +90,7 @@ class ImageScaler {
    * Scales the image to fit the given box (width, height), constraining proportions
    * 
    * @param  Size|Box $size the size to fit
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    * @throws \InvalidArgumentException
    */
   public function scaleToFit($size) {
@@ -152,7 +152,7 @@ class ImageScaler {
    * 
    * @precondition $height >= 0
    * @param  int $height the new height
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function heighten($height) {
     $this->box = $this->box->heighten($height);
@@ -164,7 +164,7 @@ class ImageScaler {
    * 
    * @precondition $width >= 0
    * @param  int $width the new height
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function widen($width) {
     $this->box = $this->box->widen($width);
@@ -175,7 +175,7 @@ class ImageScaler {
    * Resizes the image to the given dimensions (width, height)
    * 
    * @param  Size|Box $size the size to fit
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function resize($size) {
     $this->box = $this->sizeToBox($size);
@@ -186,7 +186,7 @@ class ImageScaler {
    * Scales the image by multiplying each side by the given ratio
    * 
    * @param  float $ratio the multiplying ratio
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function scale($ratio) {
     if ($ratio != 1 && $ratio > 0 && $ratio <= 2) {
@@ -232,7 +232,7 @@ class ImageScaler {
    *
    * @param  string $path the file path
    * @param  array  $options the options used on save
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function save($path, array $options = []) {
     $this->createImage()->save($path, $options);
@@ -245,7 +245,7 @@ class ImageScaler {
    * * The target file extension is used to determine file format
    * * jpg, jpeg, gif, png, wbmp and xbm are supported
    *
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function saveToCache() {
     $dir = $this->getCacheDir();
@@ -296,7 +296,7 @@ class ImageScaler {
    * Checks whether a cached version of given size
    * 
    * @param  Box $box optional box object defining the size of the created image. 
-   *         If none given ccurrent size is used.
+   *         If none given current size is used.
    * @return boolean true if the image of the size is stored into the cache
    */
   public function inCache(Box $box = null) {

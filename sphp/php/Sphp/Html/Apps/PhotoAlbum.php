@@ -9,8 +9,8 @@ namespace Sphp\Html\Apps;
 
 use Sphp\Html\AbstractContainerComponent;
 use Sphp\Html\Div;
-use Sphp\Core\Types\Strings;
-use Sphp\Core\Types\Arrays;
+use Sphp\Stdlib\Strings;
+use Sphp\Stdlib\Arrays;
 use Sphp\Images\Images as ImageUtils;
 use Sphp\Html\Navigation\Hyperlink;
 use Sphp\Html\Foundation\Buttons\HyperlinkButton;
@@ -73,7 +73,7 @@ class PhotoAlbum extends AbstractContainerComponent {
   /**
    * Builds the application
    *
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   private function build() {
     $this->getInnerContainer()
@@ -120,7 +120,7 @@ class PhotoAlbum extends AbstractContainerComponent {
    * Sets the paths of the viewed files an folders in thephoto album
    *
    * @param string|string[] $albumPaths the paths to the files/folders presented in this album
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function setAlbumPaths($albumPaths) {
     if (!is_array($albumPaths)) {
@@ -164,7 +164,7 @@ class PhotoAlbum extends AbstractContainerComponent {
    * Sets the heading content
    *
    * @param  mixed $headingText the heading content
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function setHeading($headingText) {
     $this->getHead()->replaceContent($headingText);
@@ -226,8 +226,8 @@ class PhotoAlbum extends AbstractContainerComponent {
         $thumbnailDiv = (new Div(array($img)))
                 ->setAttr("data-file-path", $file)
                 ->setAttr("data-img_index", $img_index)
-                ->addCssClass("thumbnail")
-                ->hide();
+                ->addCssClass("thumbnail");
+        $thumbnailDiv->inlineStyles()->setProperty('display', 'none');
         $photoArea[] = $thumbnailDiv;
       }
     }

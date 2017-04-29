@@ -11,7 +11,7 @@ use Sphp\Html\AbstractComponent;
 use Sphp\Html\Div;
 
 /**
- * Class implemnets Foundation Off-canvas navigation component
+ * Implements Off-canvas navigation component
  *
  * @author  Sami Holck <sami.holck@gmail.com>
  * @since   2015-09-15
@@ -24,93 +24,76 @@ class OffCanvas extends AbstractComponent {
 
   /**
    *
-   * @var boolean
+   * @var OffCanvasPane 
    */
-  private $useLeftMenu = false;
+  private $left;
 
   /**
    *
-   * @var boolean
+   * @var OffCanvasPane 
    */
-  private $useRightMenu = false;
+  private $right;
 
   /**
    *
-   * @var Div 
+   * @var OffCanvasPane 
    */
-  private $innerWrapper;
+  private $top;
 
   /**
    *
-   * @var Div 
+   * @var OffCanvasPane 
    */
-  private $leftOffCanvas;
+  private $bottom;
 
   /**
    *
-   * @var Div 
-   */
-  private $rightOffCanvas;
-
-  /**
-   *
-   * @var Div 
+   * @var Div
    */
   private $offCanvasContent;
 
   /**
    * Constructs a new instance
    *
-   * @param  string $title the main title of the component
+   * @param  string $position the main title of the component
    */
-  public function __construct($title = "") {
+  public function __construct($position = 'fixed') {
     parent::__construct('div');
+    $this->position = $position;
     $this->cssClasses()->lock('off-canvas-wrapper');
-    $this->innerWrapper = new Div();
-    $this->innerWrapper->cssClasses()->lock('off-canvas-wrapper-inner');
-    $this->innerWrapper->attrs()->demand('data-off-canvas-wrapper');
-    $this->leftOffCanvas = new OffCanvasArea();
-    $this->leftOffCanvas->cssClasses()->lock('off-canvas position-left');
-    $this->rightOffCanvas = new OffCanvasArea();
-    $this->rightOffCanvas->cssClasses()->lock('off-canvas position-right');
-    $this->innerWrapper['left'] = $this->leftOffCanvas;
-    $this->innerWrapper['right'] = $this->rightOffCanvas;
     $this->offCanvasContent = new Div();
     $this->offCanvasContent->cssClasses()->lock("off-canvas-content");
     $this->offCanvasContent->attrs()->demand('data-off-canvas-content');
-    $this->innerWrapper['content'] = $this->offCanvasContent;
   }
 
   /**
    * 
-   * @return Div
-   */
-  protected function getInnerWrap() {
-    return $this->innerWrapper;
-  }
-
-  /**
-   * 
-   * @return OffCanvasArea
+   * @return OffCanvasPane
    */
   public function leftMenu() {
-    return $this->getInnerWrap()['left'];
+    if ($this->left === null) {
+      $this->left = new OffCanvasPane('left', $this->position);
+    }
+    return $this->left;
   }
 
   /**
    * Returns the left Off-canvas menu
    * 
-   * @return OffCanvasArea
+   * @return OffCanvasPane
    */
   public function rightMenu() {
-    return $this->getInnerWrap()['right'];
+    if ($this->right === null) {
+      $this->right = new OffCanvasPane('right', $this->position);
+    }
+    return $this->right;
   }
 
   /**
    * Sets the title of the Off-canvas
    * 
    * @param  string $heading
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function setTitle($heading) {
     $this->getTabBar()['middle'][0]->replaceContent($heading);
@@ -121,7 +104,7 @@ class OffCanvas extends AbstractComponent {
    * Sets either the left or the right root menu of the Off-canvas
    * 
    * @param  AbstractRootMenu $menu the off-canvas menu
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function setMenu(AbstractRootMenu $menu) {
     if ($menu instanceof LeftMenu) {
@@ -138,12 +121,12 @@ class OffCanvas extends AbstractComponent {
    * Sets the visibility of the left root menu
    * 
    * @param  boolean $use true if the menu is visible and false otherwise
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function useLeftMenu($use = true) {
     $this->useLeftMenu = $use;
     if ($this->useLeftMenu) {
-      $this->getTabBar()['left'] = $this->leftMenu()->getMenuButton();
+      $this->getTabBar()['left'] = $this->leftMenu()->getOpener();
     } else {
       $this->getTabBar()['left'] = '';
     }
@@ -154,12 +137,12 @@ class OffCanvas extends AbstractComponent {
    * Sets the visibility of the right root menu
    * 
    * @param  boolean $use true if the menu is visible and false otherwise
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function useRightMenu($use = true) {
     $this->useRightMenu = $use;
     if ($this->useRightMenu) {
-      $this->getTabBar()["right"] = $this->rightMenu()->getMenuButton();
+      $this->getTabBar()["right"] = $this->rightMenu()->getOpener();
     } else {
       $this->getTabBar()["right"] = "";
     }
@@ -174,9 +157,17 @@ class OffCanvas extends AbstractComponent {
   public function mainContent() {
     return $this->offCanvasContent;
   }
-  
+
   public function contentToString() {
-    return $this->innerWrapper->getHtml();
+    $output = '';
+    if ($this->left !== null) {
+      $output .= $this->left;
+    }
+    if ($this->right !== null) {
+      $output .= $this->right;
+    }
+    $output .= $this->offCanvasContent;
+    return $output;
   }
 
 }

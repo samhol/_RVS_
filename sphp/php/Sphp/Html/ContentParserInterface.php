@@ -21,7 +21,7 @@ interface ContentParserInterface extends ContentInterface {
    * Appends content to the container
    *
    * @param  mixed $content appended content
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function append($content);
 
@@ -29,7 +29,8 @@ interface ContentParserInterface extends ContentInterface {
    * Appends a raw file to the container
    * 
    * @param  string $path path to the file
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
+   * @throws \Sphp\Exceptions\InvalidArgumentException if the parsing fails for any reason
    */
   public function appendRawFile($path);
 
@@ -37,7 +38,8 @@ interface ContentParserInterface extends ContentInterface {
    * Appends an executed PHP file to the container
    * 
    * @param  string $path
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
+   * @throws \Sphp\Exceptions\InvalidArgumentException if the parsing fails for any reason
    */
   public function appendPhpFile($path);
 
@@ -45,7 +47,7 @@ interface ContentParserInterface extends ContentInterface {
    * Appends a parsed Mark Down string to the container
    * 
    * @param  string $md path to the file
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function appendMd($md);
 
@@ -53,7 +55,8 @@ interface ContentParserInterface extends ContentInterface {
    * Appends a parsed Mark Down file to the container
    * 
    * @param  string $path path to the file
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
+   * @throws \Sphp\Exceptions\InvalidArgumentException if the parsing fails for any reason
    */
   public function appendMdFile($path);
 }

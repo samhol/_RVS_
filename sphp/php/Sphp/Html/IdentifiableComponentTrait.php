@@ -49,34 +49,16 @@ trait IdentifiableComponentTrait {
   }
 
   /**
-   * Sets the specified CSS class names removing old non locked ones
-   *
-   * **Important:** Parameter <var>$cssClasses</var> restrictions and rules
-   *
-   * 1. A string paramater can contain multiple comma separated CSS class names
-   * 2. An array paramater can contain only one CSS class name per value
-   * 3. Duplicate CSS class names are not stored
-   *
-   * @param  string|string[] $cssClasses CSS class names to set
-   * @return self for PHP Method Chaining
-   * @link   http://www.w3schools.com/tags/att_global_class.asp CSS class attribute
-   */
-  public function setCssClass($cssClasses) {
-    $this->cssClasses()->set($cssClasses);
-    return $this;
-  }
-
-  /**
    * Adds the specified CSS class names
    *
    * **Important:** Parameter <var>$cssClasses</var> restrictions and rules
    *
-   * 1. A string paramater can contain multiple space separated CSS class names
-   * 2. An array paramater can contain only one CSS class name per value
+   * 1. A string parameter can contain multiple space separated CSS class names
+   * 2. An array parameter can contain only one CSS class name per value
    * 3. Duplicate CSS class names are not stored
    *
    * @param  string|string[] $cssClasses CSS class names to add
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    * @link   http://www.w3schools.com/tags/att_global_class.asp CSS class attribute
    */
   public function addCssClass($cssClasses) {
@@ -85,30 +67,15 @@ trait IdentifiableComponentTrait {
   }
 
   /**
-   * Checks whether the given CSS class(es) are locked
-   *
-   * **Important:** Parameter <var>$cssClasses</var> restrictions and rules
-   *
-   * 1. A string paramater can contain multiple comma separated CSS class names
-   * 2. An array paramater can contain only one CSS class name per value
-   *
-   * @param  string|string[] $cssClasses CSS class names to check
-   * @return boolean true if the attribute has a locked value on it and false otherwise
-   */
-  public function cssClassLocked($cssClasses) {
-    return $this->cssClasses()->isLocked($cssClasses);
-  }
-
-  /**
    * Removes given CSS class names
    *
    * **Important:** Parameter <var>$cssClasses</var> restrictions and rules
    *
-   * 1. A string paramater can contain multiple comma separated CSS class names
-   * 2. An array paramater can contain only one CSS class name per value
+   * 1. A string parameter can contain multiple comma separated CSS class names
+   * 2. An array parameter can contain only one CSS class name per value
    *
    * @param  string|string[] $cssClasses CSS class names to remove
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    * @link   http://www.w3schools.com/tags/att_global_class.asp class attribute
    */
   public function removeCssClass($cssClasses) {
@@ -117,23 +84,12 @@ trait IdentifiableComponentTrait {
   }
 
   /**
-   * Removes all non locked CSS class names
-   *
-   * @return self for PHP Method Chaining
-   * @link   http://www.w3schools.com/tags/att_global_class.asp class attribute
-   */
-  public function clearCssClasses() {
-    $this->cssClasses()->clear();
-    return $this;
-  }
-
-  /**
    * Determines whether the given CSS class names exists
    *
    * **Important:** Parameter <var>$cssClasses</var> restrictions and rules
    *
-   * 1. A string paramater can contain multiple comma separated CSS class names
-   * 2. An array paramater can contain only one CSS class name per value
+   * 1. A string parameter can contain multiple comma separated CSS class names
+   * 2. An array parameter can contain only one CSS class name per value
    *
    * @param  string|string[] $cssClasses CSS class names to search for
    * @return boolean true if the given CSS class names exists
@@ -150,7 +106,7 @@ trait IdentifiableComponentTrait {
    *
    * @param  string $property CSS property
    * @param  string $value CSS value
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    * @link   http://www.w3schools.com/tags/att_global_style.asp style attribute
    */
   public function setStyle($property, $value) {
@@ -167,7 +123,7 @@ trait IdentifiableComponentTrait {
    * * Styles are defined as "property" => "value" pairs in the <var>$styles</var> array.
    *
    * @param  string[] $styles CSS property and CSS value pairs
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    * @link   http://www.w3schools.com/tags/att_global_style.asp style attribute
    */
   public function setStyles(array $styles) {
@@ -179,7 +135,7 @@ trait IdentifiableComponentTrait {
    * Removes the given inline style property
    *
    * @param  string $property CSS property name
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function removeStyle($property) {
     $this->inlineStyles()->unsetProperty($property);
@@ -189,7 +145,7 @@ trait IdentifiableComponentTrait {
   /**
    * Removes all inline style definitions
    *
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function clearStyles() {
     $this->inlineStyles()->clear();
@@ -222,10 +178,10 @@ trait IdentifiableComponentTrait {
    *
    * For each `$attr => $value` pairs the method calls the {@link self::setAttr()} method
    *
-   * @param    mixed[] $attrs an array of attribute name value pairs
-   * @return self for PHP Method Chaining
-   * @throws   InvalidAttributeException if any of the attributes is invalid
-   * @throws   UnmodifiableAttributeException if the value of the attribute is already locked
+   * @param  mixed[] $attrs an array of attribute name value pairs
+   * @return self for a fluent interface
+   * @throws InvalidAttributeException if any of the attributes is invalid
+   * @throws UnmodifiableAttributeException if the value of the attribute is already locked
    */
   public function setAttrs(array $attrs = []) {
     foreach ($attrs as $name => $value) {
@@ -265,7 +221,7 @@ trait IdentifiableComponentTrait {
    * Removes the given attribute if it is not required
    *
    * @param  string $name the name of the attribute
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function removeAttr($name) {
     $this->attrs()->remove($name);
@@ -297,55 +253,32 @@ trait IdentifiableComponentTrait {
     return $this->attrs()->exists($name);
   }
 
-  public function identify($identityName = "id", $prefix = "id_", $length = 16) {
-    return $this->attrs()->identify($identityName, $prefix, $length);
-  }
-
-  public function hasId($identityName = "id") {
-    return $this->attrs()->hasId($identityName);
-  }
-
   /**
-   * Sets the value of the title attribute
-   *
-   * @param  string|null $title the value of the title attribute
-   * @return self for PHP Method Chaining
-   * @link   http://www.w3schools.com/tags/att_global_title.asp title attribute
-   */
-  public function setTitle($title) {
-    return $this->setAttr("title", $title);
-  }
-
-  /**
-   * Hides the component from the document
-   *
-   * **Note:**
-   *
-   * The element will not be displayed at all (has no effect on layout). Adds
-   * an inline style property <var>display: hidden;</var> to the component.
-   *
-   * @return self for PHP Method Chaining
-   */
-  public function hide() {
-    $this->setStyle("display", "none");
-    return $this;
-  }
-
-  /**
-   * Unhides the component (Removes the inline hiding property)
+   * Identifies the element with an unique id attribute.
    *
    * **Notes:**
    *
-   *  Removes only inline style property <var>display: hidden;</var> . The component
-   *  might still be defined as hidden in CSS style sheets or by a JavaScript command.
-   *
-   * @return self for PHP Method Chaining
+   * HTML id attribute is unique to every HTML-element. Therefore given id is checked for its uniqueness.
+   * 
+   * @param  string $identityName the name of the identity attribute
+   * @param  string $prefix optional prefix of the identity value
+   * @param  int $length the length of the identity value
+   * @return self for a fluent interface
+   * @link   http://www.w3schools.com/tags/att_global_id.asp default id attribute
    */
-  public function unhide() {
-    if ($this->inlineStyles()->getProperty("display") == "none") {
-      $this->removeStyle("display");
-    }
-    return $this;
+  public function identify($identityName = 'id', $prefix = 'id_', $length = 16) {
+    return $this->attrs()->identify($identityName, $prefix, $length);
+  }
+
+  /**
+   * Checks whether the identifying attribute is set or not
+   *
+   * @param  string $identityName optional name of the identifying attribute
+   * @return boolean true if the identity is set, otherwise false
+   * @link   http://www.w3schools.com/tags/att_global_id.asp default id attribute
+   */
+  public function hasId($identityName = 'id') {
+    return $this->attrs()->hasId($identityName);
   }
 
 }

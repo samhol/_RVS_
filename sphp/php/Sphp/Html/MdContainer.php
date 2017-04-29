@@ -8,7 +8,7 @@
 namespace Sphp\Html;
 
 use ParsedownExtraPlugin;
-use Sphp\Core\Util\FileUtils;
+use Sphp\Stdlib\Filesystem;
 
 /**
  * Implements a Markdown container
@@ -22,18 +22,17 @@ use Sphp\Core\Util\FileUtils;
  */
 class MdContainer extends AbstractContainer {
 
-
   /**
    * Appends a Mark Down file to the container
    * 
    * @param  string $path the path to the file
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function appendFile($path) {
-    $this->append(FileUtils::executePhpToString($path));
+    $this->append(Filesystem::executePhpToString($path));
     return $this;
   }
-  
+
   public function getHtml() {
     $text = implode("\n", $this->toArray());
     return ParsedownExtraPlugin::instance()->text($text);

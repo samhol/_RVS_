@@ -9,6 +9,7 @@ namespace Sphp\Html\Foundation\Sites\Forms\Inputs;
 
 use Sphp\Html\AbstractComponent;
 use Sphp\Html\Forms\Inputs\IdentifiableInputInterface;
+use Sphp\Stdlib\Strings;
 
 /**
  * Class InputGroup
@@ -71,7 +72,7 @@ class InputGroup extends AbstractComponent implements IdentifiableInputInterface
    * `null` value hides the prefix
    * 
    * @param  string|null $prefix the content of the prefix
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function setPrefix($prefix = null) {
     $this->prefix = $prefix;
@@ -84,7 +85,7 @@ class InputGroup extends AbstractComponent implements IdentifiableInputInterface
    * `null` value hides the suffix
    * 
    * @param  string|null $suffix the content of the suffix
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function setSuffix($suffix = null) {
     $this->suffix = $suffix;
@@ -93,7 +94,7 @@ class InputGroup extends AbstractComponent implements IdentifiableInputInterface
 
   public function contentToString() {
     $a = function ($v) {
-      if (!\Sphp\Core\Types\Strings::isEmpty($v)) {
+      if (!Strings::isEmpty($v)) {
         return '<span class="input-group-label">' . $v . '</span>';
       } else {
         return "";

@@ -8,24 +8,24 @@
 namespace Sphp\Html\Media;
 
 use Sphp\Html\EmptyTag;
-use Sphp\Core\Types\URL;
+use Sphp\Stdlib\URL;
 use Sphp\Images\ImageScaler;
-use Sphp\Core\Types\Strings;
+use Sphp\Stdlib\Strings;
 use Sphp\Html\Media\ImageMap\Map;
 
 /**
  * Implements an HTML &lt;img&gt; tag
  *
- * An {@link self} component represents an image. The image given by the src attribute is
+ * This component represents an image. The image given by the src attribute is
  * the embedded content, and the value of the alt attribute is the img
  * element's fallback content.
  *
  * **Notes:**
  *
- * 1. The {@link self} component tag defines an image in an HTML page.
- * 2. The {@link self} component tag has two required attributes: src and alt.
+ * 1. This component tag defines an image in an HTML page.
+ * 2. This component tag has two required attributes: src and alt.
  * 3. Images are not technically inserted into an HTML page, images are linked to HTML pages.
- * 4. The {@link self} component tag creates a holding space for the referenced image.
+ * 4. This component tag creates a holding space for the referenced image.
  *
  * **Definition and Usage**
  *
@@ -62,8 +62,8 @@ class Img extends EmptyTag implements ImgInterface {
 
   /**
    * 
-   * @param  string|Map $map the imagemap name or instance
-   * @return self for PHP Method Chaining
+   * @param  string|Map $map the image map name or instance
+   * @return self for a fluent interface
    */
   public function useMap($map) {
     if ($map instanceof ImageMap\Map) {
@@ -92,7 +92,7 @@ class Img extends EmptyTag implements ImgInterface {
    *    (in this case you don't need to define "alt attribute at all")
    *
    * @param  string $alt the alternate text for an image
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    * @link   http://www.w3schools.com/tags/att_img_alt.asp alt attribute
    */
   public function setAlt($alt) {
@@ -141,7 +141,7 @@ class Img extends EmptyTag implements ImgInterface {
             ->scaleToFit($size)
             ->saveToCache()
             ->httpCachePath();
-    return new Img($path);
+    return new static($path);
   }
 
   /**
@@ -158,7 +158,7 @@ class Img extends EmptyTag implements ImgInterface {
             ->scale($ratio)
             ->saveToCache()
             ->httpCachePath();
-    return new Img($path);
+    return new static($path);
   }
 
   /**
@@ -176,7 +176,7 @@ class Img extends EmptyTag implements ImgInterface {
             ->resize($size)
             ->saveToCache()
             ->httpCachePath();
-    return new Img($path);
+    return new static($path);
   }
 
   /**
@@ -197,7 +197,7 @@ class Img extends EmptyTag implements ImgInterface {
             ->widen($width)
             ->saveToCache()
             ->httpCachePath();
-    return new Img($path);
+    return new static($path);
   }
 
   /**
@@ -217,7 +217,7 @@ class Img extends EmptyTag implements ImgInterface {
             ->heighten($height)
             ->saveToCache()
             ->httpCachePath();
-    return new Img($path);
+    return new static($path);
   }
 
 }

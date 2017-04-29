@@ -8,9 +8,7 @@
 namespace Sphp\Html;
 
 use IteratorAggregate;
-use Sphp\Core\Types\Arrays;
-use ArrayIterator;
-use Traversable;
+use Sphp\Stdlib\Arrays;
 
 /**
  * Implements a container for HTML components and other textual content
@@ -29,7 +27,7 @@ class Container implements IteratorAggregate, ContainerInterface, ContentParserI
       TraversableTrait;
 
   /**
-   * container's content
+   * content
    *
    * @var mixed[]
    */
@@ -79,6 +77,11 @@ class Container implements IteratorAggregate, ContainerInterface, ContentParserI
     return $this;
   }
 
+  public function setContent($content) {
+    $this->clear()->append($content);
+    return $this;
+  }
+
   /**
    * Count the number of inserted elements in the container
    *
@@ -87,15 +90,6 @@ class Container implements IteratorAggregate, ContainerInterface, ContentParserI
    */
   public function count() {
     return count($this->components);
-  }
-
-  /**
-   * Create a new iterator to iterate through inserted elements in the html component
-   *
-   * @return Traversable iterator
-   */
-  public function getIterator() {
-    return new ArrayIterator($this->components);
   }
 
   /**
@@ -127,7 +121,7 @@ class Container implements IteratorAggregate, ContainerInterface, ContentParserI
    *
    * @param  mixed $offset the offset to assign the value to
    * @param  mixed $value the value to set
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function offsetSet($offset, $value) {
     if (is_null($offset)) {
@@ -142,7 +136,7 @@ class Container implements IteratorAggregate, ContainerInterface, ContentParserI
    * Unsets an offset
    *
    * @param  mixed $offset offset to unset
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function offsetUnset($offset) {
     if ($this->offsetExists($offset)) {
@@ -159,7 +153,7 @@ class Container implements IteratorAggregate, ContainerInterface, ContentParserI
    * Replaces the content of the component
    *
    * @param  mixed $content new tag content
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function replaceContent($content) {
     return $this->clear()->append($content);
@@ -183,6 +177,10 @@ class Container implements IteratorAggregate, ContainerInterface, ContentParserI
       }
     }
     return $result;
+  }
+
+  public function getIterator() {
+    return new Iterator($this->components);
   }
 
 }

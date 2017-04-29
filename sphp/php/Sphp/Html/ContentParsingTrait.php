@@ -7,7 +7,7 @@
 
 namespace Sphp\Html;
 
-use Sphp\Core\Util\FileUtils;
+use Sphp\Stdlib\Filesystem;
 use ParsedownExtraPlugin;
 
 /**
@@ -19,15 +19,22 @@ use ParsedownExtraPlugin;
  * @filesource
  */
 trait ContentParsingTrait {
+  /**
+   * 
+   * @param  mixed $content
+   * @return self for a fluent interface
+   */
+   abstract public function append($content);
 
   /**
    * Appends a raw file to the container
    * 
    * @param  string $path
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
+   * @throws \Sphp\Exceptions\InvalidArgumentException if the parsing fails for any reason
    */
   public function appendRawFile($path) {
-    $this->append(FileUtils::fileToString($path));
+    $this->append(Filesystem::toString($path));
     return $this;
   }
 
@@ -35,10 +42,11 @@ trait ContentParsingTrait {
    * Appends an executed PHP file to the container
    * 
    * @param  string $path path to the PHP file
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
+   * @throws \Sphp\Exceptions\InvalidArgumentException if the parsing fails for any reason
    */
   public function appendPhpFile($path) {
-    $this->append(FileUtils::executePhpToString($path));
+    $this->append(Filesystem::executePhpToString($path));
     return $this;
   }
 
@@ -46,7 +54,7 @@ trait ContentParsingTrait {
    * Appends a parsed Mark Down string to the container
    * 
    * @param  string $md
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function appendMd($md) {
     $p = new ParsedownExtraPlugin();
@@ -58,10 +66,11 @@ trait ContentParsingTrait {
    * Appends a parsed Mark Down file to the container
    * 
    * @param  string $path
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
+   * @throws \Sphp\Exceptions\InvalidArgumentException if the parsing fails for any reason
    */
   public function appendMdFile($path) {
-    $this->appendMd(FileUtils::executePhpToString($path));
+    $this->appendMd(Filesystem::executePhpToString($path));
     return $this;
   }
 

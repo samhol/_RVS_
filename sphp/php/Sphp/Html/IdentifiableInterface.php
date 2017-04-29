@@ -8,7 +8,7 @@
 namespace Sphp\Html;
 
 /**
- * Interface specifies the basic functionality of an identifiable HTML component
+ * Defines the basic functionality of an identifiable HTML component
  *
  * @author  Sami Holck <sami.holck@gmail.com>
  * @since   2016-09-12
@@ -28,10 +28,10 @@ interface IdentifiableInterface {
    * @param  string $identityName the name of the identity attribute
    * @param  string $prefix optional prefix of the identity value
    * @param  int $length the length of the identity value
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    * @link   http://www.w3schools.com/tags/att_global_id.asp default id attribute
    */
-  public function identify($identityName = "id", $prefix = "id", $length = 16);
+  public function identify($identityName = 'id', $prefix = 'id', $length = 16);
 
   /**
    * Checks whether the identifying attribute is set or not
@@ -40,5 +40,5 @@ interface IdentifiableInterface {
    * @return boolean true if the identity is set, otherwise false
    * @link   http://www.w3schools.com/tags/att_global_id.asp default id attribute
    */
-  public function hasId($identityName = "id");
+  public function hasId($identityName = 'id');
 }

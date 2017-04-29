@@ -7,8 +7,6 @@
 
 namespace Sphp\Html\Foundation\Sites\Core;
 
-use Sphp\Html\ContentInterface;
-
 /**
  * Trait implements {@link ButtonStylingInterface} functionality
  *
@@ -19,7 +17,7 @@ use Sphp\Html\ContentInterface;
  * @license http://www.gnu.org/licenses/gpl-3.0.html GPLv3
  * @filesource
  */
-interface ColourableInterface extends ContentInterface {
+interface ColourableInterface {
 
   /**
    * Sets the color (a CSS class)
@@ -34,7 +32,7 @@ interface ColourableInterface extends ContentInterface {
    * * `'disabled'` for disabled buttons
    * 
    * @param  string|null $style one of the CSS class names defining button styles
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    * @link   http://foundation.zurb.com/docs/components/buttons.html#button-colors Button Sizing
    */
   public function setColor($style = null);

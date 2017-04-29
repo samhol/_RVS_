@@ -34,20 +34,12 @@ abstract class AbstractContainerComponent extends AbstractComponent {
   /**
    * Constructs a new instance
    *
-   * **Important!**
-   *
-   * 1. Parameter `mixed $content` can be of any type that converts to a string
-   *    or to an array of strigs. So also objects of any type that implement magic
-   *    method `__toString()` are allowed.
-   *
-   * @param  string $tagName the name of the tag
+   * @param  string $tagname the name of the tag
    * @param  AttributeManager|null $attrManager the attribute manager of the component
    * @param  ContainerInterface|null $contentContainer the inner content container of the component
-   * @throws \InvalidArgumentException if the tagname is not valid
-   * @link   http://www.php.net/manual/en/language.oop5.magic.php#object.tostring __toString() method
    */
-  public function __construct($tagName, AttributeManager $attrManager = null, ContainerInterface $contentContainer = null) {
-    parent::__construct($tagName, $attrManager);
+  public function __construct($tagname, AttributeManager $attrManager = null, ContainerInterface $contentContainer = null) {
+    parent::__construct($tagname, $attrManager);
     $this->setInnerContainer($contentContainer);
   }
 
@@ -65,7 +57,7 @@ abstract class AbstractContainerComponent extends AbstractComponent {
    * Sets the inner content container of the component
    *
    * @param  ContainerInterface $contentContainer the inner content container of the component
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   protected function setInnerContainer(ContainerInterface $contentContainer = null) {
     if (!($contentContainer instanceof ContainerInterface)) {
@@ -79,8 +71,7 @@ abstract class AbstractContainerComponent extends AbstractComponent {
   /**
    * Returns the content container or an element pointed by an optional index
    *
-   * @param  mixed $offset optional index with the content element
-   * @return ContainerInterface|mixed the content container
+   * @return ContainerInterface the content container
    */
   protected function getInnerContainer() {
     return $this->content;

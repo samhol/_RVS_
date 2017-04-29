@@ -7,12 +7,10 @@
 
 namespace Sphp\Html\Foundation\Sites\Navigation;
 
-use Sphp\Html\Lists\LiInterface;
+use Sphp\Html\IdentifiableInterface;
 
 /**
- * Interface specifies the basic functionality of a Foundation Top Bar item
- *
- * {@inheritdoc}
+ * Defines a menu item for navigation menus
  *
  * @author  Sami Holck <sami.holck@gmail.com>
  * @since   2014-11-22
@@ -21,6 +19,6 @@ use Sphp\Html\Lists\LiInterface;
  * @license http://www.gnu.org/licenses/gpl-3.0.html GPLv3
  * @filesource
  */
-interface MenuItemInterface extends LiInterface {
-
+interface MenuItemInterface extends IdentifiableInterface {
+  
 }

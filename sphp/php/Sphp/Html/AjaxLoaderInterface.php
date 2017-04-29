@@ -7,10 +7,10 @@
 
 namespace Sphp\Html;
 
-use Sphp\Core\Types\URL;
+use Sphp\Stdlib\URL;
 
 /**
- * Interface specifies the functionality of an Ajax content loader component
+ * Defines the functionality of an Ajax content loader component
  * 
  * Supported ways of remote content fetching 
  * 
@@ -19,8 +19,6 @@ use Sphp\Core\Types\URL;
  *    unique DOM ID. This element, along with its contents, is inserted into 
  *    this component with an ID of result, and the rest of the retrieved 
  *    document is discarded.
- * 
- * **Important:** 
  * 
  * @author  Sami Holck <sami.holck@gmail.com>
  * @since   2015-08-11
@@ -37,7 +35,7 @@ interface AjaxLoaderInterface {
    * This method overrides all previous calls of {@link AjaxLoaderInterface} methods.
    *
    * @param  string|URL $url the URL to which the request is sent
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function ajaxPrepend($url);
 
@@ -48,7 +46,7 @@ interface AjaxLoaderInterface {
    * This method overrides all previous calls of {@link AjaxLoaderInterface} methods.
    *
    * @param  string|URL $url the URL to which the request is sent
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function ajaxAppend($url);
 }

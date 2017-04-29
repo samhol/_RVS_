@@ -8,7 +8,7 @@
 namespace Sphp\Db\Objects;
 
 use Sphp\Core\Security\PasswordInterface;
-use Sphp\Core\Types\BitMask;
+use Sphp\Stdlib\BitMask;
 
 /**
  * Defines properties for a user
@@ -31,7 +31,7 @@ interface UserInterface extends DbObjectInterface {
    * Sets the username
    *
    * @param  string $username the username
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function setUsername($username);
 
@@ -46,7 +46,7 @@ interface UserInterface extends DbObjectInterface {
    * Sets the email address
    *
    * @param  string $email the email address
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function setEmail($email);
 
@@ -61,7 +61,7 @@ interface UserInterface extends DbObjectInterface {
    * Sets the permissions of the user
    *
    * @param  null|scalar|BitMask $permissions the permissions of the user
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function setPermissions($permissions);
 
@@ -76,7 +76,7 @@ interface UserInterface extends DbObjectInterface {
    * Sets the hashed password of the user
    *
    * @param  PasswordInterface $password the password of the user
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function setPassword(PasswordInterface $password);
 }

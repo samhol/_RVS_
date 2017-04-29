@@ -13,7 +13,7 @@ use Sphp\Html\TraversableInterface;
 use Traversable;
 
 /**
- * Abstract implementation of a select menu contetn container
+ * Abstract implementation of a select menu content container
 
  * **Notes:**
  *
@@ -58,6 +58,16 @@ abstract class AbstractOptionsContainer extends AbstractContainerComponent imple
       $this->append($opt);
     }
   }
+  /**
+   * Prepends content to the component
+   *
+   * @param  SelectMenuContentInterface $opt the content
+   * @return self for a fluent interface
+   */
+  public function prepend(SelectMenuContentInterface $opt) {
+    $this->getInnerContainer()->prepend($opt);
+    return $this;
+  }
 
   /**
    * Appends an array of content to the component
@@ -69,7 +79,7 @@ abstract class AbstractOptionsContainer extends AbstractContainerComponent imple
    *    key of the nested array as a label of the group
    * 
    * @param array $options
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function appendArray(array $options) {
     foreach ($options as $index => $option) {
@@ -90,7 +100,7 @@ abstract class AbstractOptionsContainer extends AbstractContainerComponent imple
    * @param  string $value the value attribute of the option
    * @param  string $content the textual content of the option
    * @param  boolean $selected whether the option is selected or not
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    * @link   http://www.w3schools.com/tags/att_option_value.asp value attribute
    * @link   http://www.w3schools.com/tags/att_option_selected.asp selected attribute
    */
@@ -113,7 +123,7 @@ abstract class AbstractOptionsContainer extends AbstractContainerComponent imple
    * @param string $label specifies a label for an option-group
    * @param SelectMenuContentInterface|mixed[] $opt the content 
    * @param boolean $disabled whether the Optgroup is enabled or not
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function appendOptgroup($label, $opt = null, $disabled = false) {
     $this->append(new Optgroup($label, $opt, $disabled));
@@ -124,7 +134,7 @@ abstract class AbstractOptionsContainer extends AbstractContainerComponent imple
    * Appends content to the component
    *
    * @param  SelectMenuContentInterface $opt the content
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function append(SelectMenuContentInterface $opt) {
     $this->getInnerContainer()->append($opt);
@@ -146,7 +156,7 @@ abstract class AbstractOptionsContainer extends AbstractContainerComponent imple
    * @return Traversable external iterator
    */
   public function getIterator() {
-    return $this->getInnerContainer()->getIterator();
+    return $this->getInnerContainer();
   }
 
 }

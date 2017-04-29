@@ -10,7 +10,7 @@ namespace Sphp\Html\Foundation\Sites\Media\Orbit;
 use Sphp\Html\Lists\LiInterface;
 
 /**
- * Defines a slide for Foundation Orbit components
+ * Defines a slide for Orbit
  *
  * @author  Sami Holck <sami.holck@gmail.com>
  * @since   2016-06-01
@@ -25,7 +25,7 @@ interface SlideInterface extends LiInterface {
    * Sets the slide as active or not
    * 
    * @param  boolean $active true for active and false for inactive
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function setActive($active = true);
 

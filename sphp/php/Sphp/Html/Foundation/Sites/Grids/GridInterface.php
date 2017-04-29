@@ -12,14 +12,14 @@ use Sphp\Html\ContentInterface;
 use Sphp\Html\TraversableInterface;
 
 /**
- * Defines a Foundation based Grid
+ * Defines a Grid
  * 
  * A Grid component is a container for {@link RowInterface} components.
  *
  * @author  Sami Holck <sami.holck@gmail.com>
  * @since   2016-11-24
- * @link    http://foundation.zurb.com/ Foundation 6
- * @link    http://foundation.zurb.com/sites/docs/grid.html Foundation 6 grid
+ * @link    http://foundation.zurb.com/ Foundation
+ * @link    http://foundation.zurb.com/sites/docs/grid.html Foundation grid
  * @license http://www.gnu.org/licenses/gpl-3.0.html GPLv3
  * @filesource
  */
@@ -34,7 +34,7 @@ interface GridInterface extends ContentInterface, TraversableInterface {
    *   using {@link self::toRow()} method.
    *
    * @param  mixed|RowInterface $row the new row or the content of the new row
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    * @link   http://www.php.net/manual/en/language.oop5.magic.php#object.tostring __toString() method
    */
   public function append($row);
@@ -50,7 +50,7 @@ interface GridInterface extends ContentInterface, TraversableInterface {
    *    and the index of the prepended row is 'int(0)' 
    *
    * @param  mixed|RowInterface $row the new row or the content of the new row
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    * @link   http://www.php.net/manual/en/language.oop5.magic.php#object.tostring __toString() method
    */
   public function prepend($row);

@@ -7,7 +7,7 @@
 
 namespace Sphp\Objects;
 
-use Sphp\Data\Arrayable;
+use Sphp\Stdlib\Datastructures\Arrayable;
 
 /**
  * Interface describes common features for all Objects.
@@ -23,7 +23,7 @@ interface ArrayableObjectInterface extends ObjectInterface, Arrayable {
    * Resets all the member values from a given raw data source
    *
    * @param  mixed[] $data raw source data
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function fromArray(array $data = []);
 

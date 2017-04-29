@@ -28,10 +28,10 @@ class OffCanvasOpener extends AbstractComponent {
 
   /**
    * 
-   * @param string|OffCanvasAreaInterface $offCanvas the off-canvas component or its id
+   * @param OffCanvasAreaInterface $offCanvas the off-canvas component or its id
    * @param string $screenReaderText
    */
-  public function __construct($offCanvas, $screenReaderText = 'Open menu') {
+  public function __construct(OffCanvasAreaInterface $offCanvas, $screenReaderText = 'Open menu') {
     parent::__construct('button');
     $this->cssClasses()->lock('menu-icon');
     $this->attrs()->lock('type', 'button')->demand('data-open');
@@ -43,7 +43,7 @@ class OffCanvasOpener extends AbstractComponent {
   /**
    * 
    * @param  string|OffCanvasAreaInterface $offCanvas the off-canvas component or its id
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function setCanvas($offCanvas) {
     if ($offCanvas instanceof OffCanvasAreaInterface) {

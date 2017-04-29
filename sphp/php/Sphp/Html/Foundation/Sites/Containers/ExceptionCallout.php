@@ -14,10 +14,11 @@ use Sphp\Html\Lists\Li;
 use Sphp\Html\Lists\Dl;
 
 /**
- * Implements a simple HTML structure for {@link \Exception} presentation
+ * Implements callout for {@link \Exception} presentation
  *
  * @author  Sami Holck <sami.holck@gmail.com>
  * @since   2014-03-25
+ * @link    http://foundation.zurb.com/sites/docs/callout.html Foundation Callout
  * @license http://www.gnu.org/licenses/gpl-3.0.html GPLv3
  * @filesource
  */
@@ -61,7 +62,7 @@ class ExceptionCallout extends Callout {
    * @param  boolean $showTrace true for visible trace  
    * @param  boolean $showPreviousException true for visible previous exception
    */
-  public function __construct(Exception $e, $showTrace = false, $showPreviousException = false) {
+  public function __construct($e, $showTrace = false, $showPreviousException = false) {
     $this->exception = $e;
     parent::__construct();
     $this->cssClasses()->lock('sphp-exception-callout');
@@ -73,7 +74,7 @@ class ExceptionCallout extends Callout {
    * Sets the visibility of the file
    * 
    * @param  boolean $show true for visible file
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function showInitialFile($show = true) {
     $this->showFile = $show;
@@ -84,7 +85,7 @@ class ExceptionCallout extends Callout {
    * Sets the trace visibility
    * 
    * @param  boolean $show true for visible trace  
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function showTrace($show = true) {
     $this->showTrace = $show;
@@ -96,7 +97,7 @@ class ExceptionCallout extends Callout {
    * Sets the previous exception visibility
    * 
    * @param  boolean $show true for visible previous exception
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function showPreviousException($show = true) {
     $this->showPreviousException = $show;
@@ -118,7 +119,7 @@ class ExceptionCallout extends Callout {
   /**
    * Builds the previous {@link \Exception} view
    *
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   private function buildPreviousException() {
     $prev = $this->exception->getPrevious();

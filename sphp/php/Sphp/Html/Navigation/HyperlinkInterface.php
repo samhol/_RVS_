@@ -8,7 +8,7 @@
 namespace Sphp\Html\Navigation;
 
 /**
- * Interface specifies the basic functionality of any HTML hyperlink
+ * Defines the basic functionality of any HTML hyperlink
  *
  * If a {@link HyperlinkInterface} component has an href attribute, then it
  * represents a hyperlink (a hypertext anchor). If the component has no href
@@ -36,7 +36,7 @@ interface HyperlinkInterface {
    *
    * @param  string $href the URL of the link
    * @param  boolean $encode converts all applicable characters of the $url to HTML entities
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    * @link   http://www.w3schools.com/tags/att_a_href.asp href attribute
    */
   public function setHref($href, $encode = true);
@@ -63,7 +63,7 @@ interface HyperlinkInterface {
    * * Only used if the href attribute is present.
    *
    * @param  string $target the value of the target attribute
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    * @link   http://www.w3schools.com/tags/att_a_target.asp target attribute
    */
   public function setTarget($target);
@@ -80,19 +80,4 @@ interface HyperlinkInterface {
    * @link  http://www.w3schools.com/tags/att_a_target.asp target attribute
    */
   public function getTarget();
-
-  /**
-   * Checks if the URL in the href atrribute matches with the given ÚRL
-   *
-   * @param  URL|string $url the url to check against
-   * @return boolean true if the href arrtibute points to the current page
-   */
-  public function urlEquals($url);
-
-  /**
-   * Checks if the ÚRL in the href atrribute matches with the current page ÚRL
-   *
-   * @return boolean true if the href arrtibute points to the current page
-   */
-  public function isCurrentUrl();
 }

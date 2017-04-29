@@ -7,11 +7,12 @@
 
 namespace Sphp\Html\Foundation\Sites\Navigation\Pagination;
 
-use Sphp\Html\ContentInterface;
+use Sphp\Html\ComponentInterface;
+use Sphp\Html\Navigation\HyperlinkInterface;
 use Sphp\Html\Lists\LiInterface;
 
 /**
- * Class Models a page button for Foundation Pagination component
+ * Defines a page button for a Pagination component
  * 
  * @author  Sami Holck <sami.holck@gmail.com>
  * @since   2014-12-01
@@ -20,21 +21,21 @@ use Sphp\Html\Lists\LiInterface;
  * @license http://www.gnu.org/licenses/gpl-3.0.html GPLv3
  * @filesource
  */
-interface PageInterface extends ContentInterface, LiInterface {
-
+interface PageInterface extends ComponentInterface, HyperlinkInterface, LiInterface {
+  
   /**
-   * Sets the hyperlink component as active if the URL matches with the 
-   *  current URL of the page
+   * Sets the content of the component
    * 
-   * @return self for PHP Method Chaining
+   * @param  mixed $content the content of the component
+   * @return self for a fluent interface
    */
-  public function activate();
+  public function setContent($content);
 
   /**
    * Sets or unsets the hyperlink component as active
    * 
-   * @param  boolean $active true foor activation and false for deactivation
-   * @return self for PHP Method Chaining
+   * @param  boolean $active true for activation and false for deactivation
+   * @return self for a fluent interface
    */
   public function setCurrent($active = true);
 
@@ -51,7 +52,7 @@ interface PageInterface extends ContentInterface, LiInterface {
    * A disabled pagination component is unusable and un-clickable. 
    *
    * @param  boolean $disabled true if the component is disabled, otherwise false
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function disable($disabled = true);
 

@@ -8,10 +8,9 @@
 namespace Sphp\Html\Foundation\Sites\Navigation;
 
 use Sphp\Html\Lists\HyperlinkListItem;
-use Sphp\Core\Types\URL;
 
 /**
- * Class Models a hyperlink component for the Dropown menu component
+ * Implements a hyperlink component for the Dropown menu component
  *
  *
  * {@inheritdoc}
@@ -19,6 +18,7 @@ use Sphp\Core\Types\URL;
  *
  * @author  Sami Holck <sami.holck@gmail.com>
  * @since   2014-12-01
+ * @link    http://foundation.zurb.com/ Foundation
  * @link    http://foundation.zurb.com/docs/components/subnav.html Foundation Sub Nav
  * @license http://www.gnu.org/licenses/gpl-3.0.html GPLv3
  * @filesource
@@ -44,39 +44,11 @@ class MenuLink extends HyperlinkListItem implements MenuItemInterface {
     parent::__construct($href, $content, $target);
   }
 
-  public function setHref($href, $encode = true) {
-    // echo "$href";
-    $url = new URL($href);
-    // echo "$url";
-    if ($url->isCurrent()) {
-      $this->setActive(true);
-    } else {
-      $this->setActive(false);
-    }
-    parent::setHref($url, $encode);
-    return $this;
-  }
-
-  /**
-   * Sets the hyperlink component as active if the URL matches with the
-   *  current URL of the page
-   *
-   * @return self for PHP Method Chaining
-   */
-  public function activate() {
-    if ($this->urlEquals(URL::getCurrent())) {
-      $this->setActive(true);
-    } else {
-      $this->setActive(false);
-    }
-    return $this;
-  }
-
   /**
    * Sets or unsets the hyperlink component as active
    *
    * @param  boolean $active true for activation and false for deactivation
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function setActive($active = true) {
     if ($active) {

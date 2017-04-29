@@ -10,7 +10,7 @@ namespace Sphp\Html\Foundation\Sites\Grids;
 use Sphp\Html\ContainerComponentInterface;
 
 /**
- * Defines a Foundation based Row for a Grid
+ * Defines a Row for a Grid
  *
  * A Foundation Row is a horizontal block containing vertical {@link ColumnInterface} components.
  *
@@ -19,14 +19,14 @@ use Sphp\Html\ContainerComponentInterface;
  * **The sum of the {@link ColumnInterface} widths on a specific screen size in a 
  * {@link self} should not exeed 12**. However if this sum do exeed 12, in most 
  * browser environments the excessive {@link Column} components are floated to 
- * a new 'row'. **HOWEVER!** this behaviour is not actively supported.
+ * a new 'row'. **HOWEVER!** this behavior is not actively supported.
  *
  * {@inheritdoc}
  *
  * @author  Sami Holck <sami.holck@gmail.com>
  * @since   2016-03-27
- * @link    http://foundation.zurb.com/ Foundation 6
- * @link    http://foundation.zurb.com/sites/docs/grid.html Foundation 6 grid
+ * @link    http://foundation.zurb.com/ Foundation
+ * @link    http://foundation.zurb.com/sites/docs/grid.html Foundation grid
  * @license http://www.gnu.org/licenses/gpl-3.0.html GPLv3
  * @filesource
  */
@@ -42,7 +42,7 @@ interface RowInterface extends ContainerComponentInterface {
    *
    * If the number of the columns exceed the maximum width of the row, in most
    *  browser environments the excessive columns are floated to a new 'row'.
-   * **HOWEVER** this behaviour is not actively supported.
+   * **HOWEVER** this behavior is not actively supported.
    *
    * **Notes:**
    * 
@@ -52,7 +52,7 @@ interface RowInterface extends ContainerComponentInterface {
    * * The sum of the {@link ColumnInterface} widths in a {@link self} should not exeed 12.
    * 
    * @param  mixed|mixed[] $columns 
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function setColumns($columns);
 
@@ -69,7 +69,7 @@ interface RowInterface extends ContainerComponentInterface {
    * @param  int|boolean $l column width for large screens (1-12) or false for inheritance
    * @param  int|boolean $xl column width for x-large screens (1-12) or false for inheritance
    * @param  int|boolean $xxl column width for xx-large screen)s (1-12) or false for inheritance
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function appendColumn($content, $s = 12, $m = false, $l = false, $xl = false, $xxl = false);
 
@@ -82,7 +82,7 @@ interface RowInterface extends ContainerComponentInterface {
    * * a values of `$column` not extending {@link ColumnInterface} is wrapped with {@link Column} object
    *
    * @param  mixed|mixed[] $columns components
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function prepend($columns);
 
@@ -95,7 +95,7 @@ interface RowInterface extends ContainerComponentInterface {
    * * a values of `$column` not extending {@link ColumnInterface} is wrapped with {@link Column} object
    *
    * @param  mixed|ColumnInterface $column content component
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function append($column);
 
@@ -115,7 +115,7 @@ interface RowInterface extends ContainerComponentInterface {
   /**
    * 
    * @param  boolean $collapse
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function collapseColumns($collapse = true);
 }

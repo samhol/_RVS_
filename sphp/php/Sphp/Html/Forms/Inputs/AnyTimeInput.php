@@ -8,7 +8,7 @@
 namespace Sphp\Html\Forms\Inputs;
 
 /**
- * Class models a Any+Time datetime-input widget
+ * Implements a Any+Time datetime-input widget
  *
  * **Note!** This element uses Any+Time DatePicker/TimePicker AJAX Calendar Widget for its functionality.
  *
@@ -69,7 +69,7 @@ class AnyTimeInput extends TextInput {
    * * {@link self::LANG_FI}: finnish
    * 
    * @param  string $locale used language and locale
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function setLocale($locale) {
     $this->locale = $locale;
@@ -121,7 +121,7 @@ class AnyTimeInput extends TextInput {
    * * <var>%%</var>: A literal % character
    *
    * @param  string $format datetime format
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function setDateTimeFormat($format = "%Y-%m-%d %H:%i") {
     $this->format = $format;

@@ -8,8 +8,7 @@
 namespace Sphp\Html\Navigation;
 
 use Sphp\Html\Attributes\AttributeManager;
-use Sphp\Core\Types\Strings;
-use Sphp\Core\Types\URL;
+use Sphp\Stdlib\Strings;
 
 /**
  * Trait implements {@link HyperlinkInterface} for hyperlink functionality
@@ -111,23 +110,14 @@ trait HyperlinkTrait {
   }
 
   /**
-   * Checks if the ÚRL in the href atrribute matches with the given ÚRL
+   * Sets the value of the title attribute
    *
-   * @param  URL|string $url the url to check against
-   * @return boolean true if the href arrtibute points to the given page
+   * @param  string|null $title the value of the title attribute
+   * @return self for a fluent interface
+   * @link   http://www.w3schools.com/tags/att_global_title.asp title attribute
    */
-  public function urlEquals($url) {
-    $test = ($url instanceof URL) ? $url : new URL($url);
-    return $test->equals($this->getHref());
-  }
-
-  /**
-   * Checks if the ÚRL in the href atrribute matches with the current page ÚRL
-   *
-   * @return boolean true if the href arrtibute points to the current page
-   */
-  public function isCurrentUrl() {
-    return URL::getCurrent()->equals($this->getHref());
+  public function setTitle($title) {
+    return $this->setAttr("title", $title);
   }
 
 }

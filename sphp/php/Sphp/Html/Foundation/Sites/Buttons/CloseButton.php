@@ -10,7 +10,7 @@ namespace Sphp\Html\Foundation\Sites\Buttons;
 use Sphp\Html\AbstractComponent;
 
 /**
- * Implements Foundation 6 Close Button in PHP
+ * Implements Close Button
  * 
  * The close button on its own doesn't close elements, but it can be use with 
  * Toggler, Reveal, Off-canvas, and other plugins that have open and close behaviors.
@@ -42,7 +42,7 @@ class CloseButton extends AbstractComponent {
    * Sets the screen reader-only text
    * 
    * @param  string $text the screen reader-only text
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    * @link   https://www.w3.org/TR/WCAG20-TECHS/ARIA14.html aria-label
    */
   public function setAccessibilityTextText($text) {

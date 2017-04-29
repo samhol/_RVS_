@@ -12,7 +12,7 @@ use Sphp\Html\ContentTrait;
 use Sphp\Html\ComponentInterface;
 
 /**
- * Class models a Foundation 6 Tooltip component
+ * Implements a Tooltip component
  *
  * @author  Sami Holck <sami.holck@gmail.com>
  * @since   2016-04-30
@@ -69,7 +69,7 @@ class Tooltip implements ContentInterface {
   /**
    * 
    * @param  string $tip the tip content
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function setTip($tip) {
     $this->toolTipped->attrs()->set('title', $tip);

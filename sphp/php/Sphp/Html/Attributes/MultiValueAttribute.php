@@ -51,8 +51,8 @@ class MultiValueAttribute extends AbstractAttribute implements Countable, Iterat
    *
    * **Important:** Parameter <var>$raw</var> restrictions and rules
    * 
-   * 1. A string paramater can contain multiple comma separated unique values
-   * 2. An array paramater can contain only one unique atomic value per value
+   * 1. A string parameter can contain multiple comma separated unique values
+   * 2. An array parameter can contain only one unique atomic value per value
    * 3. Duplicate values are ignored
    *
    * @param  scalar|scalar[] $raw the value(s) to parse
@@ -85,13 +85,13 @@ class MultiValueAttribute extends AbstractAttribute implements Countable, Iterat
    *
    * **Important:** Parameter <var>$values</var> restrictions and rules
    * 
-   * 1. A `string` paramater can contain multiple comma separated atomic values
-   * 2. An `array` paramater can contain only one atomic value per array value
+   * 1. A `string` parameter can contain multiple comma separated atomic values
+   * 2. An `array` parameter can contain only one atomic value per array value
    * 3. Any numeric value is treated as a string value
    * 4. Stores only a single instance of every value (no duplicates)
    *
    * @param  scalar|scalar[] $values the values to set
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function set($values) {
     $this->clear();
@@ -107,12 +107,12 @@ class MultiValueAttribute extends AbstractAttribute implements Countable, Iterat
    *
    * **Important:** Parameter <var>$values</var> restrictions and rules
    * 
-   * 1. A string paramater can contain multiple comma separated atomic values
-   * 2. An array paramater can contain only one atomic value per array value
+   * 1. A string parameter can contain multiple comma separated atomic values
+   * 2. An array parameter can contain only one atomic value per array value
    * 3. Stores only a single instance of every value (no duplicates)
    *
    * @param  string|scalar[] $values the values to add
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function add($values) {
     $parsed = self::parse($values);
@@ -127,8 +127,8 @@ class MultiValueAttribute extends AbstractAttribute implements Countable, Iterat
    *
    * **Important:** Parameter <var>$values</var> restrictions and rules
    * 
-   * 1. A string paramater can contain multiple comma separated atomic values
-   * 2. An array paramater can contain only one atomic value per array value
+   * 1. A string parameter can contain multiple comma separated atomic values
+   * 2. An array parameter can contain only one atomic value per array value
    *
    * @param  null|scalar|scalar[] $values optional atomic values to check
    * @return boolean true if the given values are locked and false otherwise
@@ -148,12 +148,12 @@ class MultiValueAttribute extends AbstractAttribute implements Countable, Iterat
    *
    * **Important:** Parameter <var>$values</var> restrictions and rules
    * 
-   * 1. A string paramater can contain multiple comma separated atomic values
-   * 2. An array paramater can contain only one atomic value per array value
+   * 1. A string parameter can contain multiple comma separated atomic values
+   * 2. An array parameter can contain only one atomic value per array value
    * 3. Stores only a single instance of every value (no duplicates)
    *
    * @param  scalar|scalar[] $values the atomic values to lock
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function lock($values) {
     $arr = self::parse($values);
@@ -171,11 +171,11 @@ class MultiValueAttribute extends AbstractAttribute implements Countable, Iterat
    *
    * **Important:** Parameter <var>$values</var> values (restrictions and rules)
    * 
-   * 1. A string paramater can contain multiple comma separated atomic values
-   * 2. An array paramater can contain only one atomic value per array value
+   * 1. A string parameter can contain multiple comma separated atomic values
+   * 2. An array parameter can contain only one atomic value per array value
    * 
    * @param  scalar|scalar[] $values the atomic values to remove
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    * @throws AttributeException if any of the given values is unmodifiable
    */
   public function remove($values) {
@@ -205,8 +205,8 @@ class MultiValueAttribute extends AbstractAttribute implements Countable, Iterat
    *
    * **Important:** Parameter <var>$values</var> values (restrictions and rules)
    * 
-   * 1. A string paramater can contain multiple comma separated atomic values
-   * 2. An array paramater can contain only one atomic value per array value
+   * 1. A string parameter can contain multiple comma separated atomic values
+   * 2. An array parameter can contain only one atomic value per array value
    *
    * @param  scalar|scalar[] $values the atomic values to search for
    * @return boolean true if the given atomic values exists

@@ -13,8 +13,10 @@
 <?php echo TAKAISIN_KILPAILUVALIKKOON; ?>
 
 ##RVS-Ranking 2016 <small>vain seuran jäsenille</small>
+
 **Lyhenteet:**
 * `Hir.`: Hirsiluoto-Race
 * `Vir.`: Virutholm-purjehdus
 
-<?php $csvTaulu('purjehduskilpailut/2016/yht.csv') ?>
+<?php $csvTaulu('purjehduskilpailut/2016/yht.csv'); ?>
+<?php $purjehdusKilpailutLinkit(); ?>

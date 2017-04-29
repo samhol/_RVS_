@@ -14,7 +14,7 @@ use Sphp\Html\Foundation\Sites\Core\ScreenReaderLabel;
 use Sphp\Html\Foundation\Sites\Foundation;
 
 /**
- * Implements Foundation 6 Close Button in PHP
+ * Implements Close Button
  *
  * @author  Sami Holck <sami.holck@gmail.com>
  * @since   2016-04-11
@@ -25,8 +25,7 @@ use Sphp\Html\Foundation\Sites\Foundation;
  */
 class IconButton extends AbstractComponent implements ButtonInterface, ScreenReaderLabelable {
 
-  use ButtonTrait,
-      \Sphp\Html\Qtip\QtipTrait;
+  use ButtonTrait;
 
   /**
    * the inner label for screen reader text
@@ -60,7 +59,7 @@ class IconButton extends AbstractComponent implements ButtonInterface, ScreenRea
    * Sets the screen reader-only label
    * 
    * @param  ScreenReaderLabel|string $label the screen reader label or its textual content
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function setScreenReaderLabel($label) {
     if ($label instanceof ScreenReaderLabel) {

@@ -9,11 +9,11 @@ namespace Sphp\Html\Foundation\Sites\Containers;
 
 use Sphp\Html\ContainerTag;
 use Sphp\Html\ContentInterface;
-use Sphp\Html\Forms\Buttons\ButtonTag as Button;
+use Sphp\Html\Forms\Buttons\ButtonTag;
 use Sphp\Html\AjaxLoaderInterface;
 
 /**
- * Implements Foundation Dropdown HTML component
+ * Implements Dropdown HTML component
  *
  * This component can be used to attach dropdowns or popovers to
  * whatever Component needed.
@@ -75,7 +75,7 @@ class Dropdown extends ContainerTag implements AjaxLoaderInterface {
    * * `'xxlarge'` for xx-large dropdown pane
    * 
    * @param  string|null $size optional CSS class name defining dropdown pane size
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    * @link   http://foundation.zurb.com/docs/components/buttons.html#button-sizing Button Sizing
    */
   public function setSize($size) {
@@ -87,7 +87,7 @@ class Dropdown extends ContainerTag implements AjaxLoaderInterface {
   /**
    * Resets the size settings of the component
    *
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function resetSize() {
     $this->cssClasses()
@@ -107,7 +107,7 @@ class Dropdown extends ContainerTag implements AjaxLoaderInterface {
    * * `false`: Removes settings
    *
    * @param  string|boolean $alignment the alignment value
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function align($alignment) {
     $this->removeCssClass("top left bottom right");
@@ -127,7 +127,7 @@ class Dropdown extends ContainerTag implements AjaxLoaderInterface {
    * * `false`: Removes floating settings
    *
    * @param  string|boolean $float the floating value
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function float($float = false) {
     $this->target->removeCssClass("float-left float-right");
@@ -141,11 +141,11 @@ class Dropdown extends ContainerTag implements AjaxLoaderInterface {
    * Sets the component having this dropdown
    *
    * @param  mixed the component having this dropdown
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function setTarget($togleButton) {
     if (!($togleButton instanceof ButtonTag)) {
-      $togleButton = new Button("button", $togleButton);
+      $togleButton = new ButtonTag("button", $togleButton);
     }
     $this->target = $togleButton
             ->setAttr("data-toggle", $this->identify());
@@ -168,7 +168,7 @@ class Dropdown extends ContainerTag implements AjaxLoaderInterface {
   /**
    * 
    * @param  boolean $flag
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function closeOnBodyClick($flag = true) {
     if ($flag) {
@@ -182,7 +182,7 @@ class Dropdown extends ContainerTag implements AjaxLoaderInterface {
   /**
    * 
    * @param  boolean $flag
-   * @return self for PHP Method Chaining
+   * @return self for a fluent interface
    */
   public function autoFocus($flag = true) {
     if ($flag) {
