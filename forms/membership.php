@@ -36,4 +36,4 @@ if (!CRSFToken::instance()->verifyPostToken('membership')) {
   }
 }
 
-(new Location($httpRoot . "jasenlomake"))->execute();
+(new Location($httpRoot . "jasenhakemus.html"))->execute();
