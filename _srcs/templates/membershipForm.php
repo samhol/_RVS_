@@ -1,25 +1,23 @@
 <?php
 
 namespace Sphp\Html\Foundation\Sites\Containers;
-
 ?>
 #Jäsenhakemus
+
+Täytä jäsenhakemuslomake, tai lähetä nimesi, osoitteesi ja puhelinnumerosi sähköpostina 
+osoitteeseen toimisto@raisionveneseura.fi, niin otamme sinuun yhteyttä ensitilassa.
 
 <?php
 
 use Sphp\MVC\MemberData;
+use Sphp\MVC\MembershipRequestCallout;
 
 // print_r($_SESSION);
 if (array_key_exists(MemberData::class, $_SESSION)) {
   $data = $_SESSION[MemberData::class];
-
-  $name = '<u>' . $data->getFname() . ' ' . $data->getLname() . '</u>';
-  $callout = new Callout();
-  $callout->setClosable();
-  $callout->setColor('success');
-  $callout->appendMd('##Kiitos hakemuksestasi');
-  $callout->appendMd("Käsittelemme henkilön $name jäsenhakemuksen mahdollisimman pian");
-  $callout->printHtml();
+  $gen = new MembershipRequestCallout();
+  $gen->setMemberData($data);
+  $gen->generate()->printHtml();
   unset($_SESSION[MemberData::class]);
 } else if (array_key_exists('invalidForm', $_SESSION)) {
   $callout = new Callout();
@@ -48,100 +46,93 @@ namespace Sphp\Html\Forms\Inputs\Menus;
 
 use Sphp\Security\CRSFToken;
 
-$ageMenu = MenuFactory::rangeMenu(17, 0, 1, 'age');
-$ageMenu->prepend(new Option('18', 'Aikuinen ( yli 18-vuotta )', true));
-$age = new \Sphp\Html\Forms\Inputs\AnyTimeInput();
-$age->setDateTimeFormat('%b %e, %y');
 $newToken = CRSFToken::instance()->generateToken('membership');
 
 use Sphp\Stdlib\Path;
 
 $action = Path::get()->http() . "forms/membership.php";
-
 ?>
 
 <form data-abide novalidate method="post" action="<?php echo $action ?>">
+  <h2>Jäsenhakemuslomake</h2>
   <input type="hidden" name="membership" value="<?php echo $newToken; ?>">
   <div data-abide-error class="alert callout" style="display: none;">
     Jäsenhakemuksesi sisältää virheitä
   </div>
   <fieldset class="row">
-    <label>Henkilötiedot</label>
-    <div class="small-12 medium-6 large-4 xlarge-3 columns end">
-      <label>Ikä
-        <?php $ageMenu->printHtml() ?>
+
+    <div class="small-12 xlarge-6 columns end">
+      <label>Syntymäaika <small class="required">pakollinen juniorijäsenille</small>
+        <input name="dob" type="text" placeholder="pp.kk.vvvv" pattern="day_month_year">
         <span class="form-error">
-          Anna ikäsi
+          Anna hakijan syntymäaika muodossa <var>päivä.kuukausi.vuosi</var>. Esim. <?php echo date('j.n.Y') ?>
         </span>
       </label>
     </div> 
+
   </fieldset>
   <fieldset class="row">
     <div class="small-12 large-6 columns">
-      <label>Etunimi <small class="alert">(pakollinen)</small>
+      <label>Etunimi <small class="required">pakollinen</small>
         <input name="fname" type="text" placeholder="Etunimi" required>
         <span class="form-error">
-          Anna etunimesi
+          Anna hakijan etunimi
         </span>
       </label>
     </div>
     <div class="small-12 large-6 columns">
-      <label>Sukunimi <small class="alert">(pakollinen)</small>
+      <label>Sukunimi <small class="required">pakollinen</small>
         <input name="lname" type="text" placeholder="Sukunimi" required>
         <span class="form-error">
-          Anna sukunimesi
+          Anna hakijan sukunimi
         </span>
       </label>
     </div>
   </fieldset>
 
   <fieldset class="row">
-    <label>Osoitetiedot</label>
     <div class="small-12 large-5 columns">
-      <label>Katuosoite <small class="alert">(pakollinen)</small>
+      <label>Katuosoite <small class="required">pakollinen</small>
         <input name="street" type="text" placeholder="Katuosoite" required>
         <span class="form-error">
-          Anna latuosoitteesi
+          Anna hakijan katuosoite
         </span>
       </label>
     </div>
     <div class="small-12 medium-4 large-3 columns">
-      <label>Postinumero <small class="alert">(pakollinen)</small>
+      <label>Postinumero <small class="required">pakollinen</small>
         <input name="zipcode" type="text" placeholder="Postinumero" required>
         <span class="form-error">
-          Anna Postinumerosi
+          Anna hakijan postinumero
         </span>
       </label>
     </div>
     <div class="small-12 medium-8 large-4 columns">
-      <label>Kotikunta <small class="alert">(pakollinen)</small>
+      <label>Kotikunta <small class="required">pakollinen</small>
         <input name="city" type="text" placeholder="Kotikunta" required>
-        <span class="form-error">
-          Anna kotikuntasi nimi
-        </span>
+        <span class="form-error">Anna hakijan kotikunta</span>
       </label>
     </div>
   </fieldset>
   <fieldset class="row">
-    <label>Muut yhteystiedot</label>
     <div class="small-12 medium-8 columns">
-      <label>Sähköpostiosoite <small class="alert">(pakollinen)</small>
+      <label>Sähköpostiosoite <small class="required">pakollinen</small>
         <input type="email" name="email" placeholder="Sähköpostiosoite" required pattern="email">
+      <span class="form-error">Anna hakijan sähköpostiosoite</span>
       </label>
-      <span class="form-error">Anna sähköpostiosoitteesi</span>
     </div>
     <div class="small-12 medium-4 columns">
-      <label>Puhelinnumero <small class="alert">(vapaaehtoinen)</small>
-        <input type="text" name="phone" placeholder="012-1234567 tms.">
+      <label>Puhelinnumero <small class="not-required">vapaaehtoinen</small>
+        <input type="text" name="phone" placeholder="Puhelinnumero">
       </label>
     </div>
   </fieldset>
 
   <fieldset class="row">
-    <label>Lisätiedot <small class="alert">(vapaaehtoinen)</small></label>
     <div class="small-12 columns">
-      <textarea name="information" placeholder="Muuta tietoa..." rows="7"></textarea>
-
+      <label>Lisätiedot <small class="not-required">vapaaehtoinen</small>
+        <textarea name="information" placeholder="Muuta tietoa..." rows="7"></textarea>
+      </label>
     </div>
   </fieldset>
 

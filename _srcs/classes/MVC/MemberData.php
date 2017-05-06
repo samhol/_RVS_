@@ -10,14 +10,17 @@ namespace Sphp\MVC;
 /**
  * Description of MemberData
  *
- * @author Sami Holck
+ * @author  Sami Holck <sami.holck@gmail.com>
+ * @since   2017-03-11
+ * @license http://www.gnu.org/licenses/gpl-3.0.html GPLv3
+ * @filesource
  */
 class MemberData {
 
   /**
    * @var mixed 
    */
-  private $age;
+  private $dob;
 
   /**
    * @var mixed 
@@ -70,12 +73,22 @@ class MemberData {
     }
   }
 
+  public function hasDateOfBirth() {
+    if (is_string($this->dob)) {
+      return \DateTime::createFromFormat('j.n.Y', $this->dob);
+    }
+    return null;
+  }
+
   /**
    * 
    * @return mixed
    */
-  public function getAge() {
-    return $this->age;
+  public function getDateOfBirth() {
+    if (is_string($this->dob)) {
+      return \DateTime::createFromFormat('j.n.Y', $this->dob);
+    }
+    return null;
   }
 
   /**
@@ -107,7 +120,7 @@ class MemberData {
    * @return boolean
    */
   public function hasPhoneNumber() {
-    return is_string($this->phone);
+    return !empty($this->phone);
   }
 
   /**
@@ -142,14 +155,14 @@ class MemberData {
     return $this->city;
   }
 
-
   /**
    * 
    * @return boolean
    */
   public function hasAdditionalInformation() {
-    return is_string($this->information);
+    return !empty($this->information);
   }
+
   /**
    * 
    * @return mixed
@@ -157,4 +170,5 @@ class MemberData {
   public function getAdditionalInformation() {
     return $this->information;
   }
+
 }
