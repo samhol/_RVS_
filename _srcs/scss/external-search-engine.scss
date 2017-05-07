@@ -18,7 +18,7 @@ $menu-area-bg: #4d5158;
 @include foundation-grid;
 @include foundation-flex-grid;
 @include foundation-flex-classes;
-@include foundation-typography;
+@include foundation-typography; 
 //@include foundation-forms;
 @include foundation-button;
 //@include foundation-accordion;
@@ -63,34 +63,6 @@ $menu-area-bg: #4d5158;
 
 .body {
   margin-top: rem-calc(10);
-  .callout, form {
-    margin: rem-calc(3 5 3 5);
-  }
-}
-.top-row {
-  @include opacity(0.75);
-  color: #1044ba;
-  background-color: #fff;
-  font-size: rem-calc(20);
-  img {
-    margin: rem-calc(2);
-  }
-  span {
-    margin-left: rem-calc(20);
-  }
-}
-.top-bar {
-  @include box-shadow(rgba(blue, 0.2) 0px 5px 6px 2px);
-  border-top: 2px solid #0099ff;
-  border-bottom: 2px solid #0099ff;
-  //border-left: 1px solid #252525;
-  &:last-child {
-    //border-right: 1px solid #6666ff;
-  }
-  &:hover {
-    @include box-shadow(rgba(blue, 0.3) 0px 6px 6px 0px);
-    //background: #666;
-  }
 }
 
 html, body {
@@ -132,121 +104,14 @@ footer {
   }
 }
 
-$menu-item-hover: #35383d;
-$menu-separator: #41444a;
-div.sidenav {
-  padding: rem-calc(4 3 5 3);
-  background: $menu-area-bg;
-  @include border-radius(4px);
-  border: solid 1px #999;
-  @include box-shadow(rgba(blue, 0.4) 0 0 25px, rgba(green, 0.2) 0 0 3px 1px inset);
-}
-.menu {
-  li:not(.active) > a {
-    background: $menu-bg;
-    color: #fff;
-    &:hover {
-      background: scale-color($menu-bg, $lightness:-30%);
-    }
-  }
-
-
-  li:not(.menu-text) > a {
-    padding: rem-calc(15 15 15 15);
-  }
-  & ul { 
-    li:not(.menu-text) > a {
-      padding: rem-calc(15 15 15 25);
-    }
-    li:not(.active) > a {
-      background: scale-color($menu-bg, $lightness:-10%);
-      &:hover {
-        background: scale-color($menu-bg, $lightness:-30%);
-      }
-    }
-  }
-  background: $menu-bg;
-}
-.off-canvas.position-left {
-  ul[data-accordion-menu] {
-    margin-top: rem-calc(40);
-    margin-bottom: rem-calc(40);
-  }
-}
-
 .page {
-  @import "membership-request";
   min-height: rem-calc(400);
   border: solid 1px #666;
   @include border-radius(4px);
   background-color: #fefefe;
   padding: rem-calc(0 0 50 0);
   margin-bottom: rem-calc(20);
-  &.show-logo, &.etusivu, &.katsastustoiminta, &.fishing, &.kausiohjelma, &.jasenyys {
-    background-image: url('http://raisionveneseura.fi/kuvat/tausta/logo.png');
-    background-repeat: no-repeat;
-    background-size:auto;
-    background-attachment:scroll;
-    background-position: right 30px bottom 30px;
-  }
 
-  &.competitions {
-    ol, dl, ul:not(.pagination) {
-      margin-left: rem-calc(60);
-    }
-    ol {
-      li:first-child {
-        font-weight: bold;
-        text-decoration: underline;
-        margin-left: rem-calc(-10);
-        padding-bottom: rem-calc(10);
-      }
-    }
-    ul.pagination {
-      margin-left:rem-calc(30);
-      li {
-        margin-right: rem-calc(2);
-        line-height: 1.6;
-        border: solid 1px #ddd;
-        padding: 0;
-        &:hover {
-          border-color: #ccc;
-        }
-        &.current {
-          a {
-            color: #eaeaea;
-            &:hover {
-              background: $primary-color;
-              color: #fff;
-            }
-          }
-        }
-        &.pdf {
-          border-color: #fa3344;
-          &:hover {
-            border-color: #ff3040;
-          }
-          a {
-            color: #300;
-            &:hover {
-              background: #ffdddd;
-
-              color: #400;
-            }
-          }
-        }
-        a, span {
-          @include border-radius(3px);
-          padding: rem-calc(5 7);
-          margin: 0;
-        }
-      }
-      li.disabled {
-        padding: rem-calc(5 7);
-
-      }
-    }
-  }
   h1, h2, h3, h4, h5, h6 {
     color: #333;
   }
@@ -278,43 +143,19 @@ div.sidenav {
     margin-left: rem-calc(30);
   }
 
-  &.contests, &.docs {
-    ul {
-      list-style: none;
-      li {
-        padding: rem-calc(6 10 6 30);
-      }
-    }
-  }
+ 
   dl{
     dd {
       margin-left: rem-calc(10);
     }
   }
-  &.board {
-    .callout {
-      @include border-radius(5px);
-      .thumbnail {
-        @include border-radius(2px);
-        img {
-          @include opacity(0.9);
-        }
-      }
-      &:hover {
-        img {
-          @include opacity(1);
-        }
-      }
-    }
-
-  }
   table {
     border-collapse: collapse;
-    border-color: #ccc;
-    font-size: rem-calc(14);
+    //border-color: #ccc;
+    //font-size: rem-calc(14);
     thead, tfoot {
       th {
-        background-color: #1779ba;
+      //  background-color: #1779ba;
         color: #fefefe;
       }
     }
@@ -325,57 +166,12 @@ div.sidenav {
     }
     tbody {
       tr {
-        border-bottom: solid 1px #aaa;
+       // border-bottom: solid 1px #aaa;
       }
     }
   }
-
-  &.bulletingboard {
-    .callout {
-      &>h2 {
-        border-bottom: solid 1px #666; 
-      }
-      .date {
-        font-size: rem-calc(12);
-        background-color: #eee;
-        padding:  rem-calc(12);
-      }
-    }
-  }
-
-  div.orbit-wrapper {
-    margin-left: rem-calc(2);
-    margin-right: rem-calc(2);
-    border: solid 1px #666;
-    margin-bottom: rem-calc(30);
-  }
-  &.kausiohjelma {
-    h2{
-      color: #333;
-      padding: rem-calc(2 10 5 15);
-      margin: 0;
-    }
-    dl {
-      margin: rem-calc(5 20 5 20);
-      padding: 0;
-      //font-family: georgia, times, serif;
-      dt {
-        font-family: $font-family-monospace;
-        float: left;
-        clear: left;
-        width: rem-calc(50);
-        font-weight: bold;
-        text-align: right;
-      }
-      dd {
-        margin: rem-calc(0 0 0 50);
-        padding: 0 0 0.5em 0;
-        &:before {
-          content: "- ";
-          padding-left:10px;
-          padding-right:5px;
-        }
-      }
-    }
+  input[tyoe="TEXT"] {
+    padding: rem-calc(5 10);
+    font-size: rem-calc(16);
   }
 }
