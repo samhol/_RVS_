@@ -16,8 +16,8 @@ $menu-area-bg: #4d5158;
 
 @include foundation-global-styles;
 @include foundation-grid;
-@include foundation-flex-grid;
-@include foundation-flex-classes;
+//@include foundation-flex-grid;
+//@include foundation-flex-classes;
 @include foundation-typography; 
 @include foundation-forms;
 @include foundation-button;
@@ -27,19 +27,19 @@ $menu-area-bg: #4d5158;
 //@include foundation-breadcrumbs;
 @include foundation-button-group;
 //@include foundation-callout;
-@include foundation-card;
-@include foundation-close-button;
-@include foundation-menu;
-@include foundation-menu-icon;
+//@include foundation-card;
+//@include foundation-close-button;
+//@include foundation-menu;
+//@include foundation-menu-icon;
 //@include foundation-drilldown-menu;
 //@include foundation-dropdown;
 //@include foundation-dropdown-menu;
-@include foundation-responsive-embed;
-@include foundation-label;
-@include foundation-media-object;
+//@include foundation-responsive-embed;
+//@include foundation-label;
+//@include foundation-media-object;
 //@include foundation-off-canvas;
 //@include foundation-orbit;
-@include foundation-pagination;
+//@include foundation-pagination;
 //@include foundation-progress-bar;
 //@include foundation-slider;
 //@include foundation-sticky;
@@ -47,19 +47,19 @@ $menu-area-bg: #4d5158;
 //@include foundation-switch;
 //@include foundation-table;
 //@include foundation-tabs;
-@include foundation-thumbnail;
+//@include foundation-thumbnail;
 //@include foundation-title-bar;
-@include foundation-tooltip;
+//@include foundation-tooltip;
 //@include foundation-top-bar; 
 @include foundation-visibility-classes;
 @include foundation-float-classes;
 
-@import "../../sphp/scss/app/sphp-back-to-top-button";
+//@import "../../sphp/scss/app/sphp-back-to-top-button";
 @import "../../sphp/scss/app/fa-social-media-buttons";
 
 
-@import "../../sphp/scss/vendor/jquery.qtip";
-@import "../../sphp/scss/vendor/anytime.c";
+//@import "../../sphp/scss/vendor/jquery.qtip";
+//@import "../../sphp/scss/vendor/anytime.c";
 
 .body {
   margin-top: rem-calc(10);
@@ -105,94 +105,104 @@ footer {
 }
 
 .page {
-  min-height: rem-calc(400);
   border: solid 1px #666;
   @include border-radius(4px);
   background-color: #fefefe;
-  padding: rem-calc(0 0 50 0);
   margin-top: rem-calc(10);
   margin-bottom: rem-calc(10);
+  min-height: rem-calc(400);
+  .container {
+    padding: rem-calc(0 5 50 5);
 
-  h1, h2, h3, h4, h5, h6 {
-    color: #333;
-  }
-  h1 {
-    padding: rem-calc(10 10 10 10);
-    text-transform: uppercase;
-  }
-
-  h2, h3, h4, h5, h6 {
-    color: #666;
-    padding: rem-calc(4 10 5 10);
-  }
-
-  >h1:first-child, >h2:first-child, >h3:first-child, >h4:first-child, >h5:first-child, >h6:first-child {
-    @include border-top-radius(5px);
-    border-top: solid 1px #efefef;
-    border-bottom: solid 1px #999;
-    background-color: #efefef;
-    @include background-image(linear-gradient(to right, #eaeaea, #fafafa));
-  }
-  .flex-video {
-    margin: rem-calc(10 30);
-  }
-  p {
-    text-align: justify;
-    margin: rem-calc(10 40 20 30);
-  }
-  dl, ul:not([class]), ol {
-    margin-left: rem-calc(30);
-  }
-
-
-  dl{
-    dd {
-      margin-left: rem-calc(10);
+    h1, h2, h3, h4, h5, h6 {
+      color: #333;
     }
-  }
-  table {
-    border-collapse: collapse;
-    //border-color: #ccc;
-    //font-size: rem-calc(14);
-    thead, tfoot {
-      th {
-        //  background-color: #1779ba;
-        color: #fefefe;
+
+    h1 {
+      padding: rem-calc(10 10 10 10);
+      text-transform: uppercase;
+    }
+
+    h2, h3, h4, h5, h6 {
+      color: #666;
+      padding: rem-calc(4 10 5 10);
+    }
+
+    >h1:first-child, >h2:first-child, >h3:first-child, >h4:first-child, >h5:first-child, >h6:first-child {
+      border-top: none;
+      border-left: solid 1px #999;
+      border-right: solid 1px #999;
+      border-bottom: solid 1px #999;
+      background-color: #efefef;
+      @include background-image(linear-gradient(to right, #eaeaea, #fafafa));
+    }
+
+    dl{
+      margin-left: rem-calc(30);
+      &:first-child {
+        margin-top: rem-calc(10);
+      }
+      dd {
+        margin-left: rem-calc(10);
       }
     }
-    td, th {
-      //word-break: break-all;
-      text-align: left;
-      //border-bottom: solid 1px #ccc;
-    }
-    tbody {
-      tr {
-        // border-bottom: solid 1px #aaa;
+    span {
+
+      &.search-count {
+        font-size: rem-calc(17);
+        font-weight: bold;
       }
     }
-  }
-  input {
-    display: inline-block;
-    font-size: rem-calc(16);
-    line-height: 1.2;
-    &[type="TEXT"] {
-      //padding: rem-calc(5 10);
-      font-size: rem-calc(16);
-      width: rem-calc(230);
-      margin: rem-calc(5 0 5 10);
-      height: rem-calc(40);
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      &.search-nav-form-table {
+        border-top: solid 2px #222;
+        border-bottom: solid 2px #222;
+      }
+      &.search-footer-table {
+        border-top: solid 2px #222;
+        border-bottom: solid 2px #222;
+      }
+      //border-color: #ccc;
+      //font-size: rem-calc(14);
+      thead, tfoot {
+        th {
+          //  background-color: #1779ba;
+          color: #fefefe;
+        }
+      }
+      td, th {
+        //word-break: break-all;
+        //text-align: left;
+        //border-bottom: solid 1px #ccc;
+      }
+      tbody {
+        tr {
+          // border-bottom: solid 1px #aaa;
+        }
+      }
     }
-    &[type="SUBMIT"] {
-      @include button(false, #ccc, #ddd, #222, solid);
-      //padding: rem-calc(5 10);
-      
-      margin: rem-calc(5 20 5 0);
+    input {
+      display: inline-block;
       font-size: rem-calc(16);
-      height: rem-calc(40);
-    }
-    &[type="RADIO"] {
-      margin-left: rem-calc(5);
-      margin-right: rem-calc(5);
+      line-height: 1.2;
+      &[type="TEXT"] {
+        font-size: rem-calc(16);
+        width: rem-calc(230);
+        margin: rem-calc(5 0 5 10);
+        height: rem-calc(40);
+      }
+      &[type="SUBMIT"] {
+        @include button(false, #ccc, #ddd, #222, solid);
+        margin: rem-calc(5 20 5 0);
+        font-size: rem-calc(16);
+        height: rem-calc(40);
+      }
+      &[type="RADIO"] {
+        margin-left: rem-calc(5);
+        margin-right: rem-calc(5);
+      }
     }
   }
 }
