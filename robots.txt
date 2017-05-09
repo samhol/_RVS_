@@ -3,3 +3,6 @@ Disallow: /cgi-bin/
 Disallow: /_srcs/
 Disallow: /sphp/
 Disallow: /vendor/
+Disallow: /forms/
+Disallow: /purjehduskilpailut/
+Disallow: /sivut/

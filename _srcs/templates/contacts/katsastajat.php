@@ -21,5 +21,5 @@ TableBuilder::fromCsvFile(new CsvFile('yhteystiedot/katsastajat.csv', ';'))
         ->buildTable()
         ->addCssClass('hover')
         ->printHtml();
-echo 'heahehaehe';
-echo $a;
+
+
