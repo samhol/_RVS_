@@ -42,7 +42,7 @@ class MemberApplicationMailer {
    */
   public function send(MemberData $data) {
     $mail = new Message();
-    $mail->setFrom('jasenhakemus@raisionveneseura.fi');
+    $mail->setFrom($data->getEmail());
     $mail->addTo($this->receiver);
     $mail->setSubject("Raision veneseuran jäsenhakemus ({$data->getFname()} {$data->getLname()})");
     $mail->setBody($this->createMailBody($data));

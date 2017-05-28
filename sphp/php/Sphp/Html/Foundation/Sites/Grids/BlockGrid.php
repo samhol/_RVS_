@@ -127,11 +127,11 @@ class BlockGrid extends AbstractContainerComponent implements IteratorAggregate,
    * @return self for a fluent interface
    */
   public function setBlockGrids($s, $m = false, $l = false, $xl = false, $xxl = false) {
-    $this->setBlockGrid($s, "small")
-            ->setBlockGrid($m, "medium")
-            ->setBlockGrid($l, "large")
-            ->setBlockGrid($xl, "xlarge")
-            ->setBlockGrid($xxl, "xxlarge");
+    $this->setBlockGrid($s, 'small')
+            ->setBlockGrid($m, 'medium')
+            ->setBlockGrid($l, 'large')
+            ->setBlockGrid($xl, 'xlarge')
+            ->setBlockGrid($xxl, 'xxlarge');
     return $this;
   }
 
