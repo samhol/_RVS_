@@ -27,7 +27,9 @@ session_start();
 
 use Sphp\Stdlib\Parser;
 
-$config = new Config(Parser::fromFile(__DIR__ . '/settings.yml'));
+Config::instance(0, Parser::fromFile(__DIR__ . '/settings.yml'));
+Config::instance()->setReadOnly();
+$mail = Config::instance()->email;
 
 namespace Sphp\MVC;
 

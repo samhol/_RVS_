@@ -49,6 +49,24 @@ class MemberApplicationMailer {
     $mail->setEncoding('UTF-8');
     $transport = new Sendmail();
     $transport->send($mail);
+    $this->sendToApplicant($data);
+    return $this;
+  }
+
+  /**
+   * 
+   * @param  MemberData $data
+   * @return self for a fluent interface
+   */
+  public function sendToApplicant(MemberData $data) {
+    $mail = new Message();
+    $mail->setFrom('jasenhakemus@raisionveneseura.fi');
+    $mail->addTo($data->getEmail());
+    $mail->setSubject("Kiitos jäsenhakemuksestasi {$data->getFname()} {$data->getLname()}");
+    $mail->setBody($this->createMailBody($data));
+    $mail->setEncoding('UTF-8');
+    $transport = new Sendmail();
+    $transport->send($mail);
     return $this;
   }
 
