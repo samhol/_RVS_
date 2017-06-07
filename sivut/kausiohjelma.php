@@ -67,7 +67,7 @@ __Huom!__ Ohjelma on alustava ja muutokset ovat mahdollisia
 ##Heinäkuu
 
 29.
- :  Hanuriretki Virutholmissa (ruokailu)
+ :  Kesätapahtuma Virutholmissa 
 
 ##Elokuu
 

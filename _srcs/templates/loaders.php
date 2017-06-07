@@ -24,7 +24,7 @@ $loadPage = function ($par, $file = 'etusivu') use($loadNotFound) {
     }
     $content = ob_get_contents();
   } catch (\Exception $e) {
-    $content .= (new ExceptionCallout($e))->showTrace()->showPreviousException(true)->showInitialFile();
+    $content = (new ExceptionCallout($e))->showTrace()->showPreviousException(true)->showInitialFile();
   }
   ob_end_clean();
   echo $content;

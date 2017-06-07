@@ -150,4 +150,38 @@ Stack trace:
 #3 [internal function]: Sphp\MVC\{closure}('/hallitus/')
 #4 /home/int49765/public_html/sphp/php/Sphp/MVC/Router.php(166): call_user_func_array(Object(Closure), Array)
 #5 /home/int49765/public_html/index.php(61): Sphp\MVC\Router->execute()
-#6 {main}
+#6 {main}Zend\Di\Exception\ClassNotFoundException: Class Sphp\MVC\FileParser could not be located in provided definitions. in /home/int49765/public_html/vendor/zendframework/zend-di/src/Di.php:305
+Stack trace:
+#0 /home/int49765/public_html/vendor/zendframework/zend-di/src/Di.php(268): Zend\Di\Di->newInstance('Sphp\\MVC\\FilePa...', Array, true)
+#1 /home/int49765/public_html/_srcs/di.php(7): Zend\Di\Di->get('Sphp\\MVC\\FilePa...')
+#2 /home/int49765/public_html/testi.php(8): include('/home/int49765/...')
+#3 {main}Zend\Di\Exception\ClassNotFoundException: Class Sphp\MVC\FileParser could not be located in provided definitions. in /home/int49765/public_html/vendor/zendframework/zend-di/src/Di.php:305
+Stack trace:
+#0 /home/int49765/public_html/vendor/zendframework/zend-di/src/Di.php(268): Zend\Di\Di->newInstance('Sphp\\MVC\\FilePa...', Array, true)
+#1 /home/int49765/public_html/_srcs/di.php(7): Zend\Di\Di->get('Sphp\\MVC\\FilePa...')
+#2 /home/int49765/public_html/testi.php(10): include('/home/int49765/...')
+#3 {main}Zend\Di\Exception\ClassNotFoundException: Class Sphp\MVC\FileParser could not be located in provided definitions. in /home/int49765/public_html/vendor/zendframework/zend-di/src/Di.php:305
+Stack trace:
+#0 /home/int49765/public_html/vendor/zendframework/zend-di/src/Di.php(268): Zend\Di\Di->newInstance('Sphp\\MVC\\FilePa...', Array, true)
+#1 /home/int49765/public_html/_srcs/di.php(7): Zend\Di\Di->get('Sphp\\MVC\\FilePa...')
+#2 /home/int49765/public_html/testi.php(11): include('/home/int49765/...')
+#3 {main}Zend\Di\Exception\ClassNotFoundException: Class Sphp\MVC\FileParser could not be located in provided definitions. in /home/int49765/public_html/vendor/zendframework/zend-di/src/Di.php:305
+Stack trace:
+#0 /home/int49765/public_html/vendor/zendframework/zend-di/src/Di.php(268): Zend\Di\Di->newInstance('Sphp\\MVC\\FilePa...', Array, true)
+#1 /home/int49765/public_html/_srcs/di.php(7): Zend\Di\Di->get('Sphp\\MVC\\FilePa...')
+#2 /home/int49765/public_html/testi.php(11): include('/home/int49765/...')
+#3 {main}Error: Class 'Config' not found in /home/int49765/public_html/sivut/testi.php:6
+Stack trace:
+#0 /home/int49765/public_html/sphp/php/Sphp/Stdlib/Filesystem.php(85): include()
+#1 /home/int49765/public_html/sphp/php/Sphp/Html/ContentParsingTrait.php(73): Sphp\Stdlib\Filesystem::executePhpToString('sivut/testi.php')
+#2 /home/int49765/public_html/_srcs/templates/loaders.php(21): Sphp\Html\AbstractContainerTag->appendMdFile('sivut/testi.php')
+#3 [internal function]: Sphp\MVC\{closure}('/testi/', 'testi')
+#4 /home/int49765/public_html/sphp/php/Sphp/MVC/Router.php(166): call_user_func_array(Object(Closure), Array)
+#5 /home/int49765/public_html/index.php(61): Sphp\MVC\Router->execute()
+#6 {main}Error: Class 'Sphp\Config\Sphp\Config\Config' not found in /home/int49765/public_html/_srcs/settings.php:30
+Stack trace:
+#0 /home/int49765/public_html/index.php(2): require_once()
+#1 {main}Error: Class 'Sphp\Config\Sphp\Config\Config' not found in /home/int49765/public_html/_srcs/settings.php:30
+Stack trace:
+#0 /home/int49765/public_html/index.php(2): require_once()
+#1 {main}

@@ -10,7 +10,7 @@ sillä on oma Kauppa- ja teollisuusministeriön hyväksymä virallinen lippu.
 <a href = "kuvat/seuranlippu.jpg">(kuva)</a>
 
 Veneseuran jäsenyys on perhekohtainen. Seuraan kuluu sekä purje- että 
-moottoriveneilijöitä yhteensä noin 230 jäsenperhettä.
+moottoriveneilijöitä yhteensä noin 200 jäsenperhettä.
 
 Raision Veneseuralla on vuokrattuna Korppoon Norrskatassa kaksi
 saaritukikohtaa, joissa kesän aikana järjestetään erilaisia yhteisiä

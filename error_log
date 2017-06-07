@@ -1,0 +1,4 @@
+[31-May-2017 01:17:47 Europe/Helsinki] PHP Notice:  Undefined variable: content in /home/int49765/public_html/_srcs/templates/loaders.php on line 27
+[31-May-2017 01:19:37 Europe/Helsinki] PHP Notice:  Undefined variable: content in /home/int49765/public_html/_srcs/templates/loaders.php on line 27
+[31-May-2017 01:22:25 Europe/Helsinki] PHP Notice:  Undefined variable: mail in /home/int49765/public_html/sivut/testi.php on line 5
+[31-May-2017 01:22:25 Europe/Helsinki] PHP Notice:  Trying to get property of non-object in /home/int49765/public_html/sivut/testi.php on line 5
