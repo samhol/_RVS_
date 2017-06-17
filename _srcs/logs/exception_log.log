@@ -184,4 +184,120 @@ Stack trace:
 #1 {main}Error: Class 'Sphp\Config\Sphp\Config\Config' not found in /home/int49765/public_html/_srcs/settings.php:30
 Stack trace:
 #0 /home/int49765/public_html/index.php(2): require_once()
-#1 {main}
+#1 {main}Sphp\Exceptions\RuntimeException: The path 'purjehduskilpailut/2017/virutholm.csv' is not a file in /home/int49765/public_html/sphp/php/Sphp/Stdlib/CsvFile.php:75
+Stack trace:
+#0 /home/int49765/public_html/_srcs/templates/tools.php(7): Sphp\Stdlib\CsvFile->__construct('purjehduskilpai...')
+#1 /home/int49765/public_html/sivut/kilpailut/purjehdus/2017.php(11): Sphp\Stdlib\Filesystem::{closure}('purjehduskilpai...')
+#2 /home/int49765/public_html/sphp/php/Sphp/Stdlib/Filesystem.php(85): include('/home/int49765/...')
+#3 /home/int49765/public_html/sphp/php/Sphp/Html/ContentParsingTrait.php(73): Sphp\Stdlib\Filesystem::executePhpToString(Array)
+#4 /home/int49765/public_html/_srcs/templates/loaders.php(57): Sphp\Html\AbstractContainerTag->appendMdFile(Array)
+#5 [internal function]: Sphp\MVC\{closure}('sivut/kilpailut...', '2017.html')
+#6 /home/int49765/public_html/sphp/php/Sphp/MVC/Router.php(166): call_user_func_array(Object(Closure), Array)
+#7 /home/int49765/public_html/index.php(61): Sphp\MVC\Router->execute()
+#8 {main}
+
+Next Sphp\Exceptions\RuntimeException: PHP parsing failed for Sphp\Exceptions\RuntimeException: The path 'purjehduskilpailut/2017/virutholm.csv' is not a file in /home/int49765/public_html/sphp/php/Sphp/Stdlib/CsvFile.php:75
+Stack trace:
+#0 /home/int49765/public_html/_srcs/templates/tools.php(7): Sphp\Stdlib\CsvFile->__construct('purjehduskilpai...')
+#1 /home/int49765/public_html/sivut/kilpailut/purjehdus/2017.php(11): Sphp\Stdlib\Filesystem::{closure}('purjehduskilpai...')
+#2 /home/int49765/public_html/sphp/php/Sphp/Stdlib/Filesystem.php(85): include('/home/int49765/...')
+#3 /home/int49765/public_html/sphp/php/Sphp/Html/ContentParsingTrait.php(73): Sphp\Stdlib\Filesystem::executePhpToString(Array)
+#4 /home/int49765/public_html/_srcs/templates/loaders.php(57): Sphp\Html\AbstractContainerTag->appendMdFile(Array)
+#5 [internal function]: Sphp\MVC\{closure}('sivut/kilpailut...', '2017.html')
+#6 /home/int49765/public_html/sphp/php/Sphp/MVC/Router.php(166): call_user_func_array(Object(Closure), Array)
+#7 /home/int49765/public_html/index.php(61): Sphp\MVC\Router->execute()
+#8 {main} in /home/int49765/public_html/sphp/php/Sphp/Stdlib/Filesystem.php:89
+Stack trace:
+#0 /home/int49765/public_html/sphp/php/Sphp/Html/ContentParsingTrait.php(73): Sphp\Stdlib\Filesystem::executePhpToString(Array)
+#1 /home/int49765/public_html/_srcs/templates/loaders.php(57): Sphp\Html\AbstractContainerTag->appendMdFile(Array)
+#2 [internal function]: Sphp\MVC\{closure}('sivut/kilpailut...', '2017.html')
+#3 /home/int49765/public_html/sphp/php/Sphp/MVC/Router.php(166): call_user_func_array(Object(Closure), Array)
+#4 /home/int49765/public_html/index.php(61): Sphp\MVC\Router->execute()
+#5 {main}Sphp\Exceptions\RuntimeException: The path 'purjehduskilpailut/2017/virutholm.csv' is not a file in /home/int49765/public_html/sphp/php/Sphp/Stdlib/CsvFile.php:75
+Stack trace:
+#0 /home/int49765/public_html/_srcs/templates/tools.php(7): Sphp\Stdlib\CsvFile->__construct('purjehduskilpai...')
+#1 /home/int49765/public_html/sivut/kilpailut/purjehdus/2017.php(11): Sphp\Stdlib\Filesystem::{closure}('purjehduskilpai...')
+#2 /home/int49765/public_html/sphp/php/Sphp/Stdlib/Filesystem.php(85): include('/home/int49765/...')
+#3 /home/int49765/public_html/sphp/php/Sphp/Html/ContentParsingTrait.php(73): Sphp\Stdlib\Filesystem::executePhpToString(Array)
+#4 /home/int49765/public_html/_srcs/templates/loaders.php(57): Sphp\Html\AbstractContainerTag->appendMdFile(Array)
+#5 [internal function]: Sphp\MVC\{closure}('sivut/kilpailut...', '2017.html')
+#6 /home/int49765/public_html/sphp/php/Sphp/MVC/Router.php(166): call_user_func_array(Object(Closure), Array)
+#7 /home/int49765/public_html/index.php(61): Sphp\MVC\Router->execute()
+#8 {main}
+
+Next Sphp\Exceptions\RuntimeException: PHP parsing failed for Sphp\Exceptions\RuntimeException: The path 'purjehduskilpailut/2017/virutholm.csv' is not a file in /home/int49765/public_html/sphp/php/Sphp/Stdlib/CsvFile.php:75
+Stack trace:
+#0 /home/int49765/public_html/_srcs/templates/tools.php(7): Sphp\Stdlib\CsvFile->__construct('purjehduskilpai...')
+#1 /home/int49765/public_html/sivut/kilpailut/purjehdus/2017.php(11): Sphp\Stdlib\Filesystem::{closure}('purjehduskilpai...')
+#2 /home/int49765/public_html/sphp/php/Sphp/Stdlib/Filesystem.php(85): include('/home/int49765/...')
+#3 /home/int49765/public_html/sphp/php/Sphp/Html/ContentParsingTrait.php(73): Sphp\Stdlib\Filesystem::executePhpToString(Array)
+#4 /home/int49765/public_html/_srcs/templates/loaders.php(57): Sphp\Html\AbstractContainerTag->appendMdFile(Array)
+#5 [internal function]: Sphp\MVC\{closure}('sivut/kilpailut...', '2017.html')
+#6 /home/int49765/public_html/sphp/php/Sphp/MVC/Router.php(166): call_user_func_array(Object(Closure), Array)
+#7 /home/int49765/public_html/index.php(61): Sphp\MVC\Router->execute()
+#8 {main} in /home/int49765/public_html/sphp/php/Sphp/Stdlib/Filesystem.php:89
+Stack trace:
+#0 /home/int49765/public_html/sphp/php/Sphp/Html/ContentParsingTrait.php(73): Sphp\Stdlib\Filesystem::executePhpToString(Array)
+#1 /home/int49765/public_html/_srcs/templates/loaders.php(57): Sphp\Html\AbstractContainerTag->appendMdFile(Array)
+#2 [internal function]: Sphp\MVC\{closure}('sivut/kilpailut...', '2017.html')
+#3 /home/int49765/public_html/sphp/php/Sphp/MVC/Router.php(166): call_user_func_array(Object(Closure), Array)
+#4 /home/int49765/public_html/index.php(61): Sphp\MVC\Router->execute()
+#5 {main}Sphp\Exceptions\RuntimeException: The path 'purjehduskilpailut/2017/virutholm.csv' is not a file in /home/int49765/public_html/sphp/php/Sphp/Stdlib/CsvFile.php:75
+Stack trace:
+#0 /home/int49765/public_html/_srcs/templates/tools.php(7): Sphp\Stdlib\CsvFile->__construct('purjehduskilpai...')
+#1 /home/int49765/public_html/sivut/kilpailut/purjehdus/2017.php(11): Sphp\Stdlib\Filesystem::{closure}('purjehduskilpai...')
+#2 /home/int49765/public_html/sphp/php/Sphp/Stdlib/Filesystem.php(85): include('/home/int49765/...')
+#3 /home/int49765/public_html/sphp/php/Sphp/Html/ContentParsingTrait.php(73): Sphp\Stdlib\Filesystem::executePhpToString(Array)
+#4 /home/int49765/public_html/_srcs/templates/loaders.php(57): Sphp\Html\AbstractContainerTag->appendMdFile(Array)
+#5 [internal function]: Sphp\MVC\{closure}('sivut/kilpailut...', '2017.html')
+#6 /home/int49765/public_html/sphp/php/Sphp/MVC/Router.php(166): call_user_func_array(Object(Closure), Array)
+#7 /home/int49765/public_html/index.php(61): Sphp\MVC\Router->execute()
+#8 {main}
+
+Next Sphp\Exceptions\RuntimeException: PHP parsing failed for Sphp\Exceptions\RuntimeException: The path 'purjehduskilpailut/2017/virutholm.csv' is not a file in /home/int49765/public_html/sphp/php/Sphp/Stdlib/CsvFile.php:75
+Stack trace:
+#0 /home/int49765/public_html/_srcs/templates/tools.php(7): Sphp\Stdlib\CsvFile->__construct('purjehduskilpai...')
+#1 /home/int49765/public_html/sivut/kilpailut/purjehdus/2017.php(11): Sphp\Stdlib\Filesystem::{closure}('purjehduskilpai...')
+#2 /home/int49765/public_html/sphp/php/Sphp/Stdlib/Filesystem.php(85): include('/home/int49765/...')
+#3 /home/int49765/public_html/sphp/php/Sphp/Html/ContentParsingTrait.php(73): Sphp\Stdlib\Filesystem::executePhpToString(Array)
+#4 /home/int49765/public_html/_srcs/templates/loaders.php(57): Sphp\Html\AbstractContainerTag->appendMdFile(Array)
+#5 [internal function]: Sphp\MVC\{closure}('sivut/kilpailut...', '2017.html')
+#6 /home/int49765/public_html/sphp/php/Sphp/MVC/Router.php(166): call_user_func_array(Object(Closure), Array)
+#7 /home/int49765/public_html/index.php(61): Sphp\MVC\Router->execute()
+#8 {main} in /home/int49765/public_html/sphp/php/Sphp/Stdlib/Filesystem.php:89
+Stack trace:
+#0 /home/int49765/public_html/sphp/php/Sphp/Html/ContentParsingTrait.php(73): Sphp\Stdlib\Filesystem::executePhpToString(Array)
+#1 /home/int49765/public_html/_srcs/templates/loaders.php(57): Sphp\Html\AbstractContainerTag->appendMdFile(Array)
+#2 [internal function]: Sphp\MVC\{closure}('sivut/kilpailut...', '2017.html')
+#3 /home/int49765/public_html/sphp/php/Sphp/MVC/Router.php(166): call_user_func_array(Object(Closure), Array)
+#4 /home/int49765/public_html/index.php(61): Sphp\MVC\Router->execute()
+#5 {main}Sphp\Exceptions\RuntimeException: The path 'purjehduskilpailut/2017/virutholm.csv' is not a file in /home/int49765/public_html/sphp/php/Sphp/Stdlib/CsvFile.php:75
+Stack trace:
+#0 /home/int49765/public_html/_srcs/templates/tools.php(7): Sphp\Stdlib\CsvFile->__construct('purjehduskilpai...')
+#1 /home/int49765/public_html/sivut/kilpailut/purjehdus/2017.php(11): Sphp\Stdlib\Filesystem::{closure}('purjehduskilpai...')
+#2 /home/int49765/public_html/sphp/php/Sphp/Stdlib/Filesystem.php(85): include('/home/int49765/...')
+#3 /home/int49765/public_html/sphp/php/Sphp/Html/ContentParsingTrait.php(73): Sphp\Stdlib\Filesystem::executePhpToString(Array)
+#4 /home/int49765/public_html/_srcs/templates/loaders.php(57): Sphp\Html\AbstractContainerTag->appendMdFile(Array)
+#5 [internal function]: Sphp\MVC\{closure}('sivut/kilpailut...', '2017.html')
+#6 /home/int49765/public_html/sphp/php/Sphp/MVC/Router.php(166): call_user_func_array(Object(Closure), Array)
+#7 /home/int49765/public_html/index.php(61): Sphp\MVC\Router->execute()
+#8 {main}
+
+Next Sphp\Exceptions\RuntimeException: PHP parsing failed for Sphp\Exceptions\RuntimeException: The path 'purjehduskilpailut/2017/virutholm.csv' is not a file in /home/int49765/public_html/sphp/php/Sphp/Stdlib/CsvFile.php:75
+Stack trace:
+#0 /home/int49765/public_html/_srcs/templates/tools.php(7): Sphp\Stdlib\CsvFile->__construct('purjehduskilpai...')
+#1 /home/int49765/public_html/sivut/kilpailut/purjehdus/2017.php(11): Sphp\Stdlib\Filesystem::{closure}('purjehduskilpai...')
+#2 /home/int49765/public_html/sphp/php/Sphp/Stdlib/Filesystem.php(85): include('/home/int49765/...')
+#3 /home/int49765/public_html/sphp/php/Sphp/Html/ContentParsingTrait.php(73): Sphp\Stdlib\Filesystem::executePhpToString(Array)
+#4 /home/int49765/public_html/_srcs/templates/loaders.php(57): Sphp\Html\AbstractContainerTag->appendMdFile(Array)
+#5 [internal function]: Sphp\MVC\{closure}('sivut/kilpailut...', '2017.html')
+#6 /home/int49765/public_html/sphp/php/Sphp/MVC/Router.php(166): call_user_func_array(Object(Closure), Array)
+#7 /home/int49765/public_html/index.php(61): Sphp\MVC\Router->execute()
+#8 {main} in /home/int49765/public_html/sphp/php/Sphp/Stdlib/Filesystem.php:89
+Stack trace:
+#0 /home/int49765/public_html/sphp/php/Sphp/Html/ContentParsingTrait.php(73): Sphp\Stdlib\Filesystem::executePhpToString(Array)
+#1 /home/int49765/public_html/_srcs/templates/loaders.php(57): Sphp\Html\AbstractContainerTag->appendMdFile(Array)
+#2 [internal function]: Sphp\MVC\{closure}('sivut/kilpailut...', '2017.html')
+#3 /home/int49765/public_html/sphp/php/Sphp/MVC/Router.php(166): call_user_func_array(Object(Closure), Array)
+#4 /home/int49765/public_html/index.php(61): Sphp\MVC\Router->execute()
+#5 {main}

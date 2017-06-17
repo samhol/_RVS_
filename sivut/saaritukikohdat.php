@@ -17,3 +17,5 @@ puh. 0400 428225
 
 Raision veneseuran jäsenyydestä kiinnostuneet ovat tervetulleita tutustumaan tukikohtiimme. 
 Ota rohkeasti yhteyttä saari-isäntäämme.
+
+<img src="kuvat/saaritukikohdat/tyhjakuva.jpg"><img src="kuvat/saaritukikohdat/saarialueet.jpg">

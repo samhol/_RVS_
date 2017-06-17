@@ -1,6 +1,8 @@
 #Seuran jäsenyys
 
 Seuran jäsenyydestä voit keskustella joko varakommodori Esko Salmisen  tai Mikko Kemppaisen kanssa. Heidän yhteystietonsa voi katsoa kerhon [yhteystiedoista](/yhteystiedot).
+Raision veneseuran jäsenyydestä kiinnostuneet ovat tervetulleita tutustumaan tukikohtiimme. 
+Ota rohkeasti yhteyttä <a href="saaritukikohdat">saari-isäntäämme</a>.
 
 ##Liittymis- ja jäsenmaksut 
 
