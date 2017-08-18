@@ -11,8 +11,9 @@ Saarien varustusta: • kerhorakennus • takka • sauna • puuvaja • verkko
 • porakaivo
 
 Saari-isäntä
-Håkan Hermansson
-puh. 0400 428225
+ :Håkan Hermansson
+ :puh. 0400 428225
+
 <img src="kuvat/saaritukikohdat/tyhjakuva.jpg"><img src="kuvat/saaritukikohdat/hoksu.jpg">
 
 Raision veneseuran jäsenyydestä kiinnostuneet ovat tervetulleita tutustumaan tukikohtiimme. 

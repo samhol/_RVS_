@@ -74,7 +74,7 @@ $loadBulletingBoard = function () {
           ->printHtml();
 };
 $loadDocLists = function () {
-  (new Div)->appendMdFile(['_srcs/templates/docList.php'])
+  (new Div)->appendMdFile(['sivut/dokumentit.php'])
           ->addCssClass(['docs', 'page', 'show-logo'])
           ->printHtml();
 };

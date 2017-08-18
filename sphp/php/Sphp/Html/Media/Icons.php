@@ -88,7 +88,7 @@ class Icons {
    * @return ComponentInterface
    * @throws \Sphp\Exceptions\InvalidArgumentException if given tag name is invalid
    */
-  public static function fileType($file, $tagName = 'i') {
+  public static function fileType($file, string $tagName = 'i') {
     if (is_string($file)) {
       $file = new SplFileInfo($file);
     } else if (!$file instanceof SplFileInfo) {

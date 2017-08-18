@@ -2,7 +2,7 @@
 
 Raision veneseuran sivuista ei löytynyt hakemaasi resurssia.
 
-##Voit Suorittaa hakuja sivuston sisällöstä
+##Voit tehdä hakuja sivuston sisällöstä
 
 
 

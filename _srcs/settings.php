@@ -22,6 +22,8 @@ $handler->attach((new ExceptionPrinter())->showTrace());
         ->init();
 require_once('menuArrays.php');
 require_once('constants.php');
+require_once('functions.php');
+
 
 session_start();
 

@@ -13,7 +13,6 @@ use Sphp\Html\Navigation\HyperlinkInterface;
 use Sphp\Html\Navigation\Hyperlink;
 use Sphp\Html\Foundation\Sites\Media\FiletypeBadge;
 
-
 /**
  * Description of FileLinkGenerator
  *
@@ -153,13 +152,13 @@ class HyperlinkGenerator extends AbstractComponentGenerator {
       $path = UrlGenerator::generate($this->file);
       $extension = $this->file->getFileInfo()->getExtension();
       if ($extension === 'php') {
-        $name = $this->file->getBasename('.php');   
+        $name = $this->file->getBasename('.php');
       } else if ($extension === 'pdf') {
         $name = $this->file->getBasename('.pdf');
         $size = $this->formatBytes();
         $linkText .= " <small>($size)</small>";
         $target = $name . $size;
-      } else if ($extension === 'xls') {
+      } else if ($extension === 'xls' || $extension === 'xlsx') {
         $name = $this->file->getBasename('.xls');
         $size = $this->formatBytes();
         $linkText .= " <small>($size)</small>";
