@@ -300,4 +300,135 @@ Stack trace:
 #2 [internal function]: Sphp\MVC\{closure}('sivut/kilpailut...', '2017.html')
 #3 /home/int49765/public_html/sphp/php/Sphp/MVC/Router.php(166): call_user_func_array(Object(Closure), Array)
 #4 /home/int49765/public_html/index.php(61): Sphp\MVC\Router->execute()
+#5 {main}Sphp\Exceptions\RuntimeException: The path 'sivut/docList.php' contains no executable PHP script in /home/int49765/public_html/sphp/php/Sphp/Stdlib/Filesystem.php:83
+Stack trace:
+#0 /home/int49765/public_html/sphp/php/Sphp/Html/ContentParsingTrait.php(73): Sphp\Stdlib\Filesystem::executePhpToString(Array)
+#1 /home/int49765/public_html/_srcs/templates/loaders.php(77): Sphp\Html\AbstractContainerTag->appendMdFile(Array)
+#2 [internal function]: Sphp\MVC\{closure}('/dokumentit/')
+#3 /home/int49765/public_html/sphp/php/Sphp/MVC/Router.php(166): call_user_func_array(Object(Closure), Array)
+#4 /home/int49765/public_html/index.php(61): Sphp\MVC\Router->execute()
 #5 {main}
+
+Next Sphp\Exceptions\RuntimeException: PHP parsing failed for Sphp\Exceptions\RuntimeException: The path 'sivut/docList.php' contains no executable PHP script in /home/int49765/public_html/sphp/php/Sphp/Stdlib/Filesystem.php:83
+Stack trace:
+#0 /home/int49765/public_html/sphp/php/Sphp/Html/ContentParsingTrait.php(73): Sphp\Stdlib\Filesystem::executePhpToString(Array)
+#1 /home/int49765/public_html/_srcs/templates/loaders.php(77): Sphp\Html\AbstractContainerTag->appendMdFile(Array)
+#2 [internal function]: Sphp\MVC\{closure}('/dokumentit/')
+#3 /home/int49765/public_html/sphp/php/Sphp/MVC/Router.php(166): call_user_func_array(Object(Closure), Array)
+#4 /home/int49765/public_html/index.php(61): Sphp\MVC\Router->execute()
+#5 {main} in /home/int49765/public_html/sphp/php/Sphp/Stdlib/Filesystem.php:89
+Stack trace:
+#0 /home/int49765/public_html/sphp/php/Sphp/Html/ContentParsingTrait.php(73): Sphp\Stdlib\Filesystem::executePhpToString(Array)
+#1 /home/int49765/public_html/_srcs/templates/loaders.php(77): Sphp\Html\AbstractContainerTag->appendMdFile(Array)
+#2 [internal function]: Sphp\MVC\{closure}('/dokumentit/')
+#3 /home/int49765/public_html/sphp/php/Sphp/MVC/Router.php(166): call_user_func_array(Object(Closure), Array)
+#4 /home/int49765/public_html/index.php(61): Sphp\MVC\Router->execute()
+#5 {main}Error: Call to undefined method Sphp\Html\Attributes\AttributeManager::getValue() in /home/int49765/public_html/sphp/php/Sphp/Html/IdentifiableComponentTrait.php:243
+Stack trace:
+#0 /home/int49765/public_html/sphp/php/Sphp/Html/Head/Meta.php(47): Sphp\Html\AbstractTag->getAttr('name')
+#1 /home/int49765/public_html/sphp/php/Sphp/Html/Head/MetaContainer.php(82): Sphp\Html\Head\Meta->getName()
+#2 /home/int49765/public_html/sphp/php/Sphp/Html/Head/Head.php(274): Sphp\Html\Head\MetaContainer->addMeta(Object(Sphp\Html\Head\Meta))
+#3 /home/int49765/public_html/_srcs/templates/htmlHead.php(28): Sphp\Html\Head\Head->addMeta(Object(Sphp\Html\Head\Meta))
+#4 /home/int49765/public_html/index.php(3): include('/home/int49765/...')
+#5 {main}Error: Call to undefined method Sphp\Html\Attributes\AttributeManager::getValue() in /home/int49765/public_html/sphp/php/Sphp/Html/IdentifiableComponentTrait.php:243
+Stack trace:
+#0 /home/int49765/public_html/sphp/php/Sphp/Html/Head/Meta.php(47): Sphp\Html\AbstractTag->getAttr('name')
+#1 /home/int49765/public_html/sphp/php/Sphp/Html/Head/MetaContainer.php(82): Sphp\Html\Head\Meta->getName()
+#2 /home/int49765/public_html/sphp/php/Sphp/Html/Head/Head.php(274): Sphp\Html\Head\MetaContainer->addMeta(Object(Sphp\Html\Head\Meta))
+#3 /home/int49765/public_html/_srcs/templates/htmlHead.php(28): Sphp\Html\Head\Head->addMeta(Object(Sphp\Html\Head\Meta))
+#4 /home/int49765/public_html/index.php(3): include('/home/int49765/...')
+#5 {main}Error: Call to undefined method Sphp\Html\Attributes\AttributeManager::getValue() in /home/int49765/public_html/sphp/php/Sphp/Html/IdentifiableComponentTrait.php:243
+Stack trace:
+#0 /home/int49765/public_html/sphp/php/Sphp/Html/Head/Meta.php(47): Sphp\Html\AbstractTag->getAttr('name')
+#1 /home/int49765/public_html/sphp/php/Sphp/Html/Head/MetaContainer.php(82): Sphp\Html\Head\Meta->getName()
+#2 /home/int49765/public_html/sphp/php/Sphp/Html/Head/Head.php(274): Sphp\Html\Head\MetaContainer->addMeta(Object(Sphp\Html\Head\Meta))
+#3 /home/int49765/public_html/_srcs/templates/htmlHead.php(28): Sphp\Html\Head\Head->addMeta(Object(Sphp\Html\Head\Meta))
+#4 /home/int49765/public_html/index.php(3): include('/home/int49765/...')
+#5 {main}Error: Call to undefined method Sphp\Html\Attributes\AttributeManager::getValue() in /home/int49765/public_html/sphp/php/Sphp/Html/IdentifiableComponentTrait.php:243
+Stack trace:
+#0 /home/int49765/public_html/sphp/php/Sphp/Html/Head/Meta.php(47): Sphp\Html\AbstractTag->getAttr('name')
+#1 /home/int49765/public_html/sphp/php/Sphp/Html/Head/MetaContainer.php(82): Sphp\Html\Head\Meta->getName()
+#2 /home/int49765/public_html/sphp/php/Sphp/Html/Head/Head.php(274): Sphp\Html\Head\MetaContainer->addMeta(Object(Sphp\Html\Head\Meta))
+#3 /home/int49765/public_html/_srcs/templates/htmlHead.php(28): Sphp\Html\Head\Head->addMeta(Object(Sphp\Html\Head\Meta))
+#4 /home/int49765/public_html/index.php(3): include('/home/int49765/...')
+#5 {main}Error: Call to undefined method Sphp\Html\Attributes\AttributeManager::getValue() in /home/int49765/public_html/sphp/php/Sphp/Html/IdentifiableComponentTrait.php:243
+Stack trace:
+#0 /home/int49765/public_html/sphp/php/Sphp/Html/Head/Meta.php(47): Sphp\Html\AbstractTag->getAttr('name')
+#1 /home/int49765/public_html/sphp/php/Sphp/Html/Head/MetaContainer.php(82): Sphp\Html\Head\Meta->getName()
+#2 /home/int49765/public_html/sphp/php/Sphp/Html/Head/Head.php(274): Sphp\Html\Head\MetaContainer->addMeta(Object(Sphp\Html\Head\Meta))
+#3 /home/int49765/public_html/_srcs/templates/htmlHead.php(28): Sphp\Html\Head\Head->addMeta(Object(Sphp\Html\Head\Meta))
+#4 /home/int49765/public_html/index.php(3): include('/home/int49765/...')
+#5 {main}Error: Call to undefined method Sphp\Html\Attributes\AttributeManager::getValue() in /home/int49765/public_html/sphp/php/Sphp/Html/IdentifiableComponentTrait.php:243
+Stack trace:
+#0 /home/int49765/public_html/sphp/php/Sphp/Html/Head/Meta.php(47): Sphp\Html\AbstractTag->getAttr('name')
+#1 /home/int49765/public_html/sphp/php/Sphp/Html/Head/MetaContainer.php(82): Sphp\Html\Head\Meta->getName()
+#2 /home/int49765/public_html/sphp/php/Sphp/Html/Head/Head.php(274): Sphp\Html\Head\MetaContainer->addMeta(Object(Sphp\Html\Head\Meta))
+#3 /home/int49765/public_html/_srcs/templates/htmlHead.php(28): Sphp\Html\Head\Head->addMeta(Object(Sphp\Html\Head\Meta))
+#4 /home/int49765/public_html/index.php(3): include('/home/int49765/...')
+#5 {main}Error: Call to undefined method Sphp\Html\Attributes\AttributeManager::getValue() in /home/int49765/public_html/sphp/php/Sphp/Html/IdentifiableComponentTrait.php:243
+Stack trace:
+#0 /home/int49765/public_html/sphp/php/Sphp/Html/Head/Meta.php(47): Sphp\Html\AbstractTag->getAttr('name')
+#1 /home/int49765/public_html/sphp/php/Sphp/Html/Head/MetaContainer.php(82): Sphp\Html\Head\Meta->getName()
+#2 /home/int49765/public_html/sphp/php/Sphp/Html/Head/Head.php(274): Sphp\Html\Head\MetaContainer->addMeta(Object(Sphp\Html\Head\Meta))
+#3 /home/int49765/public_html/_srcs/templates/htmlHead.php(28): Sphp\Html\Head\Head->addMeta(Object(Sphp\Html\Head\Meta))
+#4 /home/int49765/public_html/index.php(3): include('/home/int49765/...')
+#5 {main}Error: Call to undefined method Sphp\Html\Attributes\AttributeManager::getValue() in /home/int49765/public_html/sphp/php/Sphp/Html/IdentifiableComponentTrait.php:243
+Stack trace:
+#0 /home/int49765/public_html/sphp/php/Sphp/Html/Head/Meta.php(47): Sphp\Html\AbstractTag->getAttr('name')
+#1 /home/int49765/public_html/sphp/php/Sphp/Html/Head/MetaContainer.php(82): Sphp\Html\Head\Meta->getName()
+#2 /home/int49765/public_html/sphp/php/Sphp/Html/Head/Head.php(274): Sphp\Html\Head\MetaContainer->addMeta(Object(Sphp\Html\Head\Meta))
+#3 /home/int49765/public_html/_srcs/templates/htmlHead.php(28): Sphp\Html\Head\Head->addMeta(Object(Sphp\Html\Head\Meta))
+#4 /home/int49765/public_html/index.php(3): include('/home/int49765/...')
+#5 {main}Error: Call to undefined method Sphp\Html\Attributes\AttributeManager::getValue() in /home/int49765/public_html/sphp/php/Sphp/Html/IdentifiableComponentTrait.php:243
+Stack trace:
+#0 /home/int49765/public_html/sphp/php/Sphp/Html/Head/Meta.php(47): Sphp\Html\AbstractTag->getAttr('name')
+#1 /home/int49765/public_html/sphp/php/Sphp/Html/Head/MetaContainer.php(82): Sphp\Html\Head\Meta->getName()
+#2 /home/int49765/public_html/sphp/php/Sphp/Html/Head/Head.php(274): Sphp\Html\Head\MetaContainer->addMeta(Object(Sphp\Html\Head\Meta))
+#3 /home/int49765/public_html/_srcs/templates/htmlHead.php(28): Sphp\Html\Head\Head->addMeta(Object(Sphp\Html\Head\Meta))
+#4 /home/int49765/public_html/index.php(3): include('/home/int49765/...')
+#5 {main}Error: Call to undefined method Sphp\Html\Attributes\AttributeManager::getValue() in /home/int49765/public_html/sphp/php/Sphp/Html/IdentifiableComponentTrait.php:243
+Stack trace:
+#0 /home/int49765/public_html/sphp/php/Sphp/Html/Head/Meta.php(47): Sphp\Html\AbstractTag->getAttr('name')
+#1 /home/int49765/public_html/sphp/php/Sphp/Html/Head/MetaContainer.php(82): Sphp\Html\Head\Meta->getName()
+#2 /home/int49765/public_html/sphp/php/Sphp/Html/Head/Head.php(274): Sphp\Html\Head\MetaContainer->addMeta(Object(Sphp\Html\Head\Meta))
+#3 /home/int49765/public_html/_srcs/templates/htmlHead.php(28): Sphp\Html\Head\Head->addMeta(Object(Sphp\Html\Head\Meta))
+#4 /home/int49765/public_html/index.php(3): include('/home/int49765/...')
+#5 {main}Error: Call to undefined method Sphp\Html\Attributes\AttributeManager::getValue() in /home/int49765/public_html/sphp/php/Sphp/Html/IdentifiableComponentTrait.php:243
+Stack trace:
+#0 /home/int49765/public_html/sphp/php/Sphp/Html/Head/Meta.php(47): Sphp\Html\AbstractTag->getAttr('name')
+#1 /home/int49765/public_html/sphp/php/Sphp/Html/Head/MetaContainer.php(82): Sphp\Html\Head\Meta->getName()
+#2 /home/int49765/public_html/sphp/php/Sphp/Html/Head/Head.php(274): Sphp\Html\Head\MetaContainer->addMeta(Object(Sphp\Html\Head\Meta))
+#3 /home/int49765/public_html/_srcs/templates/htmlHead.php(28): Sphp\Html\Head\Head->addMeta(Object(Sphp\Html\Head\Meta))
+#4 /home/int49765/public_html/index.php(3): include('/home/int49765/...')
+#5 {main}Error: Call to undefined method Sphp\Html\Attributes\AttributeManager::getValue() in /home/int49765/public_html/sphp/php/Sphp/Html/IdentifiableComponentTrait.php:243
+Stack trace:
+#0 /home/int49765/public_html/sphp/php/Sphp/Html/Head/Meta.php(47): Sphp\Html\AbstractTag->getAttr('name')
+#1 /home/int49765/public_html/sphp/php/Sphp/Html/Head/MetaContainer.php(82): Sphp\Html\Head\Meta->getName()
+#2 /home/int49765/public_html/sphp/php/Sphp/Html/Head/Head.php(274): Sphp\Html\Head\MetaContainer->addMeta(Object(Sphp\Html\Head\Meta))
+#3 /home/int49765/public_html/_srcs/templates/htmlHead.php(28): Sphp\Html\Head\Head->addMeta(Object(Sphp\Html\Head\Meta))
+#4 /home/int49765/public_html/index.php(3): include('/home/int49765/...')
+#5 {main}Error: Call to undefined method Sphp\Html\Attributes\AttributeManager::getValue() in /home/int49765/public_html/sphp/php/Sphp/Html/IdentifiableComponentTrait.php:243
+Stack trace:
+#0 /home/int49765/public_html/sphp/php/Sphp/Html/Head/Meta.php(47): Sphp\Html\AbstractTag->getAttr('name')
+#1 /home/int49765/public_html/sphp/php/Sphp/Html/Head/MetaContainer.php(82): Sphp\Html\Head\Meta->getName()
+#2 /home/int49765/public_html/sphp/php/Sphp/Html/Head/Head.php(274): Sphp\Html\Head\MetaContainer->addMeta(Object(Sphp\Html\Head\Meta))
+#3 /home/int49765/public_html/_srcs/templates/htmlHead.php(28): Sphp\Html\Head\Head->addMeta(Object(Sphp\Html\Head\Meta))
+#4 /home/int49765/public_html/index.php(3): include('/home/int49765/...')
+#5 {main}Error: Call to undefined method Sphp\Html\Attributes\AttributeManager::getValue() in /home/int49765/public_html/sphp/php/Sphp/Html/IdentifiableComponentTrait.php:243
+Stack trace:
+#0 /home/int49765/public_html/sphp/php/Sphp/Html/Head/Meta.php(47): Sphp\Html\AbstractTag->getAttr('name')
+#1 /home/int49765/public_html/sphp/php/Sphp/Html/Head/MetaContainer.php(82): Sphp\Html\Head\Meta->getName()
+#2 /home/int49765/public_html/sphp/php/Sphp/Html/Head/Head.php(274): Sphp\Html\Head\MetaContainer->addMeta(Object(Sphp\Html\Head\Meta))
+#3 /home/int49765/public_html/_srcs/templates/htmlHead.php(28): Sphp\Html\Head\Head->addMeta(Object(Sphp\Html\Head\Meta))
+#4 /home/int49765/public_html/index.php(3): include('/home/int49765/...')
+#5 {main}Error: Call to undefined method Sphp\Html\Attributes\AttributeManager::getValue() in /home/int49765/public_html/sphp/php/Sphp/Html/Programming/ScriptSrc.php:92
+Stack trace:
+#0 /home/int49765/public_html/sphp/php/Sphp/Html/Programming/ScriptsContainer.php(57): Sphp\Html\Programming\ScriptSrc->getSrc()
+#1 /home/int49765/public_html/sphp/php/Sphp/Html/Programming/ScriptsContainer.php(74): Sphp\Html\Programming\ScriptsContainer->append(Object(Sphp\Html\Programming\ScriptSrc))
+#2 /home/int49765/public_html/sphp/php/Sphp/Html/Head/Head.php(201): Sphp\Html\Programming\ScriptsContainer->appendSrc('http://vjs.zenc...', false)
+#3 /home/int49765/public_html/sphp/php/Sphp/Html/Head/Head.php(187): Sphp\Html\Head\Head->appendScriptSrc('http://vjs.zenc...')
+#4 /home/int49765/public_html/sphp/php/Sphp/Html/Head/Head.php(175): Sphp\Html\Head\Head->useVideoJS()
+#5 /home/int49765/public_html/sphp/php/Sphp/Html/Html.php(128): Sphp\Html\Head\Head->enableSPHP()
+#6 /home/int49765/public_html/_srcs/templates/htmlHead.php(33): Sphp\Html\Html->enableSPHP()
+#7 /home/int49765/public_html/index.php(3): include('/home/int49765/...')
+#8 {main}
