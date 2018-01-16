@@ -1,22 +1,23 @@
 
-#KAUDEN 2017 OHJELMA
+#KAUDEN 2018 OHJELMA
 
 
 __Huom!__ Ohjelma on alustava ja muutokset ovat mahdollisia
 
 ##Helmikuu
 
-11.
- : Matka Helsingin venenäyttelyyn (ensimmäinen viikonloppu)
+10.
+ : Matka Helsingin venenäyttelyyn (<a href="tiedotteet">Matkainfo, myös seuraan kuulumattomia otetaan matkalle</a>)
  
-26.
+25.
  : Ulkoilupäivä Hahdenniemessä klo 12 – 14
 
 ##Huhtikuu
 
-11.
+  __Veneen runkokatsastus tilataan katsastajalta__
+ 
+24.
  : Kevätkokous 
- : Veneen runkokatsastus tilataan katsastajalta
  
 30.
  : Vapun vietto saaritukikohdissa
@@ -26,69 +27,69 @@ __Huom!__ Ohjelma on alustava ja muutokset ovat mahdollisia
 1.
  : Lipunnosto Virutholmissa ja Hirsiluodossa klo 10.00
  
-16.
+15.
  : Veneiden katsastus/runkokatsastus + sammutinhuolto
  
-20.
+19.
  : Puutalkoot Virutholmissa (talkootarjoilu)
  
-23.
+22.
  : Veneiden katsastus/runkokatsastus + sammutinhuolto
  
-27.
+26.
  : Kevätkunnostustalkoot Hirsiluodossa (talkootarjoilu)
  
-30.
+29.
  : Veneiden katsastus/runkokatsastus + sammutinhuolto
  
-30.
+29.
  : ”Purjeisiini Tuulta anna”. Veneilijöiden hartaushetki venesatamassa klo 19.00 (varaus: päivämäärä saattaa muuttua)
 
 ##Kesäkuu
 
-6.
+5.
  :  Veneiden katsastus/runkokatsastus + sammutinhuolto (Katsastus myös Ajolanrannassa)
  
-10.
- :  Hirsiluoto-Race-purjehdustapahtuma
+9.
+ :  Puutalkoot Virutholmissa (talkootarjoilu)
  
-13.
+12.
  : Veneiden katsastus/runkokatsastus + sammutinhuolto
  
-20.
+16.
+ : Hirsiluoto-Race-purjehdustapahtuma (Lähtö Virutholmista)
+ 
+19.
  : Veneiden katsastus/runkokatsastus + sammutinhuolto
  
-23.
+22.
  : Juhannusaatto Virutholmissa (ruokailu)
  
-27.
+26.
  : Veneiden katsastus/runkokatsastus + sammutinhuolto
  
 ##Heinäkuu
 
-29.
- :  Kesätapahtuma Virutholmissa 
+28.
+ : Rapujuhlat Hirsiluodossa. Karaoke (Siirretään epäsuotuisan sään sattuessa Virutholmiin)
 
 ##Elokuu
 
-5.
- : Virutholmin purjehduskilpailu 
+11.
+ : Virutholmin purjehduskilpailu (Makkaratarjoilu)
  
-12.
- : Rapujuhlat Hirsiluodossa. Karaoke
-
 ##Syyskuu
 
-2.
+8.
  : Kalastuskilpailu Virutholmissa
  
-9.
- : Lipunlasku Hirsiluodossa ja Virutholmissa
+23.
+ : Lipunlasku Hirsiluodossa ja Virutholmissa (Kausi saaritukikohdissa jatkuu silti)
 
 ##Marraskuu
 
 Syyskokous
 
-##Loka - tammikuu (2018)
+##Loka - tammikuu (2019)
 
 Veneilykauden päättäjäiset
