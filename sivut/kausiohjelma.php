@@ -10,7 +10,7 @@ __Huom!__ Ohjelma on alustava ja muutokset ovat mahdollisia
  : Matka Helsingin venenäyttelyyn (<a href="tiedotteet">Matkainfo, myös seuraan kuulumattomia otetaan matkalle</a>)
  
 25.
- : Ulkoilupäivä Hahdenniemessä klo 12 – 14
+ : Ulkoilupäivä Hahdenniemessä klo 12 – 14 (Niemen telakka)
 
 ##Huhtikuu
 
@@ -43,7 +43,7 @@ __Huom!__ Ohjelma on alustava ja muutokset ovat mahdollisia
  : Veneiden katsastus/runkokatsastus + sammutinhuolto
  
 29.
- : ”Purjeisiini Tuulta anna”. Veneilijöiden hartaushetki venesatamassa klo 19.00 (varaus: päivämäärä saattaa muuttua)
+ : ”Purjeisiini Tuulta anna”. Veneilijöiden hartaushetki venesatamassa klo 19.00 
 
 ##Kesäkuu
 

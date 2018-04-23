@@ -132,9 +132,8 @@ On suotavaa, että seuran veneiden katsastukset voidaan hoitaa pääsääntöise
 ennalta kaavailtuna aikoina Raisiossa, sillä katsastajat tekevät työtään täysin
 vapaaehtoisesti ilman korvausta. Katsastajien kanssa voi erikseen sopia myös
 poikkeavista katsastusajoista ja -paikoista. Tällöin tulee katsastajalle
-mahdollisesti koituvat kustannukset korvata. Vuosikatsastuksia on tehty myös
-seuran saaritukikohdissa Virutholmissa ja Hirsiluodossa, ja niitä on
-erityisesti <u>Mikko Vuolahti</u> toteuttanut erikseen sovittuina aikoina.
+mahdollisesti koituvat kustannukset korvata. Vuosikatsastuksia tehdään myös Virutholmissa ja Hirsiluodossa katsastajan ollessa paikalla.
+Mm. saari-isännällämme <u>Håkan Hermassonilla</u> on katsatajan pätevyys.
 
 Katsastajat voivat tehdä katsastuksia erikseen sopien myös seuran ulkopuolisille veneille
 sillä edellytyksellä, että vene kuuluu johonkin seuraan. Perittävä
